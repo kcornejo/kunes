@@ -1,0 +1,151 @@
+Jan 06 23:52:49 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'inicio',  'action' => 'index',)
+Jan 06 23:52:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:52:49 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jan 06 23:52:49 symfony [info] {sfBasicSecurityFilter} Action "inicio/index" requires authentication, forwarding to "seguridad/login"
+Jan 06 23:52:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:52:49 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jan 06 23:52:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jan 06 23:52:49 symfony [info] {seguridadActions} Call "seguridadActions->executeLogin()"
+Jan 06 23:52:50 symfony [info] {sfPHPView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/seguridad/templates/loginSuccess.php"
+Jan 06 23:52:50 symfony [info] {sfPartialView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/_avisos.php"
+Jan 06 23:52:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jan 06 23:52:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:52:50 symfony [info] {sfWebDebugLogger} Configuration 2116.37 ms (12)
+Jan 06 23:52:50 symfony [info] {sfWebDebugLogger} Factories 584.80 ms (1)
+Jan 06 23:52:50 symfony [info] {sfWebDebugLogger} Action "seguridad/login" 12.02 ms (1)
+Jan 06 23:52:50 symfony [info] {sfWebDebugLogger} View "Success" for "seguridad/login" 167.98 ms (1)
+Jan 06 23:52:50 symfony [info] {sfWebDebugLogger} Partial "soporte/_avisos" 14.56 ms (1)
+Jan 06 23:52:50 symfony [info] {sfWebResponse} Send content (40858 o)
+Jan 06 23:52:50 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/favicon.ico" (/).
+Jan 06 23:52:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jan 06 23:52:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:52:50 symfony [info] {sfWebDebugLogger} Configuration 0.76 ms (5)
+Jan 06 23:52:50 symfony [info] {sfWebDebugLogger} Factories 50.04 ms (1)
+Jan 06 23:53:03 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /seguridad/registrar with parameters array (  'module' => 'seguridad',  'action' => 'registrar',)
+Jan 06 23:53:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:53:03 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jan 06 23:53:03 symfony [info] {seguridadActions} Call "seguridadActions->executeRegistrar()"
+Jan 06 23:53:03 symfony [info] {sfPHPView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/seguridad/templates/registrarSuccess.php"
+Jan 06 23:53:03 symfony [info] {sfPartialView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/_avisos.php"
+Jan 06 23:53:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jan 06 23:53:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:53:03 symfony [info] {sfWebDebugLogger} Configuration 1.27 ms (9)
+Jan 06 23:53:03 symfony [info] {sfWebDebugLogger} Factories 48.06 ms (1)
+Jan 06 23:53:03 symfony [info] {sfWebDebugLogger} Action "seguridad/registrar" 2.23 ms (1)
+Jan 06 23:53:03 symfony [info] {sfWebDebugLogger} View "Success" for "seguridad/registrar" 49.76 ms (1)
+Jan 06 23:53:03 symfony [info] {sfWebDebugLogger} Partial "soporte/_avisos" 4.62 ms (1)
+Jan 06 23:53:03 symfony [info] {sfWebResponse} Send content (40670 o)
+Jan 06 23:53:03 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/seguridad/favicon.ico" (/).
+Jan 06 23:53:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Jan 06 23:53:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:53:03 symfony [info] {sfWebDebugLogger} Configuration 0.60 ms (5)
+Jan 06 23:53:03 symfony [info] {sfWebDebugLogger} Factories 26.58 ms (1)
+Jan 06 23:54:50 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /seguridad/registrar with parameters array (  'module' => 'seguridad',  'action' => 'registrar',)
+Jan 06 23:54:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:54:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jan 06 23:54:50 symfony [info] {seguridadActions} Call "seguridadActions->executeRegistrar()"
+Jan 06 23:54:50 symfony [info] {sfPHPView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/seguridad/templates/registrarSuccess.php"
+Jan 06 23:54:50 symfony [info] {sfPartialView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/_avisos.php"
+Jan 06 23:54:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jan 06 23:54:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:54:50 symfony [info] {sfWebDebugLogger} Configuration 0.88 ms (9)
+Jan 06 23:54:50 symfony [info] {sfWebDebugLogger} Factories 25.31 ms (1)
+Jan 06 23:54:50 symfony [info] {sfWebDebugLogger} Action "seguridad/registrar" 1.40 ms (1)
+Jan 06 23:54:50 symfony [info] {sfWebDebugLogger} View "Success" for "seguridad/registrar" 14.53 ms (1)
+Jan 06 23:54:50 symfony [info] {sfWebDebugLogger} Partial "soporte/_avisos" 0.43 ms (1)
+Jan 06 23:54:50 symfony [info] {sfWebResponse} Send content (40670 o)
+Jan 06 23:54:52 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /seguridad/registrar with parameters array (  'module' => 'seguridad',  'action' => 'registrar',)
+Jan 06 23:54:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:54:52 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jan 06 23:54:52 symfony [info] {seguridadActions} Call "seguridadActions->executeRegistrar()"
+Jan 06 23:54:52 symfony [info] {sfPHPView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/seguridad/templates/registrarSuccess.php"
+Jan 06 23:54:52 symfony [info] {sfPartialView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/_avisos.php"
+Jan 06 23:54:52 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jan 06 23:54:52 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:54:52 symfony [info] {sfWebDebugLogger} Configuration 0.70 ms (9)
+Jan 06 23:54:52 symfony [info] {sfWebDebugLogger} Factories 25.42 ms (1)
+Jan 06 23:54:52 symfony [info] {sfWebDebugLogger} Action "seguridad/registrar" 0.99 ms (1)
+Jan 06 23:54:52 symfony [info] {sfWebDebugLogger} View "Success" for "seguridad/registrar" 12.83 ms (1)
+Jan 06 23:54:52 symfony [info] {sfWebDebugLogger} Partial "soporte/_avisos" 0.45 ms (1)
+Jan 06 23:54:52 symfony [info] {sfWebResponse} Send content (40702 o)
+Jan 06 23:55:05 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /archivo/carga/ with parameters array (  'module' => 'archivo',  'action' => 'carga',)
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jan 06 23:55:06 symfony [info] {sfBasicSecurityFilter} Action "archivo/carga" requires authentication, forwarding to "seguridad/login"
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jan 06 23:55:06 symfony [info] {seguridadActions} Call "seguridadActions->executeLogin()"
+Jan 06 23:55:06 symfony [info] {sfPHPView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/seguridad/templates/loginSuccess.php"
+Jan 06 23:55:06 symfony [info] {sfPartialView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/_avisos.php"
+Jan 06 23:55:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jan 06 23:55:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} Configuration 395.13 ms (15)
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} Factories 28.13 ms (1)
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} Action "seguridad/login" 0.96 ms (1)
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} View "Success" for "seguridad/login" 23.89 ms (1)
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} Partial "soporte/_avisos" 0.48 ms (1)
+Jan 06 23:55:06 symfony [info] {sfWebResponse} Send content (41182 o)
+Jan 06 23:55:06 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /archivo/carga/favicon.ico with parameters array (  'module' => 'archivo',  'action' => 'carga',  'favicon.ico' => true,)
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jan 06 23:55:06 symfony [info] {sfBasicSecurityFilter} Action "archivo/carga" requires authentication, forwarding to "seguridad/login"
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jan 06 23:55:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jan 06 23:55:06 symfony [info] {seguridadActions} Call "seguridadActions->executeLogin()"
+Jan 06 23:55:06 symfony [info] {sfPHPView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/seguridad/templates/loginSuccess.php"
+Jan 06 23:55:06 symfony [info] {sfPartialView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/_avisos.php"
+Jan 06 23:55:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jan 06 23:55:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} Configuration 1.14 ms (14)
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} Factories 21.93 ms (1)
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} Action "seguridad/login" 0.84 ms (1)
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} View "Success" for "seguridad/login" 18.52 ms (1)
+Jan 06 23:55:06 symfony [info] {sfWebDebugLogger} Partial "soporte/_avisos" 0.38 ms (1)
+Jan 06 23:55:06 symfony [info] {sfWebResponse} Send content (41243 o)
+Jan 06 23:55:14 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /archivo/carga/ with parameters array (  'module' => 'archivo',  'action' => 'carga',)
+Jan 06 23:55:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:55:14 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jan 06 23:55:14 symfony [info] {sfBasicSecurityFilter} Action "archivo/carga" requires authentication, forwarding to "seguridad/login"
+Jan 06 23:55:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:55:14 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jan 06 23:55:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jan 06 23:55:14 symfony [info] {seguridadActions} Call "seguridadActions->executeLogin()"
+Jan 06 23:55:14 symfony [info] {sfPHPView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/seguridad/templates/loginSuccess.php"
+Jan 06 23:55:14 symfony [info] {sfPartialView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/_avisos.php"
+Jan 06 23:55:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jan 06 23:55:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:55:14 symfony [info] {sfWebDebugLogger} Configuration 331.15 ms (14)
+Jan 06 23:55:14 symfony [info] {sfWebDebugLogger} Factories 200.48 ms (1)
+Jan 06 23:55:14 symfony [info] {sfWebDebugLogger} Action "seguridad/login" 0.60 ms (1)
+Jan 06 23:55:14 symfony [info] {sfWebDebugLogger} View "Success" for "seguridad/login" 19.71 ms (1)
+Jan 06 23:55:14 symfony [info] {sfWebDebugLogger} Partial "soporte/_avisos" 0.37 ms (1)
+Jan 06 23:55:14 symfony [info] {sfWebResponse} Send content (41227 o)
+Jan 06 23:55:16 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /seguridad/registrar with parameters array (  'module' => 'seguridad',  'action' => 'registrar',)
+Jan 06 23:55:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:55:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jan 06 23:55:16 symfony [info] {seguridadActions} Call "seguridadActions->executeRegistrar()"
+Jan 06 23:55:16 symfony [info] {sfPHPView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/seguridad/templates/registrarSuccess.php"
+Jan 06 23:55:16 symfony [info] {sfPartialView} Render "/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/_avisos.php"
+Jan 06 23:55:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jan 06 23:55:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:55:16 symfony [info] {sfWebDebugLogger} Configuration 1.91 ms (9)
+Jan 06 23:55:16 symfony [info] {sfWebDebugLogger} Factories 46.90 ms (1)
+Jan 06 23:55:16 symfony [info] {sfWebDebugLogger} Action "seguridad/registrar" 1.01 ms (1)
+Jan 06 23:55:16 symfony [info] {sfWebDebugLogger} View "Success" for "seguridad/registrar" 15.67 ms (1)
+Jan 06 23:55:16 symfony [info] {sfWebDebugLogger} Partial "soporte/_avisos" 0.40 ms (1)
+Jan 06 23:55:16 symfony [info] {sfWebResponse} Send content (40773 o)
+Jan 06 23:55:27 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /seguridad/registrar with parameters array (  'module' => 'seguridad',  'action' => 'registrar',)
+Jan 06 23:55:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jan 06 23:55:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jan 06 23:55:27 symfony [info] {seguridadActions} Call "seguridadActions->executeRegistrar()"
+Jan 06 23:55:28 symfony [debug] {sfPropelLogger} time:  0.125 sec | slow: YES | mem:   10.3 MB | mempeak:   10.3 MB | memdelta:      0.0 B | SELECT usuario.ID, usuario.USUARIO, usuario.CLAVE, usuario.CORREO, usuario.ESTADO, usuario.IMAGEN, usuario.ADMINISTRADOR, usuario.VALIDADO, usuario.ULTIMO_INGRESO, usuario.TEMA, usuario.CREATED_AT, usuario.UPDATED_AT, usuario.CREATED_BY, usuario.UPDATED_BY FROM `usuario` WHERE usuario.CORREO='ken@gmail.com' LIMIT 1
+Jan 06 23:55:28 symfony [debug] {sfPropelLogger} time:  0.012 sec | slow:  NO | mem:   10.5 MB | mempeak:   10.5 MB | memdelta:      0.0 B | SELECT parametro.ID, parametro.DESCRIPCION, parametro.VALOR FROM `parametro` WHERE parametro.DESCRIPCION='url' LIMIT 1
+Jan 06 23:55:28 symfony [err] {sfPropelLogger} SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'test' for key 'llave'
+Jan 06 23:55:28 symfony [err] {PropelException} Unable to execute INSERT statement [INSERT INTO `usuario` (`ID`, `USUARIO`, `CLAVE`, `CORREO`, `VALIDADO`, `CREATED_AT`, `UPDATED_AT`) VALUES (:p0, :p1, :p2, :p3, :p4, :p5, :p6)] [wrapped: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'test' for key 'llave']
+Jan 06 23:55:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Jan 06 23:55:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jan 06 23:55:28 symfony [info] {sfWebDebugLogger} Configuration 0.79 ms (8)
+Jan 06 23:55:28 symfony [info] {sfWebDebugLogger} Factories 24.20 ms (1)
+Jan 06 23:55:28 symfony [info] {sfWebDebugLogger} Action "seguridad/registrar" 992.89 ms (1)

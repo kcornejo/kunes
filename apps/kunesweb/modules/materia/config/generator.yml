@@ -1,0 +1,33 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           materia
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              materia
+    plural:                materias
+    route_prefix:          materia
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+          descripcion: 
+              attributes:
+                  class: form-control input-medium
+          categoria_materia_id:
+              attributes:
+                  class: form-control select2me input-medium
+      list:
+          display:        [descripcion,categoria_materia]
+          title:          Listado de Materias
+      filter:
+          display:        [descripcion,categoria_materia_id]
+      form:
+          display:        [descripcion, categoria_materia_id]
+      edit:
+          title:          Editar Materia (%%DESCRIPCION%%)
+      new:
+          title:          Nueva Materia

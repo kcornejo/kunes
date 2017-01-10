@@ -1,0 +1,23 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           archivo
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              archivo
+    plural:                archivos
+    route_prefix:          archivo
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      fields:  ~
+      list:
+          actions:   []
+          object_actions:
+              _delete:        ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

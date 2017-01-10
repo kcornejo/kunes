@@ -1,0 +1,87 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  .datos:
+    hora:
+      '00': '00'
+      '01': '01'
+      '02': '02'
+      '03': '03'
+      '04': '04'
+      '05': '05'
+      '06': '06'
+      '07': '07'
+      '08': '08'
+      '09': '09'
+      '10': '10'
+      '11': '11'
+      '12': '12'
+      '13': '13'
+      '14': '14'
+      '15': '15'
+      '16': '16'
+      '17': '17'
+      '18': '18'
+      '19': '19'
+      '20': '20'
+      '21': '21'
+      '22': '22'
+      '23': '23'
+    minuto:
+      '0': '0'  
+      '1': '1'
+      '2': '2'
+      '3': '3'
+      '4': '4'
+      '5': '5'
+    numero:
+      '0': '0'
+      '1': '1'
+      '2': '2'
+      '3': '3'
+      '4': '4'
+      '5': '5'
+      '6': '6'
+      '7': '7'
+      '8': '8'
+      '9': '9'
+    documento:
+      'Dpi': 'Dpi'
+      'Pasaporte': 'Pasaporte'
+    bloqueo:
+      'Patron': 'Patron'
+      'Numerico': 'Numerico'  
+      'Sin clave': 'Sin clave'
+    operador:
+      'Claro': 'Claro'
+      'Telefonica': 'Telefonica'
+      'Tigo': 'Tigo'
+      'No Aplica': 'No Aplica'
+    estatus:
+       'Todos los estatus' :  'Todos los estatus'
+       'En cola (no lo han tocado)': 'En cola (no lo han tocado)'          
+       'En reparación (Asignado a un técnico)': 'En reparación (Asignado a un técnico)'  
+       'Pendiente de repuesto bajo pedido' :  'Pendiente de repuesto bajo pedido'  
+       'Espera de respuesta cliente (Autorización de presupuesto)': 'Espera de respuesta cliente (Autorización de presupuesto)'  
+       'Rechazo (Autorización de presupuesto)':  'Rechazo (Autorización de presupuesto)'  
+       'No reparable':  'No reparable'            
+       'Reparado (pasa a control de calidad)': 'Reparado (pasa a control de calidad)'  
+       'Finalizado (No entregado)': 'Finalizado (No entregado)'  
+       'Entregado y Cancelado' : 'Entregado y Cancelado' 
+    diagnostico:
+      'REPARADO' :  'REPARADO'
+      'INOPORTUNO': 'INOPORTUNO'
+      'SIN RESOLVER': 'SIN RESOLVER cliente no auotrizado, defectuoso'
+    estatus_tecnico:
+      'En reparación (Asignado a un técnico)'  : 'En reparación'  
+   #   'Espera de respuesta cliente (Autorización de presupuesto)': 'Espera de respuesta cliente (Autorización de presupuesto)'
+      'Pendiente de repuesto bajo pedido': 'Pendiente de repuesto bajo pedido'     
+      'Reparado (pasa a control de calidad)': 'Reparado (pasa a control de calidad)'
+      'No reparable': 'No reparable'   
+
+      
+ 
+
+

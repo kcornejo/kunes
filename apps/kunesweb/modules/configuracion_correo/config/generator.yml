@@ -1,0 +1,21 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           configuracionCorreo
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              configuracionCorreo
+    plural:                configuracionCorreos
+    route_prefix:          configuracion_correo
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

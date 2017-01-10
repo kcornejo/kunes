@@ -1,0 +1,141 @@
+propel:
+  usuario:
+    id:                                ~
+    usuario:                           { type: varchar(32), required: true , primaryString: true}
+    clave:                             { type: varchar(60) }
+    correo:                            { type: varchar(255) }
+    estado:                            { type: varchar(32) }
+    imagen:                            { type: varchar(255) }
+    administrador:                     { type: boolean, default: false }
+    validado:                          { type: boolean, default: true }
+    ultimo_ingreso:                    { type: date }
+    tema:                              { type: varchar(255) }
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+    _uniques:
+      llave:                           [ usuario ]
+  mensaje_cabecera:                    
+    id:                                ~
+    usuario1:                          { type: integer, foreignTable: usuario, foreignReference: id}
+    usuario2:                          { type: integer, foreignTable: usuario, foreignReference: id}
+    created_at:                        ~
+    updated_at:                        ~
+    
+  mensaje:
+    id:                                ~
+    usuario_emisor:                    { type: integer, foreignTable: usuario, foreignReference: id}
+    usuario_receptor:                  { type: integer, foreignTable: usuario, foreignReference: id}
+    contenido:                         { type: longvarchar }
+    created_at:                        ~
+    updated_at:                        ~
+    visto:                             { type: boolean, default: false}
+    mensaje_cabecera_id:               ~
+    
+  correo:
+    id:                                ~
+    receptor:                          { type: varchar(255) }
+    contenido:                         { type: longvarchar }
+    asunto:                            { type: varchar(255) }
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+    enviado:                           { type: boolean, default: false }
+    
+  token_usuario:
+    id:                                ~
+    usuario_id:                        ~
+    clave:                             { type: varchar(100) }
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+    utilizado:                         { type: boolean, default: false }
+    tipo:                              { type: varchar(32) }
+  
+  configuracion_correo:
+    id:                                ~
+    host:                              { type: varchar(100) }
+    puerto:                            { type: varchar(10) }
+    encriptacion:                      { type: varchar(100) }
+    usuario:                           { type: varchar(255) }
+    clave:                             { type: varchar(100) }
+    
+  parametro:
+    id:                                ~
+    descripcion:                       { type: varchar(100)  , primaryString: true}
+    valor:                             { type: varchar(255) }
+  
+  formato_correo:
+    id:                                ~
+    tipo:                              { type: varchar(100)  , primaryString: true}
+    formato:                           { type: longvarchar }
+  
+  categoria_materia:
+    id:                                ~
+    descripcion:                       { type: varchar(100) , primaryString: true}
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+  
+  materia:
+    id:                                ~
+    descripcion:                       { type: varchar(100) }
+    categoria_materia_id:              ~
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+    
+  archivo:
+    id:                                ~
+    nombre_archivo_original:           { type: varchar(100) }
+    nombre_archivo_actual:             { type: varchar(100) }
+    usuario_id:                        ~
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+    cantidad_rating:                   { type: integer }
+    rating:                            { type: double }
+    estado:                            { type: varchar(32) , index: true}
+    descripcion:                       { type: varchar(255), index: true }
+    etiqueta:                          { type: varchar(255), index: true}
+  archivo_comentario:
+    id:                                ~
+    archivo_id:                        ~
+    usuario_id:                        ~
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+    
+  bitacora_acceso:
+    id:                                ~
+    correo_usuario:                    { type: varchar(100) }
+    created_at:                        ~
+    respuesta:                         { type: varchar(100) }
+  
+  pais:
+    id:                                ~
+    codigo_iso:                        { type: varchar(5) }
+    descripcion:                       { type: varchar(100) , primaryString: true}
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+  
+  universidad:
+    id:                                ~
+    descripcion:                       { type: varchar(200) }
+    pais_id:                           ~
+    cantidad_rating:                   { type: integer }
+    rating:                            { type: double }
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+      

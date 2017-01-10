@@ -1,0 +1,33 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           Pais
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Pais
+    plural:                Paiss
+    route_prefix:          pais
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+          descripcion: 
+              attributes:
+                  class: form-control input-medium
+          codigo_iso:
+              attributes:
+                  class: form-control input-medium
+      list:
+          title:          Listado de Paises
+          display:        [codigo_iso, descripcion]
+      filter:
+          display:        [codigo_iso, descripcion]
+      form:
+          display:        [codigo_iso, descripcion]
+      edit:
+          title:          Edicion de Pais %%DESCRIPCION%%
+      new:
+          title:          Nuevo Pais

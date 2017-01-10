@@ -1,0 +1,43 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           formatoCorreo
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              formatoCorreo
+    plural:                formatoCorreos
+    route_prefix:          formato_correo
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+          tipo: 
+              attributes:
+                  class: form-control
+#          formato: 
+#              attributes:
+#                  class: form-control
+#                  data-provide: markdown
+      list:
+          title:           Listado de Formatos para Envio de Correo
+          object_actions:
+            _edit: 
+              attributes:  class=btn btn-xs btn-warning
+            _delete: 
+              attributes:  class=btn btn-xs btn-danger
+            formato:
+                action:       formato
+                label:        Formato
+                params:       class=btn btn-info
+          display:         [tipo]
+      filter:
+          display:         [tipo]
+      form:
+          display:         [tipo]
+      edit:
+          title:           Editar Formato para %%TIPO%%
+      new:
+          title:           Nuevo tipo de Formato
