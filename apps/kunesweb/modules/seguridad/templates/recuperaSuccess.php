@@ -51,7 +51,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN LOGO -->
         <div class="logo">
             <a href="index.html">
-                <img src="/assets/admin/layout/img/logo-big.png" alt=""/>
+                <img src="/assets/admin/layout/img/logo-big.png" alt="" style="width:15%;"/>
             </a>
         </div>
         <div class="menu-toggler sidebar-toggler">
@@ -93,7 +93,7 @@ License: You must have a valid license purchased only from themeforest(the above
             </form>
         </div>
         <div class="copyright">
-            <?php echo date('Y') ?> &copy; KUNES
+            <?php echo date('Y') ?> &copy; ANARCHIVOS
         </div>
         <script src="/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
