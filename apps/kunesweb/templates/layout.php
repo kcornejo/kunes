@@ -59,7 +59,7 @@
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
                         <a href="<?php echo url_for('inicio/index')?>">
-                            <img src="/assets/admin/layout/img/logo.png" style="width:50%;margin-top:-5%" alt="logo" />
+                            <img src="/assets/admin/layout/img/logo.png" style="width:50%;" alt="logo" />
                         </a>
                         <div class="menu-toggler sidebar-toggler hide">
                             <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
