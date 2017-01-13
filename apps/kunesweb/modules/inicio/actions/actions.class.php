@@ -23,10 +23,12 @@ class inicioActions extends sfActions {
         $this->archivos = ArchivoQuery::create()
                 ->where("estado = 'Verificado'")
                 ->orderById('DESC')
-                ->limit(10)
+                ->limit(5)
                 ->find();
     }
     public function executeUsuarios(sfWebRequest $request){
-        $this->usuarios = UsuarioQuery::create()->find();
+        $this->usuarios = UsuarioQuery::create()
+                ->limit(5)
+                ->find();
     }
 }

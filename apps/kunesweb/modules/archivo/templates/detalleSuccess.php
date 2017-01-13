@@ -12,7 +12,7 @@
                         <div class="col-md-8">
                             <h3>Vista Previa</h3>
                             <hr/>
-                            <iframe src="http://docs.google.com/viewer?url=http://anarchivos.com/kunes/web/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>&amp;embedded=true" width="100%" height="780"></iframe>
+                            <iframe src="http://docs.google.com/viewer?url=http://anarchivos.com/web/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>&amp;embedded=true" width="100%" height="780"></iframe>
                         </div>
                         <div class="col-md-4">
                             <div class="col-md-12">
