@@ -27,6 +27,7 @@
             <link href="/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
             <link href="/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
             <link href="/assets/plugins/dropify-master/dist/css/dropify.css" rel="stylesheet" type="text/css"/>
+            <link href="/assets/plugins/stars/style.css" rel="stylesheet" type="text/css"/>
             <link href="/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
             <link id="style_color" href="
             <?php
@@ -823,6 +824,7 @@
             <script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
             <script src="/assets/plugins/tags/js/tag-it.js" type="text/javascript"></script>
             <script src="/assets/plugins/dropify-master/dist/js/dropify.js" type="text/javascript"></script>
+            <script src="/assets/plugins/stars/function.js" type="text/javascript"></script>
             <script src="/js/kenScript.js" type="text/javascript"></script>
             <script>
                 jQuery(document).ready(function () {

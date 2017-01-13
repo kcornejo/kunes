@@ -13,6 +13,15 @@ function kenTags() {
         $(this).tagit();
     });
 }
+function kenStars() {
+    $(".kenStars").each(function(){
+       var star = $(this).attr('star');
+       $(this).rateYo({
+          fullStar: true,
+          rating: star
+       });
+    });
+}
 function kenSoporteBuscar() {
     if ($('.search-form').hasClass('open')) {
         $('#buscador_lista').show();
@@ -67,4 +76,5 @@ $(document).ready(function () {
     setInterval(kenUpdate, 1000);
     setInterval(kenSoporteBuscar, 300);
     kenBuscar();
+    kenStars();
 });

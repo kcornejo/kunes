@@ -13,6 +13,10 @@ require_once dirname(__FILE__) . '/../lib/usuarioGeneratorHelper.class.php';
  */
 class usuarioActions extends autoUsuarioActions {
 
+    public function executeDetalle(sfWebRequest $request) {
+        
+    }
+
     public function executePerfil(sfWebRequest $request) {
         $idUsuario = sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad');
         $Usuario = UsuarioQuery::create()->findOneById($idUsuario);

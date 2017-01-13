@@ -43,6 +43,13 @@
                                 </table>
                             </div>
                             <div class="col-md-12">
+                                <h3>Calificacion</h3>
+                                <hr/>
+                                <div class="kenStars">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-12">
                                 <h3>Datos del Usuario</h3>
                                 <hr/>
                                 <?php if ($Archivo->getUsuario()->getImagen()): ?>
