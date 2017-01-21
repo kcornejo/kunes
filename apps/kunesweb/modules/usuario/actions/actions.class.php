@@ -21,6 +21,13 @@ class usuarioActions extends autoUsuarioActions {
         $idUsuario = sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad');
         $Usuario = UsuarioQuery::create()->findOneById($idUsuario);
         $defecto['Tema'] = $Usuario->getTema();
+        $defecto['Frase'] = $Usuario->getFrase();
+        $defecto['Genero'] = $Usuario->getGenero();
+        if ($Usuario->getFechaNacimiento()) {
+            $defecto['Fecha_Nacimiento'] = $Usuario->getFechaNacimiento();
+        } else {
+            $defecto['Fecha_Nacimiento'] = '1990-01-01';
+        }
         $this->form = new PerfilForm($defecto);
         if ($request->isMethod('POST')) {
             $this->form->bind($request->getParameter('perfil'), $request->getFiles('perfil'));
@@ -48,11 +55,23 @@ class usuarioActions extends autoUsuarioActions {
                 if ($tema) {
                     $Usuario->setTema($tema);
                 }
+                $Usuario->setFrase($valores['Frase']);
+                $Usuario->setGenero($valores['Genero']);
+                $Usuario->setFechaNacimiento($valores['Fecha_Nacimiento']);
                 $Usuario->save();
-                $this->getUser()->setFlash('exito', 'Foto de Perfil cambiada correctamente');
-                $this->redirect("inicio/index");
+                $this->getUser()->setFlash('exito', 'Perfil ajustado correctamente');
+                $this->redirect("usuario/visualizar?id=$idUsuario");
             }
         }
+    }
+
+    public function executeVisualizar(sfWebRequest $request) {
+        $id = $request->getParameter('id');
+        $this->usuario = UsuarioQuery::create()->findOneById($id);
+    }
+
+    public function executeUniversidad(sfWebRequest $request) {
+        
     }
 
 }

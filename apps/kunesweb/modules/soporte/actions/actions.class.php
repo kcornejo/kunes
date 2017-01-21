@@ -39,10 +39,29 @@ class soporteActions extends sfActions {
         if (strlen($busqueda) > 2) {
             $this->archivos = ArchivoQuery::create()
                     ->filterByDescripcion("%$busqueda%")
+                    ->limit(3)
+                    ->find();
+            $this->usuarios = UsuarioQuery::create()
+                    ->filterByUsuario("%$busqueda%")
+                    ->limit(3)
                     ->find();
         } else {
             $this->archivos = array();
+            $this->usuarios = array();
         }
+    }
+
+    public function executeMensajeAjax(sfWebRequest $request) {
+        $listadoMensaje = array();
+        if (sfContext::getInstance()->getUser()->getAttribute("error_ajax")) {
+            $listadoMensaje[] = array('tipo' => 'error', 'mensaje' => sfContext::getInstance()->getUser()->getAttribute("error_ajax"));
+            $this->getUser()->setAttribute('error_ajax', false);
+        }
+        if (sfContext::getInstance()->getUser()->getAttribute("exito_ajax")) {
+            $listadoMensaje[] = array('tipo' => 'exito', 'mensaje' => sfContext::getInstance()->getUser()->getAttribute("exito_ajax"));
+            $this->getUser()->setAttribute('exito_ajax', false);
+        }
+        return $this->renderText(json_encode($listadoMensaje));
     }
 
 }

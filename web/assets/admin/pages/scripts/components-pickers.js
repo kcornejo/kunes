@@ -160,7 +160,6 @@ var ComponentsPickers = function () {
             pickerPosition: (Metronic.isRTL() ? "bottom-right" : "bottom-left"),
             todayBtn: true
         });
-
         $('body').removeClass("modal-open"); // fix bug when inline picker is used in modal
     }
 

@@ -2,10 +2,10 @@
 
 /**
  * Data object containing the SQL and PHP code to migrate the database
- * up to version 1481494415.
- * Generated on 2016-12-11 16:13:35 by kcornejo
+ * up to version 1484545117.
+ * Generated on 2017-01-15 23:38:37 by kcornejo
  */
-class PropelMigration_1481494415
+class PropelMigration_1484545117
 {
 
     public function preUp($manager)
@@ -42,15 +42,14 @@ class PropelMigration_1481494415
 # It "suspends judgement" for fkey relationships until are tables are set.
 SET FOREIGN_KEY_CHECKS = 0;
 
-ALTER TABLE `archivo` CHANGE `nombre_archivo_original` `nombre_archivo_original` VARCHAR(100);
+ALTER TABLE `usuario`
+    ADD `pais_id` INTEGER AFTER `fecha_nacimiento`;
 
-ALTER TABLE `archivo` CHANGE `nombre_archivo_actual` `nombre_archivo_actual` VARCHAR(100);
+CREATE INDEX `usuario_FI_1` ON `usuario` (`pais_id`);
 
-CREATE INDEX `archivo_I_1` ON `archivo` (`estado`);
-
-CREATE INDEX `archivo_I_2` ON `archivo` (`descripcion`);
-
-CREATE INDEX `archivo_I_3` ON `archivo` (`etiqueta`);
+ALTER TABLE `usuario` ADD CONSTRAINT `usuario_FK_1`
+    FOREIGN KEY (`pais_id`)
+    REFERENCES `pais` (`id`);
 
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;
@@ -72,15 +71,11 @@ SET FOREIGN_KEY_CHECKS = 1;
 # It "suspends judgement" for fkey relationships until are tables are set.
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP INDEX `archivo_I_1` ON `archivo`;
+ALTER TABLE `usuario` DROP FOREIGN KEY `usuario_FK_1`;
 
-DROP INDEX `archivo_I_2` ON `archivo`;
+DROP INDEX `usuario_FI_1` ON `usuario`;
 
-DROP INDEX `archivo_I_3` ON `archivo`;
-
-ALTER TABLE `archivo` CHANGE `nombre_archivo_original` `nombre_archivo_original` VARCHAR(50);
-
-ALTER TABLE `archivo` CHANGE `nombre_archivo_actual` `nombre_archivo_actual` VARCHAR(50);
+ALTER TABLE `usuario` DROP `pais_id`;
 
 # This restores the fkey checks, after having unset them earlier
 SET FOREIGN_KEY_CHECKS = 1;

@@ -43,6 +43,44 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Genero</td>
+                            <td><?php echo $form['Genero'] ?></td>
+                            <td>
+                                <span class="error">
+                                    <?php echo $form['Genero']->renderError() ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pais</td>
+                            <td>
+                                <?php echo $form['Pais'] ?>
+                            </td>
+                            <td>
+                                <span class="error">
+                                    <?php echo $form['Pais']->renderError() ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de Nacimiento</td>
+                            <td><?php echo $form['Fecha_Nacimiento'] ?></td>
+                            <td>
+                                <span class="error">
+                                    <?php echo $form['Fecha_Nacimiento']->renderError() ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sobre mi</td>
+                            <td><?php echo $form['Frase'] ?></td>
+                            <td>
+                                <span class="error">
+                                    <?php echo $form['Frase']->renderError() ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Tema</td>
                             <td><?php echo $form['Tema'] ?></td>
                             <td>

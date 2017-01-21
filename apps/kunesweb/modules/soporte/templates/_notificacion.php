@@ -7,7 +7,7 @@
     </a>
     <ul class="dropdown-menu">
         <li class="external">
-            <h3 ><span class="bold"  id="alerta_notificacion_archivo">12 pending notifications</span></h3>
+            <h3 ><span class="bold"  id="alerta_notificacion_archivo"></span></h3>
         </li>
         <li >
             <ul class="dropdown-menu-list scroller ken_interval" style="height: 250px;" data-handle-color="#637283" url="<?php echo url_for('soporte/notificacionAjax') ?>">
@@ -30,7 +30,7 @@
     </a>
     <ul class="dropdown-menu dropdown-menu-default">
         <li>
-            <a href="<?php echo url_for('usuario/perfil') ?>">
+            <a href="<?php echo url_for('usuario/visualizar') . "?id=" . sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad') ?>">
                 <i class="icon-user"></i> Mi Perfil
             </a>
             <a href="<?php echo url_for('seguridad/cambioclave') ?>">

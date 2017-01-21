@@ -10,12 +10,23 @@ propel:
     validado:                          { type: boolean, default: true }
     ultimo_ingreso:                    { type: date }
     tema:                              { type: varchar(255) }
+    frase:                             { type: varchar(255) }
+    genero:                            { type: varchar(30) }
+    fecha_nacimiento:                  { type: date}
+    pais_id:                           ~
     created_at:                        ~
     updated_at:                        ~
     created_by:                        { type: varchar(32) }
     updated_by:                        { type: varchar(32) }
     _uniques:
       llave:                           [ usuario ]
+  pais:                    
+    id:                                ~
+    descripcion:                       { type: varchar(80)}
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
   mensaje_cabecera:                    
     id:                                ~
     usuario1:                          { type: integer, foreignTable: usuario, foreignReference: id}
