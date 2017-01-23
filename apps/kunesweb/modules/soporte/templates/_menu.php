@@ -48,9 +48,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo url_for('categoria_materia/index') ?>">
+                    <a href="<?php echo url_for('carrera/index') ?>">
                         <i class="fa fa-check"></i>
-                        Categoria de Materias
+                        Carrera
                     </a>
                 </li>
                 <li>

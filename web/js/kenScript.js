@@ -40,7 +40,19 @@ function formAjax() {
                             url: $(data.id).attr('url'),
                             data: null,
                             success: function (html) {
-                                $(data.id + "_button").hide();
+                                if (!$(data.id).attr('multiple')) {
+                                    $(data.id + "_button").hide();
+                                } else {
+                                    $.ajax({
+                                        async: false,
+                                        type: 'GET',
+                                        url: url,
+                                        data: null,
+                                        success: function (html) {
+                                            $(data.id + "_bootbox").html(html);
+                                        }
+                                    });
+                                }
                             }
                         });
                     }

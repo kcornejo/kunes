@@ -149,4 +149,11 @@ propel:
     updated_at:                        ~
     created_by:                        { type: varchar(32) }
     updated_by:                        { type: varchar(32) }
-      
+  carrera:
+    id:                                ~
+    descripcion:                       { type: varchar(255) }
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
+    

@@ -1,0 +1,30 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           carrera
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              carrera
+    plural:                carreras
+    route_prefix:          carrera
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+          descripcion:
+              attributes:  
+                 class:    form-control input-medium
+      list:
+          title:           Listado de Carreras
+          display:         [descripcion]
+      filter:
+          display:         [descripcion]
+      form: 
+          display:         [descripcion]
+      edit:
+          title:           Edicion de %%DESCRIPCION%%
+      new:
+          title:           Nueva Carrera

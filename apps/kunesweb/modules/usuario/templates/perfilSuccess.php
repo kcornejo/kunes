@@ -6,6 +6,11 @@
                     <i class="fa fa-user"></i>
                     Perfil
                 </div>
+                <div class="actions">
+                    <a class="btn btn-xs btn-warning btn-circle" href="<?php echo url_for('usuario/visualizar') . "?id=" . sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad') ?>">
+                        <i class="fa fa-hand-o-left"></i>
+                    </a>
+                </div>
             </div>
             <div class="portlet-body">
                 <?php echo $form->renderFormTag(url_for('usuario/perfil')) ?>

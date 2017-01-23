@@ -19,6 +19,11 @@ abstract class BaseArchivoFormFilter extends BaseFormFilterPropel
       'updated_at'              => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'created_by'              => new sfWidgetFormFilterInput(),
       'updated_by'              => new sfWidgetFormFilterInput(),
+      'cantidad_rating'         => new sfWidgetFormFilterInput(),
+      'rating'                  => new sfWidgetFormFilterInput(),
+      'estado'                  => new sfWidgetFormFilterInput(),
+      'descripcion'             => new sfWidgetFormFilterInput(),
+      'etiqueta'                => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -29,6 +34,11 @@ abstract class BaseArchivoFormFilter extends BaseFormFilterPropel
       'updated_at'              => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'created_by'              => new sfValidatorPass(array('required' => false)),
       'updated_by'              => new sfValidatorPass(array('required' => false)),
+      'cantidad_rating'         => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'rating'                  => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
+      'estado'                  => new sfValidatorPass(array('required' => false)),
+      'descripcion'             => new sfValidatorPass(array('required' => false)),
+      'etiqueta'                => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('archivo_filters[%s]');
@@ -54,6 +64,11 @@ abstract class BaseArchivoFormFilter extends BaseFormFilterPropel
       'updated_at'              => 'Date',
       'created_by'              => 'Text',
       'updated_by'              => 'Text',
+      'cantidad_rating'         => 'Number',
+      'rating'                  => 'Number',
+      'estado'                  => 'Text',
+      'descripcion'             => 'Text',
+      'etiqueta'                => 'Text',
     );
   }
 }

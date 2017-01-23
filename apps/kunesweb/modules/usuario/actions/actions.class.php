@@ -71,7 +71,14 @@ class usuarioActions extends autoUsuarioActions {
     }
 
     public function executeUniversidad(sfWebRequest $request) {
-        
+        $this->form = new UniversidadUsuarioForm();
+        if ($request->isMethod('POST')) {
+            $this->form->bind($request->isMethod('universidad_usuario'));
+            if ($this->form->isValid()) {
+                $valores = $this->form->getValues();
+                
+            }
+        }
     }
 
 }

@@ -1,3 +1,12 @@
+carrera:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                carrera
+    module:               carrera
+    prefix_path:          /carrera
+    column:               id
+    with_wildcard_routes: true
+
 universidad:
   class: sfPropelORMRouteCollection
   options:
