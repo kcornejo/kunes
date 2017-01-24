@@ -18,35 +18,37 @@
                             <div class="col-md-12">
                                 <h3>Datos del Archivo</h3>
                                 <hr/>
-                                <table class="table table-striped table-bordered">
-                                    <tr>
-                                        <th>Nombre Archivo:</th>
-                                        <td><?php echo $Archivo->getNombreArchivoOriginal() ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Fecha y Hora de Subida:</th>
-                                        <td><?php echo $Archivo->getCreatedAt('d/m/Y H:i') ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Peso de Archivo:</th>
-                                        <td><?php echo $Archivo->getTamanio() ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Descargar:</th>
-                                        <td>
-                                            <a class="btn btn-default btn-default-focus" href="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>">
-                                                <i class="fa fa-download"></i>
-                                                Descargar
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered">
+                                        <tr>
+                                            <th>Nombre Archivo:</th>
+                                            <td><?php echo $Archivo->getNombreArchivoOriginal() ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Fecha y Hora de Subida:</th>
+                                            <td><?php echo $Archivo->getCreatedAt('d/m/Y H:i') ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Peso de Archivo:</th>
+                                            <td><?php echo $Archivo->getTamanio() ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Descargar:</th>
+                                            <td>
+                                                <a class="btn btn-default btn-default-focus" href="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>">
+                                                    <i class="fa fa-download"></i>
+                                                    Descargar
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                             <div class="col-md-12">
                                 <h3>Calificacion</h3>
                                 <hr/>
                                 <div class="kenStars">
-                                    
+
                                 </div>
                             </div>
                             <div class="col-md-12">
