@@ -39,6 +39,7 @@ class soporteActions extends sfActions {
         if (strlen($busqueda) > 2) {
             $this->archivos = ArchivoQuery::create()
                     ->filterByDescripcion("%$busqueda%")
+                    ->where("descripcion like '%$busqueda%' or nombre_archivo_original like '%$busqueda%'")
                     ->limit(3)
                     ->find();
             $this->usuarios = UsuarioQuery::create()
