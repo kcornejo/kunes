@@ -8,7 +8,7 @@
                 Ultimas Cargas
             </span>
             <hr/>
-            <ul class="kenupdate list-group list-view-sorting" url="<?php echo url_for('inicio/actualizaciones') ?>">
+            <ul class="kenupdate list-group" style="max-height: 50%; overflow-x: hidden" url="<?php echo url_for('inicio/actualizaciones') ?>">
 
             </ul>
         </div>
@@ -19,7 +19,7 @@
                 Top 5 Usuarios
             </span>
             <hr/>
-            <ul class="kenupdate list-group list-view-sorting" url="<?php echo url_for('inicio/usuarios') ?>">
+            <ul class="kenupdate list-groupg" style="max-height: 50%; overflow-x: hidden" url="<?php echo url_for('inicio/usuarios') ?>">
 
             </ul>
         </div>
