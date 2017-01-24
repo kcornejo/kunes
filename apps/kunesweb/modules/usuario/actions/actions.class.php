@@ -71,12 +71,35 @@ class usuarioActions extends autoUsuarioActions {
     }
 
     public function executeUniversidad(sfWebRequest $request) {
-        $this->form = new UniversidadUsuarioForm();
+        $usuario_id = sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad');
+        $Usuario = UsuarioQuery::create()
+                ->findOneById($usuario_id);
+        $defaults = array();
+        $defaults['Universidad'] = $Usuario->getUniversidadId();
+        $defaults['Carrera'] = $Usuario->getCarreraId();
+        $materias = array();
+        foreach ($Usuario->getUsuarioMaterias() as $materia) {
+            $materias[] = $materia->getMateriaId();
+        }
+        $defaults['Materia'] = $materias;
+        $this->form = new UniversidadUsuarioForm($defaults);
         if ($request->isMethod('POST')) {
-            $this->form->bind($request->isMethod('universidad_usuario'));
+            $this->form->bind($request->getParameter('universidad_usuario'));
             if ($this->form->isValid()) {
                 $valores = $this->form->getValues();
-                
+
+                $Usuario->setUniversidadId($valores['Universidad']);
+                $Usuario->setCarreraId($valores['Carrera']);
+                $Usuario->save();
+                UsuarioMateriaQuery::create()->findByUsuarioId($usuario_id)->delete();
+                foreach ($valores['Materia'] as $id_materia) {
+                    $UsuarioMateria = new UsuarioMateria();
+                    $UsuarioMateria->setUsuarioId($usuario_id);
+                    $UsuarioMateria->setMateriaId($id_materia);
+                    $UsuarioMateria->save();
+                }
+                $this->getUser()->setFlash('exito', 'Ajustes realizados correctamente');
+                $this->redirect("usuario/visualizar?id=$usuario_id");
             }
         }
     }

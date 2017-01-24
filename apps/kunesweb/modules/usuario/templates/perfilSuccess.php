@@ -8,7 +8,7 @@
                 </div>
                 <div class="actions">
                     <a class="btn btn-xs btn-warning btn-circle" href="<?php echo url_for('usuario/visualizar') . "?id=" . sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad') ?>">
-                        <i class="fa fa-hand-o-left"></i>
+                        <i class="fa fa-hand-o-left"></i> Atras
                     </a>
                 </div>
             </div>

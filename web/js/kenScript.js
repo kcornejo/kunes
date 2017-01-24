@@ -31,9 +31,9 @@ function formAjax() {
                 success: function (data) {
                     if (data.id_valor > 0) {
                         $(data.id).select2("destroy");
-                        $(data.id).append('<option selected="true" value="' + data.id_valor + '">' + data.valor + '</option>')
+                        $(data.id).append('<option selected="true" value="' + data.id_valor + '">' + data.valor + '</option>');
                         $(data.id).select2();
-                        $(data.id + "_bootbox").modal().hide();
+                        $(data.id + "_bootbox").modal('toggle');
                         $.ajax({
                             async: false,
                             type: 'GET',
@@ -49,7 +49,9 @@ function formAjax() {
                                         url: url,
                                         data: null,
                                         success: function (html) {
+                                            $('body').removeClass('modal-open');
                                             $(data.id + "_bootbox").html(html);
+                                            formAjax();
                                         }
                                     });
                                 }
@@ -139,7 +141,7 @@ function kenNotify(titulo, mensaje, tema) {
 
     var settings = {
         theme: tema,
-        sticky: true,
+//        sticky: true,
         horizontalEdge: 'top',
         verticalEdge: 'right',
         heading: titulo

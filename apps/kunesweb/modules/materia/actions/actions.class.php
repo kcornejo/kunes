@@ -30,7 +30,7 @@ class materiaActions extends autoMateriaActions {
                         $Materia->setDescripcion($valores['descripcion']);
                         $Materia->save();
                         $retorno = array('id' => '#universidad_usuario_Materia', 'id_valor' => $Materia->getId(), 'valor' => $Materia->getDescripcion());
-                        $this->getUser()->setAttribute('exito_ajax', 'Materia creado correctamente');
+                        $this->getUser()->setAttribute('exito_ajax', 'Materia "' . $Materia->getDescripcion() . '" creado correctamente');
                     }
                 } else {
                     $this->getUser()->setAttribute('error_ajax', 'Descripcion Obligatoria');

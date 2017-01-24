@@ -18,8 +18,16 @@ propel:
     updated_at:                        ~
     created_by:                        { type: varchar(32) }
     updated_by:                        { type: varchar(32) }
-    _uniques:
-      llave:                           [ usuario ]
+    universidad_id:                    ~
+    carrera_id:                        ~
+  usuario_materia:
+    id:                                ~
+    usuario_id:                        ~
+    materia_id:                        ~
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }
   pais:                    
     id:                                ~
     descripcion:                       { type: varchar(80)}
