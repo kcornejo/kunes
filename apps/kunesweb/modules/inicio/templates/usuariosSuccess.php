@@ -1,5 +1,5 @@
 <?php foreach ($usuarios as $usuario): ?>
-    <li class="list-unstyled list-separated">
+    <li class="list-unstyled list-separated"  style="cursor:pointer" onclick="window.location.href = '<?php echo url_for('usuario/visualizar') . '?id=' . $usuario->getId() ?>'">
         <?php if ($usuario->getImagen()): ?>
             <img alt="" style="width:30px" class="img-circle" src="<?php echo $usuario->getImagen() ?>"/>
         <?php else: ?>
