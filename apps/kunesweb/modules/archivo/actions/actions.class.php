@@ -23,37 +23,45 @@ class archivoActions extends autoArchivoActions {
                 $usuario_id = $this->getUser()->getAttribute('usuario', null, 'seguridad');
                 $valores = $this->form->getValues();
                 $archivoValores = $valores['Archivo'];
-                $Archivo = new Archivo();
-                $usuario = UsuarioQuery::create()->findOneById($usuario_id);
-                if ($usuario->getAdministrador()) {
-                    $Archivo->setEstado('Verificado');
-                } else {
-                    $Archivo->setEstado('Pendiente');
-                    $UsuariosAdmin = UsuarioQuery::create()->findByAdministrador(true);
-                    $correoUsuarios = null;
-                    foreach ($UsuariosAdmin as $fila) {
-                        $correoUsuarios .= $fila->getCorreo() . ',';
+                $listadoExtension = array('mp4', 'mp3', 'jpg', 'png', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'psd', 'svg', 'zip', 'rar');
+                $nombre_archivo = explode('.', $archivoValores->getOriginalName());
+                if (key_exists(1, $nombre_archivo) && in_array(strtolower($nombre_archivo[1]), $listadoExtension)) {
+                    $Archivo = new Archivo();
+                    $usuario = UsuarioQuery::create()->findOneById($usuario_id);
+                    if ($usuario->getAdministrador()) {
+                        $Archivo->setEstado('Verificado');
+                    } else {
+                        $Archivo->setEstado('Pendiente');
+                        $UsuariosAdmin = UsuarioQuery::create()->findByAdministrador(true);
+                        $correoUsuarios = null;
+                        foreach ($UsuariosAdmin as $fila) {
+                            $correoUsuarios .= $fila->getCorreo() . ',';
+                        }
+                        $Correo = new Correo();
+                        $Correo->setReceptor(substr($correoUsuarios, 0, -1));
+                        $Correo->setAsunto('Nuevo Archivo');
+                        $datos = array();
+                        $formato = FormatoCorreoQuery::create()->findOneByTipo('Alerta_Archivo');
+                        $contenido = $formato->getFormatoPlano($datos);
+                        $Correo->setContenido($contenido);
+                        $Correo->save();
                     }
-                    $Correo = new Correo();
-                    $Correo->setReceptor(substr($correoUsuarios, 0, -1));
-                    $Correo->setAsunto('Nuevo Archivo');
-                    $datos = array();
-                    $formato = FormatoCorreoQuery::create()->findOneByTipo('Alerta_Archivo');
-                    $contenido = $formato->getFormatoPlano($datos);
-                    $Correo->setContenido($contenido);
-                    $Correo->save();
+                    $Archivo->setMateriaId($valores['Materia']);
+                    $Archivo->setDescripcion($valores['Descripcion']);
+                    $Archivo->setEtiqueta($valores['Etiqueta']);
+                    $Archivo->setUsuarioId($usuario_id);
+                    $Archivo->setNombreArchivoOriginal($archivoValores->getOriginalName());
+                    $Archivo->setNombreArchivoActual(sha1(date('Y-m-d His') . uniqid()) . $archivoValores->getExtension());
+                    $Archivo->save();
+                    $archivoValores->save(sfConfig::get('sf_upload_dir') . '/carga_archivos/' . $Archivo->getNombreArchivoActual());
+                    chmod(sfConfig::get('sf_upload_dir') . '/carga_archivos/' . $Archivo->getNombreArchivoActual(), 0777);
+                    $con->commit();
+                    $this->getUser()->setFlash('exito', 'Carga exitosa de archivo.');
+                    $this->redirect('inicio/index');
+                } else {
+                    $this->getUser()->setFlash('error', 'Formato de archivo incorrecto');
+                    $this->redirect('archivo/carga');
                 }
-                $Archivo->setDescripcion($valores['Descripcion']);
-                $Archivo->setEtiqueta($valores['Etiqueta']);
-                $Archivo->setUsuarioId($usuario_id);
-                $Archivo->setNombreArchivoOriginal($archivoValores->getOriginalName());
-                $Archivo->setNombreArchivoActual(sha1(date('Y-m-d His') . uniqid()) . $archivoValores->getExtension());
-                $Archivo->save();
-                $archivoValores->save(sfConfig::get('sf_upload_dir') . '/carga_archivos/' . $Archivo->getNombreArchivoActual());
-                chmod(sfConfig::get('sf_upload_dir') . '/carga_archivos/' . $Archivo->getNombreArchivoActual(), 0777);
-                $con->commit();
-                $this->getUser()->setFlash('exito', 'Carga exitosa de archivo.');
-                $this->redirect('inicio/index');
             }
         }
     }

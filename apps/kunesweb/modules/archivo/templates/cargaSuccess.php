@@ -15,6 +15,12 @@
                             <?php echo $form['Descripcion'] ?>
                         </div>
                     </div>
+                <div class="row">
+                        <div class="col-md-5">
+                            Materia:
+                            <?php echo $form['Materia'] ?>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             Carga de Archivo:

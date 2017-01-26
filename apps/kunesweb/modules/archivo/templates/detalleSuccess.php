@@ -12,7 +12,21 @@
                         <div class="col-md-8">
                             <h3>Vista Previa</h3>
                             <hr/>
-                            <iframe src="http://docs.google.com/viewer?url=http://anarchivos.com/web/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>&amp;embedded=true" width="100%" height="780"></iframe>
+                            <?php if ($Archivo->getExtension() == 'mp4'): ?>
+                                <video class="col-md-12" controls>
+                                    <source src="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>" type="video/mp4">
+                                    Tu explorador no es compatible
+                                </video>
+                            <?php elseif ($Archivo->getExtension() == 'mp3'): ?>
+                                <audio class="col-md-12" controls>
+                                    <source src="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>" type="audio/mpeg">
+                                    Tu explorador no es compatible
+                                </audio> 
+                            <?php elseif ($Archivo->getExtension() == 'jpg' || $Archivo->getExtension() == 'png'): ?>
+                            <img class="col-md-12" src="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>"/>
+                            <?php else: ?>
+                                <iframe src="http://docs.google.com/viewer?url=http://anarchivos.com/web/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>&amp;embedded=true" width="100%" height="780"></iframe>
+                            <?php endif; ?>
                         </div>
                         <div class="col-md-4">
                             <div class="col-md-12">

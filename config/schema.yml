@@ -123,6 +123,7 @@ propel:
     estado:                            { type: varchar(32) , index: true}
     descripcion:                       { type: varchar(255), index: true }
     etiqueta:                          { type: varchar(255), index: true}
+    materia_id:                        ~
   archivo_comentario:
     id:                                ~
     archivo_id:                        ~

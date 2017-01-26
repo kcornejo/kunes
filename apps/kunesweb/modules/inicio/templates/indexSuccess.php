@@ -1,5 +1,7 @@
 <div class="col-md-9">
+    <ul class="kenupdate list-group" style="max-height: 100%; overflow-x: hidden" url="<?php echo url_for('inicio/principal') ?>">
 
+    </ul>
 </div>
 <div class="col-md-3">
     <div class="row">

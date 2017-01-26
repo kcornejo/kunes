@@ -19,6 +19,22 @@ class inicioActions extends sfActions {
         
     }
 
+    public function executePrincipal(sfWebRequest $request) {
+        $usuario_id = sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad');
+        $Usuario = UsuarioQuery::create()->findOneById($usuario_id);
+        $this->archivos = ArchivoQuery::create()
+                ->useMateriaQuery()
+                ->useUsuarioMateriaQuery()
+                ->filterByUsuarioId($usuario_id)
+                ->useUsuarioQuery()
+                ->filterByUniversidadId($Usuario->getUniversidadId())
+                ->endUse()
+                ->endUse()
+                ->endUse()
+                ->limit(15)
+                ->find();
+    }
+
     public function executeActualizaciones(sfWebRequest $request) {
         $this->archivos = ArchivoQuery::create()
                 ->where("estado = 'Verificado'")
@@ -26,9 +42,11 @@ class inicioActions extends sfActions {
                 ->limit(5)
                 ->find();
     }
-    public function executeUsuarios(sfWebRequest $request){
+
+    public function executeUsuarios(sfWebRequest $request) {
         $this->usuarios = UsuarioQuery::create()
                 ->limit(5)
                 ->find();
     }
+
 }

@@ -36,4 +36,13 @@ class Archivo extends BaseArchivo {
         return sfConfig::get('sf_upload_dir') . '/carga_archivos/' . $this->getNombreArchivoActual();
     }
 
+    public function getExtension() {
+        $nombre = explode('.', $this->getNombreArchivoOriginal());
+        if (key_exists(1, $nombre)) {
+            return strtolower($nombre[1]);
+        } else {
+            return strtolower($nombre[0]);
+        }
+    }
+
 }
