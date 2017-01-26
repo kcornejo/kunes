@@ -1,3 +1,5 @@
+<h3>Ultimas Actividades</h3>
+<hr/>
 <?php foreach ($archivos as $archivo): ?>
 <div class="row color-blue"  style="cursor:pointer;" onclick="window.location.href = '<?php echo url_for('archivo/detalle') . '?id=' . $archivo->getId() ?>'">
         <div class="col-md-2">
