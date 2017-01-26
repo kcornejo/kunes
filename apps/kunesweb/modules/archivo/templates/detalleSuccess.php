@@ -13,12 +13,12 @@
                             <h3>Vista Previa</h3>
                             <hr/>
                             <?php if ($Archivo->getExtension() == 'mp4'): ?>
-                                <video class="col-md-12" controls>
+                                <video class="col-md-12" style="width:100%" controls>
                                     <source src="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>" type="video/mp4">
                                     Tu explorador no es compatible
                                 </video>
                             <?php elseif ($Archivo->getExtension() == 'mp3'): ?>
-                                <audio class="col-md-12" controls>
+                                <audio class="col-md-12" style="width:100%" controls>
                                     <source src="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>" type="audio/mpeg">
                                     Tu explorador no es compatible
                                 </audio> 
