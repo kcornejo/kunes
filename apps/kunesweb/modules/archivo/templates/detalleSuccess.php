@@ -23,7 +23,7 @@
                                     Tu explorador no es compatible
                                 </audio> 
                             <?php elseif ($Archivo->getExtension() == 'jpg' || $Archivo->getExtension() == 'png'): ?>
-                            <img class="col-md-12" src="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>"/>
+                            <img style="width:100%;" class="col-md-12" src="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>"/>
                             <?php else: ?>
                                 <iframe src="http://docs.google.com/viewer?url=http://anarchivos.com/web/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>&amp;embedded=true" width="100%" height="780"></iframe>
                             <?php endif; ?>
@@ -49,7 +49,7 @@
                                         <tr>
                                             <th>Descargar:</th>
                                             <td>
-                                                <a class="btn btn-default btn-default-focus" href="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>">
+                                                <a class="btn btn-default btn-circle btn-default-focus" href="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>">
                                                     <i class="fa fa-download"></i>
                                                     Descargar
                                                 </a>

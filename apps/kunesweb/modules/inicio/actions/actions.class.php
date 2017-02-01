@@ -32,6 +32,7 @@ class inicioActions extends sfActions {
                 ->endUse()
                 ->endUse()
                 ->limit(15)
+                ->orderById('desc')
                 ->find();
     }
 

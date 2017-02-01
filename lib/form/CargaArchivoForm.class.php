@@ -19,9 +19,10 @@ class CargaArchivoForm extends sfForm {
         foreach($MateriaQuery as $fila){
             $materia[$fila->getId()] = $fila->getDescripcion();
         }
+        $url_mat = "http://" . $_SERVER['HTTP_HOST'] . sfContext::getInstance()->getController()->genUrl('materia/modalCargaArchivo');
         $this->setWidget('Archivo', new sfWidgetFormInputFile(array(), array('class' => 'kenArchivo')));
         $this->setWidget('Descripcion', new sfWidgetFormInputText(array(), array('class' => 'form-control')));
-        $this->setWidget('Materia', new sfWidgetFormChoice(array('choices' => $materia), array('class' => 'form-control select2me')));
+        $this->setWidget('Materia', new sfWidgetFormChoice(array('choices' => $materia,), array('class' => 'form-control input-xlarge select2me kenSave', 'url' => $url_mat)));
         $this->setWidget('Etiqueta', new sfWidgetFormInputText(array(), array('class' => 'form-control input-mini kenTags', 'autocomplete' => 'off')));
         $this->setValidator('Archivo', new sfValidatorFile(array('required' => true)));
         $this->setValidator('Descripcion', new sfValidatorString(array('required' => true)));

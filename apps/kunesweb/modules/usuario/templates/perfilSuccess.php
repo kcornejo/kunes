@@ -98,7 +98,7 @@
                 </table>
                 <?php echo $form->renderHiddenFields() ?>
                 <div class="form-actions">
-                    <button class="btn btn-info" type="submit">
+                    <button class="btn btn-info btn-circle" type="submit">
                         <i class="fa fa-cogs"></i>
                         Actualizar
                     </button>

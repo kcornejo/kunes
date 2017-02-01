@@ -25,14 +25,14 @@ class PerfilForm extends sfForm {
         foreach ($PaisQuery as $fila) {
             $pais[$fila->getId()] = $fila->getDescripcion();
         }
-        $this->setWidget('Fecha_Nacimiento', new sfWidgetFormInputText(array(), array('class' => 'form-control datepicker', 'data-date-format' => 'yyyy-mm-dd')));
-        $this->setWidget('Archivo', new sfWidgetFormInputFile(array(), array('class' => ' input-large')));
-        $this->setWidget('Nombre', new sfWidgetFormInputText(array(), array('class' => 'form-control input-medium', 'placeholder' => $Usuario->getUsuario())));
-        $this->setWidget('Tema', new sfWidgetFormChoice(array('choices' => $listaTema), array('class' => 'form-control select2me')));
+        $this->setWidget('Fecha_Nacimiento', new sfWidgetFormInputText(array(), array('class' => 'form-control input-medium datepicker', 'data-date-format' => 'yyyy-mm-dd')));
+        $this->setWidget('Archivo', new sfWidgetFormInputFile(array(), array('class' => 'input-large')));
+        $this->setWidget('Nombre', new sfWidgetFormInputText(array(), array('class' => 'form-control input-large', 'placeholder' => $Usuario->getUsuario())));
+        $this->setWidget('Tema', new sfWidgetFormChoice(array('choices' => $listaTema), array('class' => 'form-control select2me input-medium')));
         $this->setWidget('Frase', new sfWidgetFormTextarea(array(), array('class' => 'form-control')));
         $url = "http://" . $_SERVER['HTTP_HOST'] . sfContext::getInstance()->getController()->genUrl('pais/modal');
-        $this->setWidget('Pais', new sfWidgetFormChoice(array('choices' => $pais), array('class' => 'form-control select2me kenSave', 'url' => $url)));
-        $this->setWidget('Genero', new sfWidgetFormChoice(array('choices' => $listaGenero), array('class' => 'form-control select2me')));
+        $this->setWidget('Pais', new sfWidgetFormChoice(array('choices' => $pais), array('class' => 'form-control input-large select2me kenSave', 'url' => $url)));
+        $this->setWidget('Genero', new sfWidgetFormChoice(array('choices' => $listaGenero), array('class' => 'form-control input-medium select2me')));
         $this->setValidator('Archivo', new sfValidatorFile(array('required' => false)));
         $this->setValidator('Nombre', new sfValidatorString(array('required' => false)));
         $this->setValidator('Tema', new sfValidatorString(array('required' => false)));

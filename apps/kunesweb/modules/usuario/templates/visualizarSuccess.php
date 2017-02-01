@@ -29,8 +29,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h3><?php echo $usuario->getUsuario() ?></h3>
-                                <h4>Fecha de Nacimiento: <?php echo $usuario->getFechaNacimiento() ?></h4>
-                                <h4>Genero: <?php echo $usuario->getGenero() ?></h4>
+                                <h4>Fecha de Nacimiento: <b><?php echo $usuario->getFechaNacimiento() ?></b></h4>
+                                <h4>Genero: <b><?php echo $usuario->getGenero() ?></b></h4>
                             </div>
                         </div>
                     </div>
@@ -42,11 +42,13 @@
                                 <h4>Carrera: <b><?php echo $usuario->getCarreraId() ? $usuario->getCarrera()->getDescripcion() : '[CARRERA NO ASIGNADA]' ?></b></h4>
                                 <h4>
                                     Materias: 
-                                    <?php foreach ($usuario->getUsuarioMaterias() as $materia): ?>
-                                        <?php if ($materia->getMateriaId()): ?>
-                                            <?php echo $materia->getMateria()->getDescripcion() ?>,
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
+                                    <b>
+                                        <?php foreach ($usuario->getUsuarioMaterias() as $materia): ?>
+                                            <?php if ($materia->getMateriaId()): ?>
+                                                <?php echo $materia->getMateria()->getDescripcion() ?>,
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </b>
                                 </h4>
                             </div>
                         </div>

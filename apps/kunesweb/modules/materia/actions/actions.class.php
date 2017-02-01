@@ -19,7 +19,7 @@ class materiaActions extends autoMateriaActions {
             $this->form->bind($request->getParameter('materia'));
             if ($this->form->isValid()) {
                 $valores = $this->form->getValues();
-                $descripcion = $valores['descripcion'];
+                $descripcion = trim($valores['descripcion']);
                 $retorno = array();
                 if ($descripcion) {
                     $Comprobacion = MateriaQuery::create()->findOneByDescripcion($descripcion);
@@ -27,11 +27,48 @@ class materiaActions extends autoMateriaActions {
                         $this->getUser()->setAttribute('error_ajax', 'Materia "' . $descripcion . '" ya existente');
                     } else {
                         $Materia = new Materia();
-                        $Materia->setDescripcion($valores['descripcion']);
+                        $Materia->setDescripcion($descripcion);
                         $Materia->save();
                         $retorno = array('id' => '#universidad_usuario_Materia', 'id_valor' => $Materia->getId(), 'valor' => $Materia->getDescripcion());
                         $this->getUser()->setAttribute('exito_ajax', 'Materia "' . $Materia->getDescripcion() . '" creado correctamente');
                     }
+                } else {
+                    $this->getUser()->setAttribute('error_ajax', 'Descripcion Obligatoria');
+                }
+                return $this->renderText(json_encode($retorno));
+            }
+        }
+    }
+
+    public function executeModalCargaArchivo(sfWebRequest $request) {
+        
+        $this->form = new MateriaForm();
+        if ($request->isMethod('POST')) {
+            $this->form->bind($request->getParameter('materia'));
+            if ($this->form->isValid()) {
+                $valores = $this->form->getValues();
+                $descripcion = trim($valores['descripcion']);
+                $retorno = array();
+                if ($descripcion) {
+                    $Materia = MateriaQuery::create()->findOneByDescripcion($descripcion);
+                    if (!$Materia) {
+                        $Materia = new Materia();
+                        $Materia->setDescripcion($descripcion);
+                        $Materia->save();
+                    }
+                    $usuario_id = $this->getUser()->getAttribute('usuario', null, 'seguridad');
+                    $Usuario = UsuarioMateriaQuery::create()
+                            ->filterByMateriaId($Materia->getId())
+                            ->filterByUsuarioId($usuario_id)
+                            ->findOne();
+                    if (!$Usuario) {
+                        $Usuario = new UsuarioMateria();
+                        $Usuario->setUsuarioId($usuario_id);
+                        $Usuario->setMateriaId($Materia->getId());
+                        $Usuario->save();
+                    }
+                    $retorno = array('id' => '#carga_archivo_Materia', 'id_valor' => $Materia->getId(), 'valor' => $Materia->getDescripcion());
+                    $this->getUser()->setAttribute('exito_ajax', 'Materia "' . $Materia->getDescripcion() . '" creado correctamente');
                 } else {
                     $this->getUser()->setAttribute('error_ajax', 'Descripcion Obligatoria');
                 }

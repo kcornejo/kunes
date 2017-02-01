@@ -80,7 +80,7 @@ function kenSave() {
                 $('.page-container').append('<div id="' + id + '" class="modal fade" tabindex="-1" aria-hidden="true">' + html + '</div>');
             }
         });
-        fila.parent().append('<a class="btn btn-success" data-toggle="modal" id="' + fila.attr('id') + '_button" href="#' + id + '"><i class="fa fa-plus"></i></a>');
+        fila.parent().append('<a class="btn btn-success btn-circle" data-toggle="modal" id="' + fila.attr('id') + '_button" href="#' + id + '"><i class="fa fa-plus"></i></a>');
     });
 }
 function kenStars() {

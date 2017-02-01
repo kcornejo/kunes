@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="form-actions">
-                        <button class="btn btn-success" type="submit">
+                        <button class="btn btn-success btn-circle" type="submit">
                             <i class="fa fa-upload"></i>
                             Cargar
                         </button>
