@@ -1,5 +1,5 @@
 <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" >
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
         <i class="icon-bell"></i>
         <span class="badge badge-default" id="contador_notificacion_archivo" url="<?php echo url_for('soporte/notificacionAjaxContador') ?>">
             0
@@ -7,12 +7,13 @@
     </a>
     <ul class="dropdown-menu">
         <li class="external">
-            <h3 ><span class="bold"  id="alerta_notificacion_archivo"></span></h3>
+            <h3 ><span class="bold" style="z-index: 10000" id="alerta_notificacion_archivo"></span></h3>
         </li>
         <li >
-            <ul class="dropdown-menu-list scroller ken_interval" style="height: 250px;" data-handle-color="#637283" url="<?php echo url_for('soporte/notificacionAjax') ?>">
-
-            </ul>
+            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 275px;">
+                <ul data-initialized="1" class="dropdown-menu-list scroller ken_interval" data-handle-color="#637283" url="<?php echo url_for('soporte/notificacionAjax') ?>">
+                </ul>
+            </div>
         </li>
     </ul>
 </li>

@@ -78,7 +78,7 @@
                             <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
                         </span>
                     </div>
-                    <ul class="list-group" id="buscador_lista" url="<?php echo url_for('soporte/autocompletar') ?>" style="display:none;">
+                    <ul class="list-group" id="buscador_lista" url="<?php echo url_for('soporte/autocompletar') ?>" style="display:none;z-index: 10000">
                         <!--                        <li class="list-group-item ">
                                                     a
                                                 </li>-->
