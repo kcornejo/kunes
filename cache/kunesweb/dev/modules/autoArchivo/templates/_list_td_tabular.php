@@ -37,3 +37,6 @@
 <td class="sf_admin_text sf_admin_list_td_etiqueta">
   <?php echo $archivo->getEtiqueta() ?>
 </td>
+<td class="sf_admin_foreignkey sf_admin_list_td_materia_id">
+  <?php echo $archivo->getMateriaId() ?>
+</td>

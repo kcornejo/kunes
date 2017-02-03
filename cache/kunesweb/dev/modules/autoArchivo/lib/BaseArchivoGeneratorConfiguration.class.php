@@ -47,7 +47,7 @@ abstract class BaseArchivoGeneratorConfiguration extends sfModelGeneratorConfigu
 
   public function getListParams()
   {
-    return '%%id%% - %%nombre_archivo_original%% - %%nombre_archivo_actual%% - %%usuario_id%% - %%created_at%% - %%updated_at%% - %%created_by%% - %%updated_by%% - %%cantidad_rating%% - %%rating%% - %%estado%% - %%descripcion%% - %%etiqueta%%';
+    return '%%id%% - %%nombre_archivo_original%% - %%nombre_archivo_actual%% - %%usuario_id%% - %%created_at%% - %%updated_at%% - %%created_by%% - %%updated_by%% - %%cantidad_rating%% - %%rating%% - %%estado%% - %%descripcion%% - %%etiqueta%% - %%materia_id%%';
   }
 
   public function getListLayout()
@@ -92,7 +92,7 @@ abstract class BaseArchivoGeneratorConfiguration extends sfModelGeneratorConfigu
 
   public function getListDisplay()
   {
-    return array(  0 => 'id',  1 => 'nombre_archivo_original',  2 => 'nombre_archivo_actual',  3 => 'usuario_id',  4 => 'created_at',  5 => 'updated_at',  6 => 'created_by',  7 => 'updated_by',  8 => 'cantidad_rating',  9 => 'rating',  10 => 'estado',  11 => 'descripcion',  12 => 'etiqueta',);
+    return array(  0 => 'id',  1 => 'nombre_archivo_original',  2 => 'nombre_archivo_actual',  3 => 'usuario_id',  4 => 'created_at',  5 => 'updated_at',  6 => 'created_by',  7 => 'updated_by',  8 => 'cantidad_rating',  9 => 'rating',  10 => 'estado',  11 => 'descripcion',  12 => 'etiqueta',  13 => 'materia_id',);
   }
 
   public function getFieldsDefault()
@@ -111,6 +111,7 @@ abstract class BaseArchivoGeneratorConfiguration extends sfModelGeneratorConfigu
       'estado' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'descripcion' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'etiqueta' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
+      'materia_id' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'ForeignKey',),
     );
   }
 
@@ -130,6 +131,7 @@ abstract class BaseArchivoGeneratorConfiguration extends sfModelGeneratorConfigu
       'estado' => array(),
       'descripcion' => array(),
       'etiqueta' => array(),
+      'materia_id' => array(),
     );
   }
 
@@ -149,6 +151,7 @@ abstract class BaseArchivoGeneratorConfiguration extends sfModelGeneratorConfigu
       'estado' => array(),
       'descripcion' => array(),
       'etiqueta' => array(),
+      'materia_id' => array(),
     );
   }
 
@@ -168,6 +171,7 @@ abstract class BaseArchivoGeneratorConfiguration extends sfModelGeneratorConfigu
       'estado' => array(),
       'descripcion' => array(),
       'etiqueta' => array(),
+      'materia_id' => array(),
     );
   }
 
@@ -187,6 +191,7 @@ abstract class BaseArchivoGeneratorConfiguration extends sfModelGeneratorConfigu
       'estado' => array(),
       'descripcion' => array(),
       'etiqueta' => array(),
+      'materia_id' => array(),
     );
   }
 
@@ -206,6 +211,7 @@ abstract class BaseArchivoGeneratorConfiguration extends sfModelGeneratorConfigu
       'estado' => array(),
       'descripcion' => array(),
       'etiqueta' => array(),
+      'materia_id' => array(),
     );
   }
 

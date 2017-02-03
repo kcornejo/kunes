@@ -216,7 +216,7 @@
             $usuario_id = sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad');
             $usuario = UsuarioQuery::create()->findOneById($usuario_id);
             ?>
-            <?php if ($usuario): ?>
+            <?php if (!$usuario): ?>
                 <a href="<?php echo url_for('usuario/visualizar') . "?id=" . sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad') ?>">
                     <i class="icon-user"></i> Mi Perfil
                 </a>

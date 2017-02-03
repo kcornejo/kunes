@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/kcornejo/workspace/kunes/lib/form/CargaArchivoForm.class.php</file>
+            <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/_notificacion.php</file>
             <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/archivo/actions/actions.class.php</file>
-            <file>file:/home/kcornejo/workspace/kunes/lib/form/ValidaArchivo.class.php</file>
-            <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/archivo/templates/cargaSuccess.php</file>
+            <file>file:/home/kcornejo/workspace/kunes/lib/model/UniversidadUsuarioForm.class.php</file>
+            <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/seguridad/actions/actions.class.php</file>
+            <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/materia/templates/modalCargaArchivoSuccess.php</file>
             <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/archivo/templates/validarSuccess.php</file>
-            <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/templates/notificacionAjaxSuccess.php</file>
+            <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/archivo/templates/detalleSuccess.php</file>
+            <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/usuario/actions/actions.class.php</file>
+            <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/materia/actions/actions.class.php</file>
+            <file>file:/home/kcornejo/workspace/kunes/apps/kunesweb/modules/soporte/actions/actions.class.php</file>
         </group>
     </open-files>
 </project-private>

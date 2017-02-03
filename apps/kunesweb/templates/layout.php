@@ -32,10 +32,10 @@
         <link href="/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
         <link id="style_color" href="
         <?php
-        $idUsuario = sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad');
-        $Usuario = UsuarioQuery::create()->findOneById($idUsuario);
-        echo $Usuario->getTema();
-        ?>
+$idUsuario = sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad');
+$Usuario   = UsuarioQuery::create()->findOneById($idUsuario);
+echo $Usuario->getTema();
+?>
               " rel="stylesheet" type="text/css"/>
         <link href="/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
         <link href="/css/kunesStyle.css" rel="stylesheet" type="text/css"/>
@@ -57,7 +57,7 @@
         <body class="page-quick-sidebar-over-content page-style-square page-header-fixed page-sidebar-fixed">
         <?php else: ?>
         <body class="page-header-fixed page-quick-sidebar-over-content page-full-width">
-        <?php endif; ?>
+        <?php endif;?>
         <div id="mensaje_ajax" url="<?php echo url_for("soporte/MensajeAjax") ?>"></div>
         <div class="page-header navbar navbar-fixed-top">
             <!-- BEGIN HEADER INNER -->
@@ -79,9 +79,6 @@
                         </span>
                     </div>
                     <ul class="list-group" id="buscador_lista" url="<?php echo url_for('soporte/autocompletar') ?>" style="display:none;z-index: 10000">
-                        <!--                        <li class="list-group-item ">
-                                                    a
-                                                </li>-->
                     </ul>
                 </form>
                 <!-- END LOGO -->
@@ -92,7 +89,7 @@
                 <!-- BEGIN TOP NAVIGATION MENU -->
                 <div class="top-menu">
                     <ul class="nav navbar-nav pull-right">
-                        <?php include_partial('soporte/notificacion'); ?>
+                        <?php include_partial('soporte/notificacion');?>
                         <!-- END QUICK SIDEBAR TOGGLER -->
                     </ul>
                 </div>
@@ -119,7 +116,7 @@
             <div class="page-content-wrapper">
                 <div class="page-content">
 
-                    <?php include_partial('soporte/avisos') ?>
+                    <?php include_partial('soporte/avisos')?>
                     <?php echo $sf_content ?>
                 </div>
             </div>
@@ -789,7 +786,7 @@
         <!-- BEGIN CORE PLUGINS -->
         <!--[if lt IE 9]>
         <script src="/assets/global/plugins/respond.min.js"></script>
-        <script src="/assets/global/plugins/excanvas.min.js"></script> 
+        <script src="/assets/global/plugins/excanvas.min.js"></script>
         <![endif]-->
         <script src="/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
