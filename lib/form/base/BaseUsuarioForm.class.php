@@ -32,6 +32,8 @@ abstract class BaseUsuarioForm extends BaseFormPropel
       'updated_at'       => new sfWidgetFormDateTime(),
       'created_by'       => new sfWidgetFormInputText(),
       'updated_by'       => new sfWidgetFormInputText(),
+      'universidad_id'   => new sfWidgetFormPropelChoice(array('model' => 'Universidad', 'add_empty' => true)),
+      'carrera_id'       => new sfWidgetFormPropelChoice(array('model' => 'Carrera', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -53,11 +55,9 @@ abstract class BaseUsuarioForm extends BaseFormPropel
       'updated_at'       => new sfValidatorDateTime(array('required' => false)),
       'created_by'       => new sfValidatorString(array('max_length' => 32, 'required' => false)),
       'updated_by'       => new sfValidatorString(array('max_length' => 32, 'required' => false)),
+      'universidad_id'   => new sfValidatorPropelChoice(array('model' => 'Universidad', 'column' => 'id', 'required' => false)),
+      'carrera_id'       => new sfValidatorPropelChoice(array('model' => 'Carrera', 'column' => 'id', 'required' => false)),
     ));
-
-    $this->validatorSchema->setPostValidator(
-      new sfValidatorPropelUnique(array('model' => 'Usuario', 'column' => array('usuario')))
-    );
 
     $this->widgetSchema->setNameFormat('usuario[%s]');
 

@@ -29,6 +29,8 @@ abstract class BaseUsuarioFormFilter extends BaseFormFilterPropel
       'updated_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'created_by'       => new sfWidgetFormFilterInput(),
       'updated_by'       => new sfWidgetFormFilterInput(),
+      'universidad_id'   => new sfWidgetFormPropelChoice(array('model' => 'Universidad', 'add_empty' => true)),
+      'carrera_id'       => new sfWidgetFormPropelChoice(array('model' => 'Carrera', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -49,6 +51,8 @@ abstract class BaseUsuarioFormFilter extends BaseFormFilterPropel
       'updated_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'created_by'       => new sfValidatorPass(array('required' => false)),
       'updated_by'       => new sfValidatorPass(array('required' => false)),
+      'universidad_id'   => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Universidad', 'column' => 'id')),
+      'carrera_id'       => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Carrera', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('usuario_filters[%s]');
@@ -84,6 +88,8 @@ abstract class BaseUsuarioFormFilter extends BaseFormFilterPropel
       'updated_at'       => 'Date',
       'created_by'       => 'Text',
       'updated_by'       => 'Text',
+      'universidad_id'   => 'ForeignKey',
+      'carrera_id'       => 'ForeignKey',
     );
   }
 }

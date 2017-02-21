@@ -24,6 +24,7 @@ abstract class BaseArchivoFormFilter extends BaseFormFilterPropel
       'estado'                  => new sfWidgetFormFilterInput(),
       'descripcion'             => new sfWidgetFormFilterInput(),
       'etiqueta'                => new sfWidgetFormFilterInput(),
+      'materia_id'              => new sfWidgetFormPropelChoice(array('model' => 'Materia', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -39,6 +40,7 @@ abstract class BaseArchivoFormFilter extends BaseFormFilterPropel
       'estado'                  => new sfValidatorPass(array('required' => false)),
       'descripcion'             => new sfValidatorPass(array('required' => false)),
       'etiqueta'                => new sfValidatorPass(array('required' => false)),
+      'materia_id'              => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Materia', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('archivo_filters[%s]');
@@ -69,6 +71,7 @@ abstract class BaseArchivoFormFilter extends BaseFormFilterPropel
       'estado'                  => 'Text',
       'descripcion'             => 'Text',
       'etiqueta'                => 'Text',
+      'materia_id'              => 'ForeignKey',
     );
   }
 }

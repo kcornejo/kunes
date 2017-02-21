@@ -1,3 +1,12 @@
+profesores:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                profesores
+    module:               profesores
+    prefix_path:          /profesores
+    column:               id
+    with_wildcard_routes: true
+
 carrera:
   class: sfPropelORMRouteCollection
   options:

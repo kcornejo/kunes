@@ -1,0 +1,30 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           profesores
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              profesores
+    plural:                profesoress
+    route_prefix:          profesores
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+          nombre_completo: 
+              attributes:
+                  class: form-control input-xlarge
+      list:
+          display:         [nombre_completo]
+          title:           Listado de Profesores
+      filter:
+          display:         [nombre_completo]
+      form:
+          display:         [nombre_completo]
+      edit:
+          title:          Editar Profesor (%%NOMBRE_COMPLETO%%)
+      new:
+          title:          Nuevo Profesor

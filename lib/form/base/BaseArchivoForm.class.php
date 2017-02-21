@@ -27,6 +27,7 @@ abstract class BaseArchivoForm extends BaseFormPropel
       'estado'                  => new sfWidgetFormInputText(),
       'descripcion'             => new sfWidgetFormInputText(),
       'etiqueta'                => new sfWidgetFormInputText(),
+      'materia_id'              => new sfWidgetFormPropelChoice(array('model' => 'Materia', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -43,6 +44,7 @@ abstract class BaseArchivoForm extends BaseFormPropel
       'estado'                  => new sfValidatorString(array('max_length' => 32, 'required' => false)),
       'descripcion'             => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'etiqueta'                => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'materia_id'              => new sfValidatorPropelChoice(array('model' => 'Materia', 'column' => 'id', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('archivo[%s]');

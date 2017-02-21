@@ -165,4 +165,11 @@ propel:
     updated_at:                        ~
     created_by:                        { type: varchar(32) }
     updated_by:                        { type: varchar(32) }
-    
+  profesores:
+    id:                                ~
+    nombre_completo:                   { type: varchar(255) }
+    ubicacion_imagen:                  { type: varchar(255) }
+    created_at:                        ~
+    updated_at:                        ~
+    created_by:                        { type: varchar(32) }
+    updated_by:                        { type: varchar(32) }

@@ -214,13 +214,19 @@
         <li>
             <?php
             $usuario_id = sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad');
-            $usuario = UsuarioQuery::create()->findOneById($usuario_id);
+            $usuario = UsuarioQuery::create()->filterById($usuario_id)->filterByAdministrador(true)->findOne();
             ?>
-            <?php if (!$usuario): ?>
-                <a href="<?php echo url_for('usuario/visualizar') . "?id=" . sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad') ?>">
-                    <i class="icon-user"></i> Mi Perfil
-                </a>
-            <?php else: ?>
+            <?php if ($usuario): ?>
+                <?php $administrador = sfContext::getInstance()->getUser()->getAttribute('administrador', null, 'seguridad'); ?>
+                <?php if ($administrador): ?>
+                    <a href="<?php echo url_for("soporte/cambiarPerfil")?>">
+                        <i class="fa fa-eye"></i> Ver Como Usuario
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo url_for("soporte/cambiarPerfil")?>">
+                        <i class="fa fa-eye-slash"></i> Ver Como Admin
+                    </a>
+                <?php endif; ?>
             <?php endif; ?>
             <a href="<?php echo url_for('usuario/visualizar') . "?id=" . sfContext::getInstance()->getUser()->getAttribute('usuario', null, 'seguridad') ?>">
                 <i class="icon-user"></i> Mi Perfil

@@ -48,6 +48,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="<?php echo url_for('profesores/index') ?>">
+                        <i class="fa fa-check"></i>
+                        Profesores
+                    </a>
+                </li>
+                <li>
                     <a href="<?php echo url_for('carrera/index') ?>">
                         <i class="fa fa-check"></i>
                         Carrera
