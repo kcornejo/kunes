@@ -46,6 +46,7 @@ class archivoActions extends autoArchivoActions {
                         $Correo->setContenido($contenido);
                         $Correo->save();
                     }
+                    $Archivo->setProfesoresId($valores['Profesor']);
                     $Archivo->setMateriaId($valores['Materia']);
                     $Archivo->setDescripcion($valores['Descripcion']);
                     $Archivo->setEtiqueta($valores['Etiqueta']);

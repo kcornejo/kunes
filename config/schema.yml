@@ -124,6 +124,7 @@ propel:
     descripcion:                       { type: varchar(255), index: true }
     etiqueta:                          { type: varchar(255), index: true}
     materia_id:                        ~
+    profesores_id:                     ~
   archivo_comentario:
     id:                                ~
     archivo_id:                        ~
