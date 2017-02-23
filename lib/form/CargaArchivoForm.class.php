@@ -28,7 +28,7 @@ class CargaArchivoForm extends sfForm {
         $url_mat = "http://" . $_SERVER['HTTP_HOST'] . sfContext::getInstance()->getController()->genUrl('materia/modalCargaArchivo');
         $url_profesor= "http://" . $_SERVER['HTTP_HOST'] . sfContext::getInstance()->getController()->genUrl('profesores/modalCargaArchivo');
         $this->setWidget('Archivo', new sfWidgetFormInputFile(array(), array('class' => 'kenArchivo')));
-        $this->setWidget('Descripcion', new sfWidgetFormInputText(array(), array('class' => 'form-control')));
+        $this->setWidget('Descripcion', new sfWidgetFormInputText(array(), array('class' => 'form-control input-xlarge')));
         $this->setWidget('Materia', new sfWidgetFormChoice(array('choices' => $materia,), array('class' => 'form-control input-xlarge select2me kenSave', 'url' => $url_mat)));
         $this->setWidget('Etiqueta', new sfWidgetFormInputText(array(), array('class' => 'form-control input-mini kenTags', 'autocomplete' => 'off')));
         $this->setWidget('Profesor', new sfWidgetFormChoice(array('choices' => $profesor,), array('class' => 'form-control input-xlarge select2me kenSave', 'url' => $url_profesor)));

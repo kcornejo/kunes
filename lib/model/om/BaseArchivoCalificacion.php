@@ -2,7 +2,7 @@
 
 
 /**
- * Base class that represents a row from the 'correo' table.
+ * Base class that represents a row from the 'archivo_calificacion' table.
  *
  *
  *
@@ -12,18 +12,18 @@
  *
  * @package    propel.generator.lib.model.om
  */
-abstract class BaseCorreo extends BaseObject implements Persistent
+abstract class BaseArchivoCalificacion extends BaseObject implements Persistent
 {
     /**
      * Peer class name
      */
-    const PEER = 'CorreoPeer';
+    const PEER = 'ArchivoCalificacionPeer';
 
     /**
      * The Peer class.
      * Instance provides a convenient way of calling static methods on a class
      * that calling code may not be able to identify.
-     * @var        CorreoPeer
+     * @var        ArchivoCalificacionPeer
      */
     protected static $peer;
 
@@ -40,53 +40,32 @@ abstract class BaseCorreo extends BaseObject implements Persistent
     protected $id;
 
     /**
-     * The value for the receptor field.
-     * @var        string
+     * The value for the archivo_id field.
+     * @var        int
      */
-    protected $receptor;
+    protected $archivo_id;
 
     /**
-     * The value for the contenido field.
-     * @var        string
+     * The value for the usuario_id field.
+     * @var        int
      */
-    protected $contenido;
+    protected $usuario_id;
 
     /**
-     * The value for the asunto field.
-     * @var        string
+     * The value for the punteo field.
+     * @var        int
      */
-    protected $asunto;
+    protected $punteo;
 
     /**
-     * The value for the created_at field.
-     * @var        string
+     * @var        Archivo
      */
-    protected $created_at;
+    protected $aArchivo;
 
     /**
-     * The value for the updated_at field.
-     * @var        string
+     * @var        Usuario
      */
-    protected $updated_at;
-
-    /**
-     * The value for the created_by field.
-     * @var        string
-     */
-    protected $created_by;
-
-    /**
-     * The value for the updated_by field.
-     * @var        string
-     */
-    protected $updated_by;
-
-    /**
-     * The value for the enviado field.
-     * Note: this column has a database default value of: false
-     * @var        boolean
-     */
-    protected $enviado;
+    protected $aUsuario;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -103,27 +82,6 @@ abstract class BaseCorreo extends BaseObject implements Persistent
     protected $alreadyInValidation = false;
 
     /**
-     * Applies default values to this object.
-     * This method should be called from the object's constructor (or
-     * equivalent initialization method).
-     * @see        __construct()
-     */
-    public function applyDefaultValues()
-    {
-        $this->enviado = false;
-    }
-
-    /**
-     * Initializes internal state of BaseCorreo object.
-     * @see        applyDefaults()
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->applyDefaultValues();
-    }
-
-    /**
      * Get the [id] column value.
      *
      * @return int
@@ -134,144 +92,40 @@ abstract class BaseCorreo extends BaseObject implements Persistent
     }
 
     /**
-     * Get the [receptor] column value.
+     * Get the [archivo_id] column value.
      *
-     * @return string
+     * @return int
      */
-    public function getReceptor()
+    public function getArchivoId()
     {
-        return $this->receptor;
+        return $this->archivo_id;
     }
 
     /**
-     * Get the [contenido] column value.
+     * Get the [usuario_id] column value.
      *
-     * @return string
+     * @return int
      */
-    public function getContenido()
+    public function getUsuarioId()
     {
-        return $this->contenido;
+        return $this->usuario_id;
     }
 
     /**
-     * Get the [asunto] column value.
+     * Get the [punteo] column value.
      *
-     * @return string
+     * @return int
      */
-    public function getAsunto()
+    public function getPunteo()
     {
-        return $this->asunto;
-    }
-
-    /**
-     * Get the [optionally formatted] temporal [created_at] column value.
-     *
-     *
-     * @param string $format The date/time format string (either date()-style or strftime()-style).
-     *				 If format is null, then the raw DateTime object will be returned.
-     * @return mixed Formatted date/time value as string or DateTime object (if format is null), null if column is null, and 0 if column value is 0000-00-00 00:00:00
-     * @throws PropelException - if unable to parse/validate the date/time value.
-     */
-    public function getCreatedAt($format = 'Y-m-d H:i:s')
-    {
-        if ($this->created_at === null) {
-            return null;
-        }
-
-        if ($this->created_at === '0000-00-00 00:00:00') {
-            // while technically this is not a default value of null,
-            // this seems to be closest in meaning.
-            return null;
-        } else {
-            try {
-                $dt = new DateTime($this->created_at);
-            } catch (Exception $x) {
-                throw new PropelException("Internally stored date/time/timestamp value could not be converted to DateTime: " . var_export($this->created_at, true), $x);
-            }
-        }
-
-        if ($format === null) {
-            // Because propel.useDateTimeClass is true, we return a DateTime object.
-            return $dt;
-        } elseif (strpos($format, '%') !== false) {
-            return strftime($format, $dt->format('U'));
-        } else {
-            return $dt->format($format);
-        }
-    }
-
-    /**
-     * Get the [optionally formatted] temporal [updated_at] column value.
-     *
-     *
-     * @param string $format The date/time format string (either date()-style or strftime()-style).
-     *				 If format is null, then the raw DateTime object will be returned.
-     * @return mixed Formatted date/time value as string or DateTime object (if format is null), null if column is null, and 0 if column value is 0000-00-00 00:00:00
-     * @throws PropelException - if unable to parse/validate the date/time value.
-     */
-    public function getUpdatedAt($format = 'Y-m-d H:i:s')
-    {
-        if ($this->updated_at === null) {
-            return null;
-        }
-
-        if ($this->updated_at === '0000-00-00 00:00:00') {
-            // while technically this is not a default value of null,
-            // this seems to be closest in meaning.
-            return null;
-        } else {
-            try {
-                $dt = new DateTime($this->updated_at);
-            } catch (Exception $x) {
-                throw new PropelException("Internally stored date/time/timestamp value could not be converted to DateTime: " . var_export($this->updated_at, true), $x);
-            }
-        }
-
-        if ($format === null) {
-            // Because propel.useDateTimeClass is true, we return a DateTime object.
-            return $dt;
-        } elseif (strpos($format, '%') !== false) {
-            return strftime($format, $dt->format('U'));
-        } else {
-            return $dt->format($format);
-        }
-    }
-
-    /**
-     * Get the [created_by] column value.
-     *
-     * @return string
-     */
-    public function getCreatedBy()
-    {
-        return $this->created_by;
-    }
-
-    /**
-     * Get the [updated_by] column value.
-     *
-     * @return string
-     */
-    public function getUpdatedBy()
-    {
-        return $this->updated_by;
-    }
-
-    /**
-     * Get the [enviado] column value.
-     *
-     * @return boolean
-     */
-    public function getEnviado()
-    {
-        return $this->enviado;
+        return $this->punteo;
     }
 
     /**
      * Set the value of [id] column.
      *
      * @param int $v new value
-     * @return Correo The current object (for fluent API support)
+     * @return ArchivoCalificacion The current object (for fluent API support)
      */
     public function setId($v)
     {
@@ -281,7 +135,7 @@ abstract class BaseCorreo extends BaseObject implements Persistent
 
         if ($this->id !== $v) {
             $this->id = $v;
-            $this->modifiedColumns[] = CorreoPeer::ID;
+            $this->modifiedColumns[] = ArchivoCalificacionPeer::ID;
         }
 
 
@@ -289,184 +143,75 @@ abstract class BaseCorreo extends BaseObject implements Persistent
     } // setId()
 
     /**
-     * Set the value of [receptor] column.
+     * Set the value of [archivo_id] column.
      *
-     * @param string $v new value
-     * @return Correo The current object (for fluent API support)
+     * @param int $v new value
+     * @return ArchivoCalificacion The current object (for fluent API support)
      */
-    public function setReceptor($v)
+    public function setArchivoId($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
-        if ($this->receptor !== $v) {
-            $this->receptor = $v;
-            $this->modifiedColumns[] = CorreoPeer::RECEPTOR;
+        if ($this->archivo_id !== $v) {
+            $this->archivo_id = $v;
+            $this->modifiedColumns[] = ArchivoCalificacionPeer::ARCHIVO_ID;
+        }
+
+        if ($this->aArchivo !== null && $this->aArchivo->getId() !== $v) {
+            $this->aArchivo = null;
         }
 
 
         return $this;
-    } // setReceptor()
+    } // setArchivoId()
 
     /**
-     * Set the value of [contenido] column.
+     * Set the value of [usuario_id] column.
      *
-     * @param string $v new value
-     * @return Correo The current object (for fluent API support)
+     * @param int $v new value
+     * @return ArchivoCalificacion The current object (for fluent API support)
      */
-    public function setContenido($v)
+    public function setUsuarioId($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
-        if ($this->contenido !== $v) {
-            $this->contenido = $v;
-            $this->modifiedColumns[] = CorreoPeer::CONTENIDO;
+        if ($this->usuario_id !== $v) {
+            $this->usuario_id = $v;
+            $this->modifiedColumns[] = ArchivoCalificacionPeer::USUARIO_ID;
+        }
+
+        if ($this->aUsuario !== null && $this->aUsuario->getId() !== $v) {
+            $this->aUsuario = null;
         }
 
 
         return $this;
-    } // setContenido()
+    } // setUsuarioId()
 
     /**
-     * Set the value of [asunto] column.
+     * Set the value of [punteo] column.
      *
-     * @param string $v new value
-     * @return Correo The current object (for fluent API support)
+     * @param int $v new value
+     * @return ArchivoCalificacion The current object (for fluent API support)
      */
-    public function setAsunto($v)
+    public function setPunteo($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
-        if ($this->asunto !== $v) {
-            $this->asunto = $v;
-            $this->modifiedColumns[] = CorreoPeer::ASUNTO;
-        }
-
-
-        return $this;
-    } // setAsunto()
-
-    /**
-     * Sets the value of [created_at] column to a normalized version of the date/time value specified.
-     *
-     * @param mixed $v string, integer (timestamp), or DateTime value.
-     *               Empty strings are treated as null.
-     * @return Correo The current object (for fluent API support)
-     */
-    public function setCreatedAt($v)
-    {
-        $dt = PropelDateTime::newInstance($v, null, 'DateTime');
-        if ($this->created_at !== null || $dt !== null) {
-            $currentDateAsString = ($this->created_at !== null && $tmpDt = new DateTime($this->created_at)) ? $tmpDt->format('Y-m-d H:i:s') : null;
-            $newDateAsString = $dt ? $dt->format('Y-m-d H:i:s') : null;
-            if ($currentDateAsString !== $newDateAsString) {
-                $this->created_at = $newDateAsString;
-                $this->modifiedColumns[] = CorreoPeer::CREATED_AT;
-            }
-        } // if either are not null
-
-
-        return $this;
-    } // setCreatedAt()
-
-    /**
-     * Sets the value of [updated_at] column to a normalized version of the date/time value specified.
-     *
-     * @param mixed $v string, integer (timestamp), or DateTime value.
-     *               Empty strings are treated as null.
-     * @return Correo The current object (for fluent API support)
-     */
-    public function setUpdatedAt($v)
-    {
-        $dt = PropelDateTime::newInstance($v, null, 'DateTime');
-        if ($this->updated_at !== null || $dt !== null) {
-            $currentDateAsString = ($this->updated_at !== null && $tmpDt = new DateTime($this->updated_at)) ? $tmpDt->format('Y-m-d H:i:s') : null;
-            $newDateAsString = $dt ? $dt->format('Y-m-d H:i:s') : null;
-            if ($currentDateAsString !== $newDateAsString) {
-                $this->updated_at = $newDateAsString;
-                $this->modifiedColumns[] = CorreoPeer::UPDATED_AT;
-            }
-        } // if either are not null
-
-
-        return $this;
-    } // setUpdatedAt()
-
-    /**
-     * Set the value of [created_by] column.
-     *
-     * @param string $v new value
-     * @return Correo The current object (for fluent API support)
-     */
-    public function setCreatedBy($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->created_by !== $v) {
-            $this->created_by = $v;
-            $this->modifiedColumns[] = CorreoPeer::CREATED_BY;
+        if ($this->punteo !== $v) {
+            $this->punteo = $v;
+            $this->modifiedColumns[] = ArchivoCalificacionPeer::PUNTEO;
         }
 
 
         return $this;
-    } // setCreatedBy()
-
-    /**
-     * Set the value of [updated_by] column.
-     *
-     * @param string $v new value
-     * @return Correo The current object (for fluent API support)
-     */
-    public function setUpdatedBy($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->updated_by !== $v) {
-            $this->updated_by = $v;
-            $this->modifiedColumns[] = CorreoPeer::UPDATED_BY;
-        }
-
-
-        return $this;
-    } // setUpdatedBy()
-
-    /**
-     * Sets the value of the [enviado] column.
-     * Non-boolean arguments are converted using the following rules:
-     *   * 1, '1', 'true',  'on',  and 'yes' are converted to boolean true
-     *   * 0, '0', 'false', 'off', and 'no'  are converted to boolean false
-     * Check on string values is case insensitive (so 'FaLsE' is seen as 'false').
-     *
-     * @param boolean|integer|string $v The new value
-     * @return Correo The current object (for fluent API support)
-     */
-    public function setEnviado($v)
-    {
-        if ($v !== null) {
-            if (is_string($v)) {
-                $v = in_array(strtolower($v), array('false', 'off', '-', 'no', 'n', '0', '')) ? false : true;
-            } else {
-                $v = (boolean) $v;
-            }
-        }
-
-        if ($this->enviado !== $v) {
-            $this->enviado = $v;
-            $this->modifiedColumns[] = CorreoPeer::ENVIADO;
-        }
-
-
-        return $this;
-    } // setEnviado()
+    } // setPunteo()
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -478,10 +223,6 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->enviado !== false) {
-                return false;
-            }
-
         // otherwise, everything was equal, so return true
         return true;
     } // hasOnlyDefaultValues()
@@ -505,14 +246,9 @@ abstract class BaseCorreo extends BaseObject implements Persistent
         try {
 
             $this->id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
-            $this->receptor = ($row[$startcol + 1] !== null) ? (string) $row[$startcol + 1] : null;
-            $this->contenido = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
-            $this->asunto = ($row[$startcol + 3] !== null) ? (string) $row[$startcol + 3] : null;
-            $this->created_at = ($row[$startcol + 4] !== null) ? (string) $row[$startcol + 4] : null;
-            $this->updated_at = ($row[$startcol + 5] !== null) ? (string) $row[$startcol + 5] : null;
-            $this->created_by = ($row[$startcol + 6] !== null) ? (string) $row[$startcol + 6] : null;
-            $this->updated_by = ($row[$startcol + 7] !== null) ? (string) $row[$startcol + 7] : null;
-            $this->enviado = ($row[$startcol + 8] !== null) ? (boolean) $row[$startcol + 8] : null;
+            $this->archivo_id = ($row[$startcol + 1] !== null) ? (int) $row[$startcol + 1] : null;
+            $this->usuario_id = ($row[$startcol + 2] !== null) ? (int) $row[$startcol + 2] : null;
+            $this->punteo = ($row[$startcol + 3] !== null) ? (int) $row[$startcol + 3] : null;
             $this->resetModified();
 
             $this->setNew(false);
@@ -521,10 +257,10 @@ abstract class BaseCorreo extends BaseObject implements Persistent
                 $this->ensureConsistency();
             }
 
-            return $startcol + 9; // 9 = CorreoPeer::NUM_HYDRATE_COLUMNS.
+            return $startcol + 4; // 4 = ArchivoCalificacionPeer::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException("Error populating Correo object", $e);
+            throw new PropelException("Error populating ArchivoCalificacion object", $e);
         }
     }
 
@@ -544,6 +280,12 @@ abstract class BaseCorreo extends BaseObject implements Persistent
     public function ensureConsistency()
     {
 
+        if ($this->aArchivo !== null && $this->archivo_id !== $this->aArchivo->getId()) {
+            $this->aArchivo = null;
+        }
+        if ($this->aUsuario !== null && $this->usuario_id !== $this->aUsuario->getId()) {
+            $this->aUsuario = null;
+        }
     } // ensureConsistency
 
     /**
@@ -567,13 +309,13 @@ abstract class BaseCorreo extends BaseObject implements Persistent
         }
 
         if ($con === null) {
-            $con = Propel::getConnection(CorreoPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $stmt = CorreoPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
+        $stmt = ArchivoCalificacionPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
         $row = $stmt->fetch(PDO::FETCH_NUM);
         $stmt->closeCursor();
         if (!$row) {
@@ -583,6 +325,8 @@ abstract class BaseCorreo extends BaseObject implements Persistent
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aArchivo = null;
+            $this->aUsuario = null;
         } // if (deep)
     }
 
@@ -603,16 +347,16 @@ abstract class BaseCorreo extends BaseObject implements Persistent
         }
 
         if ($con === null) {
-            $con = Propel::getConnection(CorreoPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
         $con->beginTransaction();
         try {
-            $deleteQuery = CorreoQuery::create()
+            $deleteQuery = ArchivoCalificacionQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             // symfony_behaviors behavior
-            foreach (sfMixer::getCallables('BaseCorreo:delete:pre') as $callable)
+            foreach (sfMixer::getCallables('BaseArchivoCalificacion:delete:pre') as $callable)
             {
               if (call_user_func($callable, $this, $con))
               {
@@ -625,7 +369,7 @@ abstract class BaseCorreo extends BaseObject implements Persistent
                 $deleteQuery->delete($con);
                 $this->postDelete($con);
                 // symfony_behaviors behavior
-                foreach (sfMixer::getCallables('BaseCorreo:delete:post') as $callable)
+                foreach (sfMixer::getCallables('BaseArchivoCalificacion:delete:post') as $callable)
                 {
                   call_user_func($callable, $this, $con);
                 }
@@ -662,7 +406,7 @@ abstract class BaseCorreo extends BaseObject implements Persistent
         }
 
         if ($con === null) {
-            $con = Propel::getConnection(CorreoPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
         $con->beginTransaction();
@@ -670,7 +414,7 @@ abstract class BaseCorreo extends BaseObject implements Persistent
         try {
             $ret = $this->preSave($con);
             // symfony_behaviors behavior
-            foreach (sfMixer::getCallables('BaseCorreo:save:pre') as $callable)
+            foreach (sfMixer::getCallables('BaseArchivoCalificacion:save:pre') as $callable)
             {
               if (is_integer($affectedRows = call_user_func($callable, $this, $con)))
               {
@@ -679,19 +423,8 @@ abstract class BaseCorreo extends BaseObject implements Persistent
               }
             }
 
-            // symfony_timestampable behavior
-            if ($this->isModified() && !$this->isColumnModified(CorreoPeer::UPDATED_AT))
-            {
-                $this->setUpdatedAt(time());
-            }
             if ($isInsert) {
                 $ret = $ret && $this->preInsert($con);
-                // symfony_timestampable behavior
-                if (!$this->isColumnModified(CorreoPeer::CREATED_AT))
-                {
-                  $this->setCreatedAt(time());
-                }
-
             } else {
                 $ret = $ret && $this->preUpdate($con);
             }
@@ -704,12 +437,12 @@ abstract class BaseCorreo extends BaseObject implements Persistent
                 }
                 $this->postSave($con);
                 // symfony_behaviors behavior
-                foreach (sfMixer::getCallables('BaseCorreo:save:post') as $callable)
+                foreach (sfMixer::getCallables('BaseArchivoCalificacion:save:post') as $callable)
                 {
                   call_user_func($callable, $this, $con, $affectedRows);
                 }
 
-                CorreoPeer::addInstanceToPool($this);
+                ArchivoCalificacionPeer::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -738,6 +471,25 @@ abstract class BaseCorreo extends BaseObject implements Persistent
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their coresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aArchivo !== null) {
+                if ($this->aArchivo->isModified() || $this->aArchivo->isNew()) {
+                    $affectedRows += $this->aArchivo->save($con);
+                }
+                $this->setArchivo($this->aArchivo);
+            }
+
+            if ($this->aUsuario !== null) {
+                if ($this->aUsuario->isModified() || $this->aUsuario->isNew()) {
+                    $affectedRows += $this->aUsuario->save($con);
+                }
+                $this->setUsuario($this->aUsuario);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -770,42 +522,27 @@ abstract class BaseCorreo extends BaseObject implements Persistent
         $modifiedColumns = array();
         $index = 0;
 
-        $this->modifiedColumns[] = CorreoPeer::ID;
+        $this->modifiedColumns[] = ArchivoCalificacionPeer::ID;
         if (null !== $this->id) {
-            throw new PropelException('Cannot insert a value for auto-increment primary key (' . CorreoPeer::ID . ')');
+            throw new PropelException('Cannot insert a value for auto-increment primary key (' . ArchivoCalificacionPeer::ID . ')');
         }
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(CorreoPeer::ID)) {
+        if ($this->isColumnModified(ArchivoCalificacionPeer::ID)) {
             $modifiedColumns[':p' . $index++]  = '`ID`';
         }
-        if ($this->isColumnModified(CorreoPeer::RECEPTOR)) {
-            $modifiedColumns[':p' . $index++]  = '`RECEPTOR`';
+        if ($this->isColumnModified(ArchivoCalificacionPeer::ARCHIVO_ID)) {
+            $modifiedColumns[':p' . $index++]  = '`ARCHIVO_ID`';
         }
-        if ($this->isColumnModified(CorreoPeer::CONTENIDO)) {
-            $modifiedColumns[':p' . $index++]  = '`CONTENIDO`';
+        if ($this->isColumnModified(ArchivoCalificacionPeer::USUARIO_ID)) {
+            $modifiedColumns[':p' . $index++]  = '`USUARIO_ID`';
         }
-        if ($this->isColumnModified(CorreoPeer::ASUNTO)) {
-            $modifiedColumns[':p' . $index++]  = '`ASUNTO`';
-        }
-        if ($this->isColumnModified(CorreoPeer::CREATED_AT)) {
-            $modifiedColumns[':p' . $index++]  = '`CREATED_AT`';
-        }
-        if ($this->isColumnModified(CorreoPeer::UPDATED_AT)) {
-            $modifiedColumns[':p' . $index++]  = '`UPDATED_AT`';
-        }
-        if ($this->isColumnModified(CorreoPeer::CREATED_BY)) {
-            $modifiedColumns[':p' . $index++]  = '`CREATED_BY`';
-        }
-        if ($this->isColumnModified(CorreoPeer::UPDATED_BY)) {
-            $modifiedColumns[':p' . $index++]  = '`UPDATED_BY`';
-        }
-        if ($this->isColumnModified(CorreoPeer::ENVIADO)) {
-            $modifiedColumns[':p' . $index++]  = '`ENVIADO`';
+        if ($this->isColumnModified(ArchivoCalificacionPeer::PUNTEO)) {
+            $modifiedColumns[':p' . $index++]  = '`PUNTEO`';
         }
 
         $sql = sprintf(
-            'INSERT INTO `correo` (%s) VALUES (%s)',
+            'INSERT INTO `archivo_calificacion` (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -817,29 +554,14 @@ abstract class BaseCorreo extends BaseObject implements Persistent
                     case '`ID`':
                         $stmt->bindValue($identifier, $this->id, PDO::PARAM_INT);
                         break;
-                    case '`RECEPTOR`':
-                        $stmt->bindValue($identifier, $this->receptor, PDO::PARAM_STR);
+                    case '`ARCHIVO_ID`':
+                        $stmt->bindValue($identifier, $this->archivo_id, PDO::PARAM_INT);
                         break;
-                    case '`CONTENIDO`':
-                        $stmt->bindValue($identifier, $this->contenido, PDO::PARAM_STR);
+                    case '`USUARIO_ID`':
+                        $stmt->bindValue($identifier, $this->usuario_id, PDO::PARAM_INT);
                         break;
-                    case '`ASUNTO`':
-                        $stmt->bindValue($identifier, $this->asunto, PDO::PARAM_STR);
-                        break;
-                    case '`CREATED_AT`':
-                        $stmt->bindValue($identifier, $this->created_at, PDO::PARAM_STR);
-                        break;
-                    case '`UPDATED_AT`':
-                        $stmt->bindValue($identifier, $this->updated_at, PDO::PARAM_STR);
-                        break;
-                    case '`CREATED_BY`':
-                        $stmt->bindValue($identifier, $this->created_by, PDO::PARAM_STR);
-                        break;
-                    case '`UPDATED_BY`':
-                        $stmt->bindValue($identifier, $this->updated_by, PDO::PARAM_STR);
-                        break;
-                    case '`ENVIADO`':
-                        $stmt->bindValue($identifier, (int) $this->enviado, PDO::PARAM_INT);
+                    case '`PUNTEO`':
+                        $stmt->bindValue($identifier, $this->punteo, PDO::PARAM_INT);
                         break;
                 }
             }
@@ -935,7 +657,25 @@ abstract class BaseCorreo extends BaseObject implements Persistent
             $failureMap = array();
 
 
-            if (($retval = CorreoPeer::doValidate($this, $columns)) !== true) {
+            // We call the validate method on the following object(s) if they
+            // were passed to this object by their coresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aArchivo !== null) {
+                if (!$this->aArchivo->validate($columns)) {
+                    $failureMap = array_merge($failureMap, $this->aArchivo->getValidationFailures());
+                }
+            }
+
+            if ($this->aUsuario !== null) {
+                if (!$this->aUsuario->validate($columns)) {
+                    $failureMap = array_merge($failureMap, $this->aUsuario->getValidationFailures());
+                }
+            }
+
+
+            if (($retval = ArchivoCalificacionPeer::doValidate($this, $columns)) !== true) {
                 $failureMap = array_merge($failureMap, $retval);
             }
 
@@ -959,7 +699,7 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      */
     public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
     {
-        $pos = CorreoPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+        $pos = ArchivoCalificacionPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -979,28 +719,13 @@ abstract class BaseCorreo extends BaseObject implements Persistent
                 return $this->getId();
                 break;
             case 1:
-                return $this->getReceptor();
+                return $this->getArchivoId();
                 break;
             case 2:
-                return $this->getContenido();
+                return $this->getUsuarioId();
                 break;
             case 3:
-                return $this->getAsunto();
-                break;
-            case 4:
-                return $this->getCreatedAt();
-                break;
-            case 5:
-                return $this->getUpdatedAt();
-                break;
-            case 6:
-                return $this->getCreatedBy();
-                break;
-            case 7:
-                return $this->getUpdatedBy();
-                break;
-            case 8:
-                return $this->getEnviado();
+                return $this->getPunteo();
                 break;
             default:
                 return null;
@@ -1019,27 +744,31 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      *                    Defaults to BasePeer::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to true.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
-        if (isset($alreadyDumpedObjects['Correo'][$this->getPrimaryKey()])) {
+        if (isset($alreadyDumpedObjects['ArchivoCalificacion'][$this->getPrimaryKey()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['Correo'][$this->getPrimaryKey()] = true;
-        $keys = CorreoPeer::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArchivoCalificacion'][$this->getPrimaryKey()] = true;
+        $keys = ArchivoCalificacionPeer::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getId(),
-            $keys[1] => $this->getReceptor(),
-            $keys[2] => $this->getContenido(),
-            $keys[3] => $this->getAsunto(),
-            $keys[4] => $this->getCreatedAt(),
-            $keys[5] => $this->getUpdatedAt(),
-            $keys[6] => $this->getCreatedBy(),
-            $keys[7] => $this->getUpdatedBy(),
-            $keys[8] => $this->getEnviado(),
+            $keys[1] => $this->getArchivoId(),
+            $keys[2] => $this->getUsuarioId(),
+            $keys[3] => $this->getPunteo(),
         );
+        if ($includeForeignObjects) {
+            if (null !== $this->aArchivo) {
+                $result['Archivo'] = $this->aArchivo->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aUsuario) {
+                $result['Usuario'] = $this->aUsuario->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -1057,7 +786,7 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      */
     public function setByName($name, $value, $type = BasePeer::TYPE_PHPNAME)
     {
-        $pos = CorreoPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+        $pos = ArchivoCalificacionPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 
         $this->setByPosition($pos, $value);
     }
@@ -1077,28 +806,13 @@ abstract class BaseCorreo extends BaseObject implements Persistent
                 $this->setId($value);
                 break;
             case 1:
-                $this->setReceptor($value);
+                $this->setArchivoId($value);
                 break;
             case 2:
-                $this->setContenido($value);
+                $this->setUsuarioId($value);
                 break;
             case 3:
-                $this->setAsunto($value);
-                break;
-            case 4:
-                $this->setCreatedAt($value);
-                break;
-            case 5:
-                $this->setUpdatedAt($value);
-                break;
-            case 6:
-                $this->setCreatedBy($value);
-                break;
-            case 7:
-                $this->setUpdatedBy($value);
-                break;
-            case 8:
-                $this->setEnviado($value);
+                $this->setPunteo($value);
                 break;
         } // switch()
     }
@@ -1122,17 +836,12 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      */
     public function fromArray($arr, $keyType = BasePeer::TYPE_PHPNAME)
     {
-        $keys = CorreoPeer::getFieldNames($keyType);
+        $keys = ArchivoCalificacionPeer::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) $this->setId($arr[$keys[0]]);
-        if (array_key_exists($keys[1], $arr)) $this->setReceptor($arr[$keys[1]]);
-        if (array_key_exists($keys[2], $arr)) $this->setContenido($arr[$keys[2]]);
-        if (array_key_exists($keys[3], $arr)) $this->setAsunto($arr[$keys[3]]);
-        if (array_key_exists($keys[4], $arr)) $this->setCreatedAt($arr[$keys[4]]);
-        if (array_key_exists($keys[5], $arr)) $this->setUpdatedAt($arr[$keys[5]]);
-        if (array_key_exists($keys[6], $arr)) $this->setCreatedBy($arr[$keys[6]]);
-        if (array_key_exists($keys[7], $arr)) $this->setUpdatedBy($arr[$keys[7]]);
-        if (array_key_exists($keys[8], $arr)) $this->setEnviado($arr[$keys[8]]);
+        if (array_key_exists($keys[1], $arr)) $this->setArchivoId($arr[$keys[1]]);
+        if (array_key_exists($keys[2], $arr)) $this->setUsuarioId($arr[$keys[2]]);
+        if (array_key_exists($keys[3], $arr)) $this->setPunteo($arr[$keys[3]]);
     }
 
     /**
@@ -1142,17 +851,12 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(CorreoPeer::DATABASE_NAME);
+        $criteria = new Criteria(ArchivoCalificacionPeer::DATABASE_NAME);
 
-        if ($this->isColumnModified(CorreoPeer::ID)) $criteria->add(CorreoPeer::ID, $this->id);
-        if ($this->isColumnModified(CorreoPeer::RECEPTOR)) $criteria->add(CorreoPeer::RECEPTOR, $this->receptor);
-        if ($this->isColumnModified(CorreoPeer::CONTENIDO)) $criteria->add(CorreoPeer::CONTENIDO, $this->contenido);
-        if ($this->isColumnModified(CorreoPeer::ASUNTO)) $criteria->add(CorreoPeer::ASUNTO, $this->asunto);
-        if ($this->isColumnModified(CorreoPeer::CREATED_AT)) $criteria->add(CorreoPeer::CREATED_AT, $this->created_at);
-        if ($this->isColumnModified(CorreoPeer::UPDATED_AT)) $criteria->add(CorreoPeer::UPDATED_AT, $this->updated_at);
-        if ($this->isColumnModified(CorreoPeer::CREATED_BY)) $criteria->add(CorreoPeer::CREATED_BY, $this->created_by);
-        if ($this->isColumnModified(CorreoPeer::UPDATED_BY)) $criteria->add(CorreoPeer::UPDATED_BY, $this->updated_by);
-        if ($this->isColumnModified(CorreoPeer::ENVIADO)) $criteria->add(CorreoPeer::ENVIADO, $this->enviado);
+        if ($this->isColumnModified(ArchivoCalificacionPeer::ID)) $criteria->add(ArchivoCalificacionPeer::ID, $this->id);
+        if ($this->isColumnModified(ArchivoCalificacionPeer::ARCHIVO_ID)) $criteria->add(ArchivoCalificacionPeer::ARCHIVO_ID, $this->archivo_id);
+        if ($this->isColumnModified(ArchivoCalificacionPeer::USUARIO_ID)) $criteria->add(ArchivoCalificacionPeer::USUARIO_ID, $this->usuario_id);
+        if ($this->isColumnModified(ArchivoCalificacionPeer::PUNTEO)) $criteria->add(ArchivoCalificacionPeer::PUNTEO, $this->punteo);
 
         return $criteria;
     }
@@ -1167,8 +871,8 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      */
     public function buildPkeyCriteria()
     {
-        $criteria = new Criteria(CorreoPeer::DATABASE_NAME);
-        $criteria->add(CorreoPeer::ID, $this->id);
+        $criteria = new Criteria(ArchivoCalificacionPeer::DATABASE_NAME);
+        $criteria->add(ArchivoCalificacionPeer::ID, $this->id);
 
         return $criteria;
     }
@@ -1209,21 +913,28 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param object $copyObj An object of Correo (or compatible) type.
+     * @param object $copyObj An object of ArchivoCalificacion (or compatible) type.
      * @param boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
-        $copyObj->setReceptor($this->getReceptor());
-        $copyObj->setContenido($this->getContenido());
-        $copyObj->setAsunto($this->getAsunto());
-        $copyObj->setCreatedAt($this->getCreatedAt());
-        $copyObj->setUpdatedAt($this->getUpdatedAt());
-        $copyObj->setCreatedBy($this->getCreatedBy());
-        $copyObj->setUpdatedBy($this->getUpdatedBy());
-        $copyObj->setEnviado($this->getEnviado());
+        $copyObj->setArchivoId($this->getArchivoId());
+        $copyObj->setUsuarioId($this->getUsuarioId());
+        $copyObj->setPunteo($this->getPunteo());
+
+        if ($deepCopy && !$this->startCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+            // store object hash to prevent cycle
+            $this->startCopy = true;
+
+            //unflag object copy
+            $this->startCopy = false;
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
             $copyObj->setId(NULL); // this is a auto-increment column, so set to default value
@@ -1239,7 +950,7 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      * objects.
      *
      * @param boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return Correo Clone of current object.
+     * @return ArchivoCalificacion Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1259,15 +970,117 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      * same instance for all member of this class. The method could therefore
      * be static, but this would prevent one from overriding the behavior.
      *
-     * @return CorreoPeer
+     * @return ArchivoCalificacionPeer
      */
     public function getPeer()
     {
         if (self::$peer === null) {
-            self::$peer = new CorreoPeer();
+            self::$peer = new ArchivoCalificacionPeer();
         }
 
         return self::$peer;
+    }
+
+    /**
+     * Declares an association between this object and a Archivo object.
+     *
+     * @param             Archivo $v
+     * @return ArchivoCalificacion The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setArchivo(Archivo $v = null)
+    {
+        if ($v === null) {
+            $this->setArchivoId(NULL);
+        } else {
+            $this->setArchivoId($v->getId());
+        }
+
+        $this->aArchivo = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the Archivo object, it will not be re-added.
+        if ($v !== null) {
+            $v->addArchivoCalificacion($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated Archivo object
+     *
+     * @param PropelPDO $con Optional Connection object.
+     * @return Archivo The associated Archivo object.
+     * @throws PropelException
+     */
+    public function getArchivo(PropelPDO $con = null)
+    {
+        if ($this->aArchivo === null && ($this->archivo_id !== null)) {
+            $this->aArchivo = ArchivoQuery::create()->findPk($this->archivo_id, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aArchivo->addArchivoCalificacions($this);
+             */
+        }
+
+        return $this->aArchivo;
+    }
+
+    /**
+     * Declares an association between this object and a Usuario object.
+     *
+     * @param             Usuario $v
+     * @return ArchivoCalificacion The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setUsuario(Usuario $v = null)
+    {
+        if ($v === null) {
+            $this->setUsuarioId(NULL);
+        } else {
+            $this->setUsuarioId($v->getId());
+        }
+
+        $this->aUsuario = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the Usuario object, it will not be re-added.
+        if ($v !== null) {
+            $v->addArchivoCalificacion($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated Usuario object
+     *
+     * @param PropelPDO $con Optional Connection object.
+     * @return Usuario The associated Usuario object.
+     * @throws PropelException
+     */
+    public function getUsuario(PropelPDO $con = null)
+    {
+        if ($this->aUsuario === null && ($this->usuario_id !== null)) {
+            $this->aUsuario = UsuarioQuery::create()->findPk($this->usuario_id, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aUsuario->addArchivoCalificacions($this);
+             */
+        }
+
+        return $this->aUsuario;
     }
 
     /**
@@ -1276,18 +1089,12 @@ abstract class BaseCorreo extends BaseObject implements Persistent
     public function clear()
     {
         $this->id = null;
-        $this->receptor = null;
-        $this->contenido = null;
-        $this->asunto = null;
-        $this->created_at = null;
-        $this->updated_at = null;
-        $this->created_by = null;
-        $this->updated_by = null;
-        $this->enviado = null;
+        $this->archivo_id = null;
+        $this->usuario_id = null;
+        $this->punteo = null;
         $this->alreadyInSave = false;
         $this->alreadyInValidation = false;
         $this->clearAllReferences();
-        $this->applyDefaultValues();
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
@@ -1307,6 +1114,8 @@ abstract class BaseCorreo extends BaseObject implements Persistent
         if ($deep) {
         } // if ($deep)
 
+        $this->aArchivo = null;
+        $this->aUsuario = null;
     }
 
     /**
@@ -1316,7 +1125,7 @@ abstract class BaseCorreo extends BaseObject implements Persistent
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CorreoPeer::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArchivoCalificacionPeer::DEFAULT_STRING_FORMAT);
     }
 
     /**
@@ -1336,7 +1145,7 @@ abstract class BaseCorreo extends BaseObject implements Persistent
     {
 
         // symfony_behaviors behavior
-        if ($callable = sfMixer::getCallable('BaseCorreo:' . $name))
+        if ($callable = sfMixer::getCallable('BaseArchivoCalificacion:' . $name))
         {
           array_unshift($params, $this);
           return call_user_func_array($callable, $params);

@@ -2,7 +2,7 @@
 
 
 /**
- * Base class that represents a query for the 'archivo_comentario' table.
+ * Base class that represents a query for the 'archivo_calificacion' table.
  *
  *
  *
@@ -10,83 +10,71 @@
  *
  * Thu Feb 23 06:33:16 2017
  *
- * @method ArchivoComentarioQuery orderById($order = Criteria::ASC) Order by the id column
- * @method ArchivoComentarioQuery orderByArchivoId($order = Criteria::ASC) Order by the archivo_id column
- * @method ArchivoComentarioQuery orderByUsuarioId($order = Criteria::ASC) Order by the usuario_id column
- * @method ArchivoComentarioQuery orderByCreatedAt($order = Criteria::ASC) Order by the created_at column
- * @method ArchivoComentarioQuery orderByUpdatedAt($order = Criteria::ASC) Order by the updated_at column
- * @method ArchivoComentarioQuery orderByCreatedBy($order = Criteria::ASC) Order by the created_by column
- * @method ArchivoComentarioQuery orderByUpdatedBy($order = Criteria::ASC) Order by the updated_by column
+ * @method ArchivoCalificacionQuery orderById($order = Criteria::ASC) Order by the id column
+ * @method ArchivoCalificacionQuery orderByArchivoId($order = Criteria::ASC) Order by the archivo_id column
+ * @method ArchivoCalificacionQuery orderByUsuarioId($order = Criteria::ASC) Order by the usuario_id column
+ * @method ArchivoCalificacionQuery orderByPunteo($order = Criteria::ASC) Order by the punteo column
  *
- * @method ArchivoComentarioQuery groupById() Group by the id column
- * @method ArchivoComentarioQuery groupByArchivoId() Group by the archivo_id column
- * @method ArchivoComentarioQuery groupByUsuarioId() Group by the usuario_id column
- * @method ArchivoComentarioQuery groupByCreatedAt() Group by the created_at column
- * @method ArchivoComentarioQuery groupByUpdatedAt() Group by the updated_at column
- * @method ArchivoComentarioQuery groupByCreatedBy() Group by the created_by column
- * @method ArchivoComentarioQuery groupByUpdatedBy() Group by the updated_by column
+ * @method ArchivoCalificacionQuery groupById() Group by the id column
+ * @method ArchivoCalificacionQuery groupByArchivoId() Group by the archivo_id column
+ * @method ArchivoCalificacionQuery groupByUsuarioId() Group by the usuario_id column
+ * @method ArchivoCalificacionQuery groupByPunteo() Group by the punteo column
  *
- * @method ArchivoComentarioQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method ArchivoComentarioQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method ArchivoComentarioQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method ArchivoCalificacionQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method ArchivoCalificacionQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method ArchivoCalificacionQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method ArchivoComentarioQuery leftJoinArchivo($relationAlias = null) Adds a LEFT JOIN clause to the query using the Archivo relation
- * @method ArchivoComentarioQuery rightJoinArchivo($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Archivo relation
- * @method ArchivoComentarioQuery innerJoinArchivo($relationAlias = null) Adds a INNER JOIN clause to the query using the Archivo relation
+ * @method ArchivoCalificacionQuery leftJoinArchivo($relationAlias = null) Adds a LEFT JOIN clause to the query using the Archivo relation
+ * @method ArchivoCalificacionQuery rightJoinArchivo($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Archivo relation
+ * @method ArchivoCalificacionQuery innerJoinArchivo($relationAlias = null) Adds a INNER JOIN clause to the query using the Archivo relation
  *
- * @method ArchivoComentarioQuery leftJoinUsuario($relationAlias = null) Adds a LEFT JOIN clause to the query using the Usuario relation
- * @method ArchivoComentarioQuery rightJoinUsuario($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Usuario relation
- * @method ArchivoComentarioQuery innerJoinUsuario($relationAlias = null) Adds a INNER JOIN clause to the query using the Usuario relation
+ * @method ArchivoCalificacionQuery leftJoinUsuario($relationAlias = null) Adds a LEFT JOIN clause to the query using the Usuario relation
+ * @method ArchivoCalificacionQuery rightJoinUsuario($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Usuario relation
+ * @method ArchivoCalificacionQuery innerJoinUsuario($relationAlias = null) Adds a INNER JOIN clause to the query using the Usuario relation
  *
- * @method ArchivoComentario findOne(PropelPDO $con = null) Return the first ArchivoComentario matching the query
- * @method ArchivoComentario findOneOrCreate(PropelPDO $con = null) Return the first ArchivoComentario matching the query, or a new ArchivoComentario object populated from the query conditions when no match is found
+ * @method ArchivoCalificacion findOne(PropelPDO $con = null) Return the first ArchivoCalificacion matching the query
+ * @method ArchivoCalificacion findOneOrCreate(PropelPDO $con = null) Return the first ArchivoCalificacion matching the query, or a new ArchivoCalificacion object populated from the query conditions when no match is found
  *
- * @method ArchivoComentario findOneById(int $id) Return the first ArchivoComentario filtered by the id column
- * @method ArchivoComentario findOneByArchivoId(int $archivo_id) Return the first ArchivoComentario filtered by the archivo_id column
- * @method ArchivoComentario findOneByUsuarioId(int $usuario_id) Return the first ArchivoComentario filtered by the usuario_id column
- * @method ArchivoComentario findOneByCreatedAt(string $created_at) Return the first ArchivoComentario filtered by the created_at column
- * @method ArchivoComentario findOneByUpdatedAt(string $updated_at) Return the first ArchivoComentario filtered by the updated_at column
- * @method ArchivoComentario findOneByCreatedBy(string $created_by) Return the first ArchivoComentario filtered by the created_by column
- * @method ArchivoComentario findOneByUpdatedBy(string $updated_by) Return the first ArchivoComentario filtered by the updated_by column
+ * @method ArchivoCalificacion findOneById(int $id) Return the first ArchivoCalificacion filtered by the id column
+ * @method ArchivoCalificacion findOneByArchivoId(int $archivo_id) Return the first ArchivoCalificacion filtered by the archivo_id column
+ * @method ArchivoCalificacion findOneByUsuarioId(int $usuario_id) Return the first ArchivoCalificacion filtered by the usuario_id column
+ * @method ArchivoCalificacion findOneByPunteo(int $punteo) Return the first ArchivoCalificacion filtered by the punteo column
  *
- * @method array findById(int $id) Return ArchivoComentario objects filtered by the id column
- * @method array findByArchivoId(int $archivo_id) Return ArchivoComentario objects filtered by the archivo_id column
- * @method array findByUsuarioId(int $usuario_id) Return ArchivoComentario objects filtered by the usuario_id column
- * @method array findByCreatedAt(string $created_at) Return ArchivoComentario objects filtered by the created_at column
- * @method array findByUpdatedAt(string $updated_at) Return ArchivoComentario objects filtered by the updated_at column
- * @method array findByCreatedBy(string $created_by) Return ArchivoComentario objects filtered by the created_by column
- * @method array findByUpdatedBy(string $updated_by) Return ArchivoComentario objects filtered by the updated_by column
+ * @method array findById(int $id) Return ArchivoCalificacion objects filtered by the id column
+ * @method array findByArchivoId(int $archivo_id) Return ArchivoCalificacion objects filtered by the archivo_id column
+ * @method array findByUsuarioId(int $usuario_id) Return ArchivoCalificacion objects filtered by the usuario_id column
+ * @method array findByPunteo(int $punteo) Return ArchivoCalificacion objects filtered by the punteo column
  *
  * @package    propel.generator.lib.model.om
  */
-abstract class BaseArchivoComentarioQuery extends ModelCriteria
+abstract class BaseArchivoCalificacionQuery extends ModelCriteria
 {
     /**
-     * Initializes internal state of BaseArchivoComentarioQuery object.
+     * Initializes internal state of BaseArchivoCalificacionQuery object.
      *
      * @param     string $dbName The dabase name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'propel', $modelName = 'ArchivoComentario', $modelAlias = null)
+    public function __construct($dbName = 'propel', $modelName = 'ArchivoCalificacion', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ArchivoComentarioQuery object.
+     * Returns a new ArchivoCalificacionQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
-     * @param     ArchivoComentarioQuery|Criteria $criteria Optional Criteria to build the query from
+     * @param     ArchivoCalificacionQuery|Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ArchivoComentarioQuery
+     * @return ArchivoCalificacionQuery
      */
     public static function create($modelAlias = null, $criteria = null)
     {
-        if ($criteria instanceof ArchivoComentarioQuery) {
+        if ($criteria instanceof ArchivoCalificacionQuery) {
             return $criteria;
         }
-        $query = new ArchivoComentarioQuery();
+        $query = new ArchivoCalificacionQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -109,19 +97,19 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param     PropelPDO $con an optional connection object
      *
-     * @return   ArchivoComentario|ArchivoComentario[]|mixed the result, formatted by the current formatter
+     * @return   ArchivoCalificacion|ArchivoCalificacion[]|mixed the result, formatted by the current formatter
      */
     public function findPk($key, $con = null)
     {
         if ($key === null) {
             return null;
         }
-        if ((null !== ($obj = ArchivoComentarioPeer::getInstanceFromPool((string) $key))) && !$this->formatter) {
+        if ((null !== ($obj = ArchivoCalificacionPeer::getInstanceFromPool((string) $key))) && !$this->formatter) {
             // the object is alredy in the instance pool
             return $obj;
         }
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
         $this->basePreSelect($con);
         if ($this->formatter || $this->modelAlias || $this->with || $this->select
@@ -140,12 +128,12 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     PropelPDO $con A connection object
      *
-     * @return   ArchivoComentario A model object, or null if the key is not found
+     * @return   ArchivoCalificacion A model object, or null if the key is not found
      * @throws   PropelException
      */
     protected function findPkSimple($key, $con)
     {
-        $sql = 'SELECT `ID`, `ARCHIVO_ID`, `USUARIO_ID`, `CREATED_AT`, `UPDATED_AT`, `CREATED_BY`, `UPDATED_BY` FROM `archivo_comentario` WHERE `ID` = :p0';
+        $sql = 'SELECT `ID`, `ARCHIVO_ID`, `USUARIO_ID`, `PUNTEO` FROM `archivo_calificacion` WHERE `ID` = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -156,9 +144,9 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $obj = new ArchivoComentario();
+            $obj = new ArchivoCalificacion();
             $obj->hydrate($row);
-            ArchivoComentarioPeer::addInstanceToPool($obj, (string) $key);
+            ArchivoCalificacionPeer::addInstanceToPool($obj, (string) $key);
         }
         $stmt->closeCursor();
 
@@ -171,7 +159,7 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     PropelPDO $con A connection object
      *
-     * @return ArchivoComentario|ArchivoComentario[]|mixed the result, formatted by the current formatter
+     * @return ArchivoCalificacion|ArchivoCalificacion[]|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, $con)
     {
@@ -192,7 +180,7 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      * @param     array $keys Primary keys to use for the query
      * @param     PropelPDO $con an optional connection object
      *
-     * @return PropelObjectCollection|ArchivoComentario[]|mixed the list of results, formatted by the current formatter
+     * @return PropelObjectCollection|ArchivoCalificacion[]|mixed the list of results, formatted by the current formatter
      */
     public function findPks($keys, $con = null)
     {
@@ -213,12 +201,12 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
+     * @return ArchivoCalificacionQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ArchivoComentarioPeer::ID, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(ArchivoCalificacionPeer::ID, $key, Criteria::EQUAL);
     }
 
     /**
@@ -226,12 +214,12 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
+     * @return ArchivoCalificacionQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ArchivoComentarioPeer::ID, $keys, Criteria::IN);
+        return $this->addUsingAlias(ArchivoCalificacionPeer::ID, $keys, Criteria::IN);
     }
 
     /**
@@ -250,7 +238,7 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
+     * @return ArchivoCalificacionQuery The current query, for fluid interface
      */
     public function filterById($id = null, $comparison = null)
     {
@@ -258,7 +246,7 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
             $comparison = Criteria::IN;
         }
 
-        return $this->addUsingAlias(ArchivoComentarioPeer::ID, $id, $comparison);
+        return $this->addUsingAlias(ArchivoCalificacionPeer::ID, $id, $comparison);
     }
 
     /**
@@ -279,18 +267,18 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
+     * @return ArchivoCalificacionQuery The current query, for fluid interface
      */
     public function filterByArchivoId($archivoId = null, $comparison = null)
     {
         if (is_array($archivoId)) {
             $useMinMax = false;
             if (isset($archivoId['min'])) {
-                $this->addUsingAlias(ArchivoComentarioPeer::ARCHIVO_ID, $archivoId['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(ArchivoCalificacionPeer::ARCHIVO_ID, $archivoId['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($archivoId['max'])) {
-                $this->addUsingAlias(ArchivoComentarioPeer::ARCHIVO_ID, $archivoId['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(ArchivoCalificacionPeer::ARCHIVO_ID, $archivoId['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -301,7 +289,7 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArchivoComentarioPeer::ARCHIVO_ID, $archivoId, $comparison);
+        return $this->addUsingAlias(ArchivoCalificacionPeer::ARCHIVO_ID, $archivoId, $comparison);
     }
 
     /**
@@ -322,18 +310,18 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
+     * @return ArchivoCalificacionQuery The current query, for fluid interface
      */
     public function filterByUsuarioId($usuarioId = null, $comparison = null)
     {
         if (is_array($usuarioId)) {
             $useMinMax = false;
             if (isset($usuarioId['min'])) {
-                $this->addUsingAlias(ArchivoComentarioPeer::USUARIO_ID, $usuarioId['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(ArchivoCalificacionPeer::USUARIO_ID, $usuarioId['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($usuarioId['max'])) {
-                $this->addUsingAlias(ArchivoComentarioPeer::USUARIO_ID, $usuarioId['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(ArchivoCalificacionPeer::USUARIO_ID, $usuarioId['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -344,39 +332,37 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArchivoComentarioPeer::USUARIO_ID, $usuarioId, $comparison);
+        return $this->addUsingAlias(ArchivoCalificacionPeer::USUARIO_ID, $usuarioId, $comparison);
     }
 
     /**
-     * Filter the query on the created_at column
+     * Filter the query on the punteo column
      *
      * Example usage:
      * <code>
-     * $query->filterByCreatedAt('2011-03-14'); // WHERE created_at = '2011-03-14'
-     * $query->filterByCreatedAt('now'); // WHERE created_at = '2011-03-14'
-     * $query->filterByCreatedAt(array('max' => 'yesterday')); // WHERE created_at > '2011-03-13'
+     * $query->filterByPunteo(1234); // WHERE punteo = 1234
+     * $query->filterByPunteo(array(12, 34)); // WHERE punteo IN (12, 34)
+     * $query->filterByPunteo(array('min' => 12)); // WHERE punteo > 12
      * </code>
      *
-     * @param     mixed $createdAt The value to use as filter.
-     *              Values can be integers (unix timestamps), DateTime objects, or strings.
-     *              Empty strings are treated as NULL.
+     * @param     mixed $punteo The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
+     * @return ArchivoCalificacionQuery The current query, for fluid interface
      */
-    public function filterByCreatedAt($createdAt = null, $comparison = null)
+    public function filterByPunteo($punteo = null, $comparison = null)
     {
-        if (is_array($createdAt)) {
+        if (is_array($punteo)) {
             $useMinMax = false;
-            if (isset($createdAt['min'])) {
-                $this->addUsingAlias(ArchivoComentarioPeer::CREATED_AT, $createdAt['min'], Criteria::GREATER_EQUAL);
+            if (isset($punteo['min'])) {
+                $this->addUsingAlias(ArchivoCalificacionPeer::PUNTEO, $punteo['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($createdAt['max'])) {
-                $this->addUsingAlias(ArchivoComentarioPeer::CREATED_AT, $createdAt['max'], Criteria::LESS_EQUAL);
+            if (isset($punteo['max'])) {
+                $this->addUsingAlias(ArchivoCalificacionPeer::PUNTEO, $punteo['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -387,108 +373,7 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArchivoComentarioPeer::CREATED_AT, $createdAt, $comparison);
-    }
-
-    /**
-     * Filter the query on the updated_at column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByUpdatedAt('2011-03-14'); // WHERE updated_at = '2011-03-14'
-     * $query->filterByUpdatedAt('now'); // WHERE updated_at = '2011-03-14'
-     * $query->filterByUpdatedAt(array('max' => 'yesterday')); // WHERE updated_at > '2011-03-13'
-     * </code>
-     *
-     * @param     mixed $updatedAt The value to use as filter.
-     *              Values can be integers (unix timestamps), DateTime objects, or strings.
-     *              Empty strings are treated as NULL.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
-     */
-    public function filterByUpdatedAt($updatedAt = null, $comparison = null)
-    {
-        if (is_array($updatedAt)) {
-            $useMinMax = false;
-            if (isset($updatedAt['min'])) {
-                $this->addUsingAlias(ArchivoComentarioPeer::UPDATED_AT, $updatedAt['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($updatedAt['max'])) {
-                $this->addUsingAlias(ArchivoComentarioPeer::UPDATED_AT, $updatedAt['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ArchivoComentarioPeer::UPDATED_AT, $updatedAt, $comparison);
-    }
-
-    /**
-     * Filter the query on the created_by column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByCreatedBy('fooValue');   // WHERE created_by = 'fooValue'
-     * $query->filterByCreatedBy('%fooValue%'); // WHERE created_by LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $createdBy The value to use as filter.
-     *              Accepts wildcards (* and % trigger a LIKE)
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
-     */
-    public function filterByCreatedBy($createdBy = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($createdBy)) {
-                $comparison = Criteria::IN;
-            } elseif (preg_match('/[\%\*]/', $createdBy)) {
-                $createdBy = str_replace('*', '%', $createdBy);
-                $comparison = Criteria::LIKE;
-            }
-        }
-
-        return $this->addUsingAlias(ArchivoComentarioPeer::CREATED_BY, $createdBy, $comparison);
-    }
-
-    /**
-     * Filter the query on the updated_by column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByUpdatedBy('fooValue');   // WHERE updated_by = 'fooValue'
-     * $query->filterByUpdatedBy('%fooValue%'); // WHERE updated_by LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $updatedBy The value to use as filter.
-     *              Accepts wildcards (* and % trigger a LIKE)
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
-     */
-    public function filterByUpdatedBy($updatedBy = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($updatedBy)) {
-                $comparison = Criteria::IN;
-            } elseif (preg_match('/[\%\*]/', $updatedBy)) {
-                $updatedBy = str_replace('*', '%', $updatedBy);
-                $comparison = Criteria::LIKE;
-            }
-        }
-
-        return $this->addUsingAlias(ArchivoComentarioPeer::UPDATED_BY, $updatedBy, $comparison);
+        return $this->addUsingAlias(ArchivoCalificacionPeer::PUNTEO, $punteo, $comparison);
     }
 
     /**
@@ -497,21 +382,21 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      * @param   Archivo|PropelObjectCollection $archivo The related object(s) to use as filter
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return   ArchivoComentarioQuery The current query, for fluid interface
+     * @return   ArchivoCalificacionQuery The current query, for fluid interface
      * @throws   PropelException - if the provided filter is invalid.
      */
     public function filterByArchivo($archivo, $comparison = null)
     {
         if ($archivo instanceof Archivo) {
             return $this
-                ->addUsingAlias(ArchivoComentarioPeer::ARCHIVO_ID, $archivo->getId(), $comparison);
+                ->addUsingAlias(ArchivoCalificacionPeer::ARCHIVO_ID, $archivo->getId(), $comparison);
         } elseif ($archivo instanceof PropelObjectCollection) {
             if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
 
             return $this
-                ->addUsingAlias(ArchivoComentarioPeer::ARCHIVO_ID, $archivo->toKeyValue('PrimaryKey', 'Id'), $comparison);
+                ->addUsingAlias(ArchivoCalificacionPeer::ARCHIVO_ID, $archivo->toKeyValue('PrimaryKey', 'Id'), $comparison);
         } else {
             throw new PropelException('filterByArchivo() only accepts arguments of type Archivo or PropelCollection');
         }
@@ -523,7 +408,7 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
+     * @return ArchivoCalificacionQuery The current query, for fluid interface
      */
     public function joinArchivo($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
     {
@@ -573,21 +458,21 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      * @param   Usuario|PropelObjectCollection $usuario The related object(s) to use as filter
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return   ArchivoComentarioQuery The current query, for fluid interface
+     * @return   ArchivoCalificacionQuery The current query, for fluid interface
      * @throws   PropelException - if the provided filter is invalid.
      */
     public function filterByUsuario($usuario, $comparison = null)
     {
         if ($usuario instanceof Usuario) {
             return $this
-                ->addUsingAlias(ArchivoComentarioPeer::USUARIO_ID, $usuario->getId(), $comparison);
+                ->addUsingAlias(ArchivoCalificacionPeer::USUARIO_ID, $usuario->getId(), $comparison);
         } elseif ($usuario instanceof PropelObjectCollection) {
             if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
 
             return $this
-                ->addUsingAlias(ArchivoComentarioPeer::USUARIO_ID, $usuario->toKeyValue('PrimaryKey', 'Id'), $comparison);
+                ->addUsingAlias(ArchivoCalificacionPeer::USUARIO_ID, $usuario->toKeyValue('PrimaryKey', 'Id'), $comparison);
         } else {
             throw new PropelException('filterByUsuario() only accepts arguments of type Usuario or PropelCollection');
         }
@@ -599,7 +484,7 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
+     * @return ArchivoCalificacionQuery The current query, for fluid interface
      */
     public function joinUsuario($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
     {
@@ -646,14 +531,14 @@ abstract class BaseArchivoComentarioQuery extends ModelCriteria
     /**
      * Exclude object from result
      *
-     * @param   ArchivoComentario $archivoComentario Object to remove from the list of results
+     * @param   ArchivoCalificacion $archivoCalificacion Object to remove from the list of results
      *
-     * @return ArchivoComentarioQuery The current query, for fluid interface
+     * @return ArchivoCalificacionQuery The current query, for fluid interface
      */
-    public function prune($archivoComentario = null)
+    public function prune($archivoCalificacion = null)
     {
-        if ($archivoComentario) {
-            $this->addUsingAlias(ArchivoComentarioPeer::ID, $archivoComentario->getId(), Criteria::NOT_EQUAL);
+        if ($archivoCalificacion) {
+            $this->addUsingAlias(ArchivoCalificacionPeer::ID, $archivoCalificacion->getId(), Criteria::NOT_EQUAL);
         }
 
         return $this;

@@ -174,3 +174,8 @@ propel:
     updated_at:                        ~
     created_by:                        { type: varchar(32) }
     updated_by:                        { type: varchar(32) }
+  archivo_calificacion:
+    id:                                ~
+    archivo_id:                        ~
+    usuario_id:                        ~
+    punteo:                            { type: integer }

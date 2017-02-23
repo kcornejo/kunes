@@ -23,7 +23,7 @@
                                     Tu explorador no es compatible
                                 </audio> 
                             <?php elseif ($Archivo->getExtension() == 'jpg' || $Archivo->getExtension() == 'png'): ?>
-                            <img style="width:100%;" class="col-md-12" src="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>"/>
+                                <img style="width:100%;" class="col-md-12" src="/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>"/>
                             <?php else: ?>
                                 <iframe src="http://docs.google.com/viewer?url=http://anarchivos.com/web/uploads/carga_archivos/<?php echo $Archivo->getNombreArchivoActual() ?>&amp;embedded=true" width="100%" height="780"></iframe>
                             <?php endif; ?>
@@ -59,11 +59,24 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
+                                <h3>Profesor: <?php echo $Archivo->getProfesoresId() ? $Archivo->getProfesores()->getNombreCompleto() : "[Sin Profesor Asignado]" ?></h3>
+
+                            </div>
+                            <div class="col-md-12">
                                 <h3>Calificacion</h3>
                                 <hr/>
-                                <div class="kenStars">
-
+                                <div class="kenStars" url_envio="<?php echo url_for("archivo/calificacion") . "?id=" . $Archivo->getId() ?>" punteo="
+                                <?php
+                                $punteo = 0;
+                                if ($Archivo->getRating() > 0 && $Archivo->getCantidadRating() > 0) {
+                                    $punteo = $Archivo->getRating() / $Archivo->getCantidadRating();
+                                };
+                                echo $punteo;
+                                ?>">
                                 </div>
+                                <span class="help-block">
+                                    Cantidad de veces punteado <?php echo $Archivo->getCantidadRating() > 0 ? $Archivo->getCantidadRating() : '0' ?>
+                                </span>
                             </div>
                             <div class="col-md-12">
                                 <h3>Datos del Usuario</h3>

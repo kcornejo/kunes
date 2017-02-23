@@ -2,7 +2,7 @@
 
 
 /**
- * Base static class for performing query and update operations on the 'archivo_comentario' table.
+ * Base static class for performing query and update operations on the 'archivo_calificacion' table.
  *
  *
  *
@@ -12,59 +12,50 @@
  *
  * @package propel.generator.lib.model.om
  */
-abstract class BaseArchivoComentarioPeer
+abstract class BaseArchivoCalificacionPeer
 {
 
     /** the default database name for this class */
     const DATABASE_NAME = 'propel';
 
     /** the table name for this class */
-    const TABLE_NAME = 'archivo_comentario';
+    const TABLE_NAME = 'archivo_calificacion';
 
     /** the related Propel class for this table */
-    const OM_CLASS = 'ArchivoComentario';
+    const OM_CLASS = 'ArchivoCalificacion';
 
     /** the related TableMap class for this table */
-    const TM_CLASS = 'ArchivoComentarioTableMap';
+    const TM_CLASS = 'ArchivoCalificacionTableMap';
 
     /** The total number of columns. */
-    const NUM_COLUMNS = 7;
+    const NUM_COLUMNS = 4;
 
     /** The number of lazy-loaded columns. */
     const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /** The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS) */
-    const NUM_HYDRATE_COLUMNS = 7;
+    const NUM_HYDRATE_COLUMNS = 4;
 
     /** the column name for the ID field */
-    const ID = 'archivo_comentario.ID';
+    const ID = 'archivo_calificacion.ID';
 
     /** the column name for the ARCHIVO_ID field */
-    const ARCHIVO_ID = 'archivo_comentario.ARCHIVO_ID';
+    const ARCHIVO_ID = 'archivo_calificacion.ARCHIVO_ID';
 
     /** the column name for the USUARIO_ID field */
-    const USUARIO_ID = 'archivo_comentario.USUARIO_ID';
+    const USUARIO_ID = 'archivo_calificacion.USUARIO_ID';
 
-    /** the column name for the CREATED_AT field */
-    const CREATED_AT = 'archivo_comentario.CREATED_AT';
-
-    /** the column name for the UPDATED_AT field */
-    const UPDATED_AT = 'archivo_comentario.UPDATED_AT';
-
-    /** the column name for the CREATED_BY field */
-    const CREATED_BY = 'archivo_comentario.CREATED_BY';
-
-    /** the column name for the UPDATED_BY field */
-    const UPDATED_BY = 'archivo_comentario.UPDATED_BY';
+    /** the column name for the PUNTEO field */
+    const PUNTEO = 'archivo_calificacion.PUNTEO';
 
     /** The default string format for model objects of the related table **/
     const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
-     * An identiy map to hold any loaded instances of ArchivoComentario objects.
+     * An identiy map to hold any loaded instances of ArchivoCalificacion objects.
      * This must be public so that other peer classes can access this when hydrating from JOIN
      * queries.
-     * @var        array ArchivoComentario[]
+     * @var        array ArchivoCalificacion[]
      */
     public static $instances = array();
 
@@ -73,30 +64,30 @@ abstract class BaseArchivoComentarioPeer
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
-     * e.g. ArchivoComentarioPeer::$fieldNames[ArchivoComentarioPeer::TYPE_PHPNAME][0] = 'Id'
+     * e.g. ArchivoCalificacionPeer::$fieldNames[ArchivoCalificacionPeer::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        BasePeer::TYPE_PHPNAME => array ('Id', 'ArchivoId', 'UsuarioId', 'CreatedAt', 'UpdatedAt', 'CreatedBy', 'UpdatedBy', ),
-        BasePeer::TYPE_STUDLYPHPNAME => array ('id', 'archivoId', 'usuarioId', 'createdAt', 'updatedAt', 'createdBy', 'updatedBy', ),
-        BasePeer::TYPE_COLNAME => array (ArchivoComentarioPeer::ID, ArchivoComentarioPeer::ARCHIVO_ID, ArchivoComentarioPeer::USUARIO_ID, ArchivoComentarioPeer::CREATED_AT, ArchivoComentarioPeer::UPDATED_AT, ArchivoComentarioPeer::CREATED_BY, ArchivoComentarioPeer::UPDATED_BY, ),
-        BasePeer::TYPE_RAW_COLNAME => array ('ID', 'ARCHIVO_ID', 'USUARIO_ID', 'CREATED_AT', 'UPDATED_AT', 'CREATED_BY', 'UPDATED_BY', ),
-        BasePeer::TYPE_FIELDNAME => array ('id', 'archivo_id', 'usuario_id', 'created_at', 'updated_at', 'created_by', 'updated_by', ),
-        BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, )
+        BasePeer::TYPE_PHPNAME => array ('Id', 'ArchivoId', 'UsuarioId', 'Punteo', ),
+        BasePeer::TYPE_STUDLYPHPNAME => array ('id', 'archivoId', 'usuarioId', 'punteo', ),
+        BasePeer::TYPE_COLNAME => array (ArchivoCalificacionPeer::ID, ArchivoCalificacionPeer::ARCHIVO_ID, ArchivoCalificacionPeer::USUARIO_ID, ArchivoCalificacionPeer::PUNTEO, ),
+        BasePeer::TYPE_RAW_COLNAME => array ('ID', 'ARCHIVO_ID', 'USUARIO_ID', 'PUNTEO', ),
+        BasePeer::TYPE_FIELDNAME => array ('id', 'archivo_id', 'usuario_id', 'punteo', ),
+        BasePeer::TYPE_NUM => array (0, 1, 2, 3, )
     );
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
-     * e.g. ArchivoComentarioPeer::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
+     * e.g. ArchivoCalificacionPeer::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        BasePeer::TYPE_PHPNAME => array ('Id' => 0, 'ArchivoId' => 1, 'UsuarioId' => 2, 'CreatedAt' => 3, 'UpdatedAt' => 4, 'CreatedBy' => 5, 'UpdatedBy' => 6, ),
-        BasePeer::TYPE_STUDLYPHPNAME => array ('id' => 0, 'archivoId' => 1, 'usuarioId' => 2, 'createdAt' => 3, 'updatedAt' => 4, 'createdBy' => 5, 'updatedBy' => 6, ),
-        BasePeer::TYPE_COLNAME => array (ArchivoComentarioPeer::ID => 0, ArchivoComentarioPeer::ARCHIVO_ID => 1, ArchivoComentarioPeer::USUARIO_ID => 2, ArchivoComentarioPeer::CREATED_AT => 3, ArchivoComentarioPeer::UPDATED_AT => 4, ArchivoComentarioPeer::CREATED_BY => 5, ArchivoComentarioPeer::UPDATED_BY => 6, ),
-        BasePeer::TYPE_RAW_COLNAME => array ('ID' => 0, 'ARCHIVO_ID' => 1, 'USUARIO_ID' => 2, 'CREATED_AT' => 3, 'UPDATED_AT' => 4, 'CREATED_BY' => 5, 'UPDATED_BY' => 6, ),
-        BasePeer::TYPE_FIELDNAME => array ('id' => 0, 'archivo_id' => 1, 'usuario_id' => 2, 'created_at' => 3, 'updated_at' => 4, 'created_by' => 5, 'updated_by' => 6, ),
-        BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, )
+        BasePeer::TYPE_PHPNAME => array ('Id' => 0, 'ArchivoId' => 1, 'UsuarioId' => 2, 'Punteo' => 3, ),
+        BasePeer::TYPE_STUDLYPHPNAME => array ('id' => 0, 'archivoId' => 1, 'usuarioId' => 2, 'punteo' => 3, ),
+        BasePeer::TYPE_COLNAME => array (ArchivoCalificacionPeer::ID => 0, ArchivoCalificacionPeer::ARCHIVO_ID => 1, ArchivoCalificacionPeer::USUARIO_ID => 2, ArchivoCalificacionPeer::PUNTEO => 3, ),
+        BasePeer::TYPE_RAW_COLNAME => array ('ID' => 0, 'ARCHIVO_ID' => 1, 'USUARIO_ID' => 2, 'PUNTEO' => 3, ),
+        BasePeer::TYPE_FIELDNAME => array ('id' => 0, 'archivo_id' => 1, 'usuario_id' => 2, 'punteo' => 3, ),
+        BasePeer::TYPE_NUM => array (0, 1, 2, 3, )
     );
 
     /**
@@ -111,10 +102,10 @@ abstract class BaseArchivoComentarioPeer
      */
     public static function translateFieldName($name, $fromType, $toType)
     {
-        $toNames = ArchivoComentarioPeer::getFieldNames($toType);
-        $key = isset(ArchivoComentarioPeer::$fieldKeys[$fromType][$name]) ? ArchivoComentarioPeer::$fieldKeys[$fromType][$name] : null;
+        $toNames = ArchivoCalificacionPeer::getFieldNames($toType);
+        $key = isset(ArchivoCalificacionPeer::$fieldKeys[$fromType][$name]) ? ArchivoCalificacionPeer::$fieldKeys[$fromType][$name] : null;
         if ($key === null) {
-            throw new PropelException("'$name' could not be found in the field names of type '$fromType'. These are: " . print_r(ArchivoComentarioPeer::$fieldKeys[$fromType], true));
+            throw new PropelException("'$name' could not be found in the field names of type '$fromType'. These are: " . print_r(ArchivoCalificacionPeer::$fieldKeys[$fromType], true));
         }
 
         return $toNames[$key];
@@ -131,11 +122,11 @@ abstract class BaseArchivoComentarioPeer
      */
     public static function getFieldNames($type = BasePeer::TYPE_PHPNAME)
     {
-        if (!array_key_exists($type, ArchivoComentarioPeer::$fieldNames)) {
+        if (!array_key_exists($type, ArchivoCalificacionPeer::$fieldNames)) {
             throw new PropelException('Method getFieldNames() expects the parameter $type to be one of the class constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME, BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM. ' . $type . ' was given.');
         }
 
-        return ArchivoComentarioPeer::$fieldNames[$type];
+        return ArchivoCalificacionPeer::$fieldNames[$type];
     }
 
     /**
@@ -147,12 +138,12 @@ abstract class BaseArchivoComentarioPeer
      *		$c->addJoin(TablePeer::alias("alias1", TablePeer::PRIMARY_KEY_COLUMN), TablePeer::PRIMARY_KEY_COLUMN);
      * </code>
      * @param      string $alias The alias for the current table.
-     * @param      string $column The column name for current table. (i.e. ArchivoComentarioPeer::COLUMN_NAME).
+     * @param      string $column The column name for current table. (i.e. ArchivoCalificacionPeer::COLUMN_NAME).
      * @return string
      */
     public static function alias($alias, $column)
     {
-        return str_replace(ArchivoComentarioPeer::TABLE_NAME.'.', $alias.'.', $column);
+        return str_replace(ArchivoCalificacionPeer::TABLE_NAME.'.', $alias.'.', $column);
     }
 
     /**
@@ -170,21 +161,15 @@ abstract class BaseArchivoComentarioPeer
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(ArchivoComentarioPeer::ID);
-            $criteria->addSelectColumn(ArchivoComentarioPeer::ARCHIVO_ID);
-            $criteria->addSelectColumn(ArchivoComentarioPeer::USUARIO_ID);
-            $criteria->addSelectColumn(ArchivoComentarioPeer::CREATED_AT);
-            $criteria->addSelectColumn(ArchivoComentarioPeer::UPDATED_AT);
-            $criteria->addSelectColumn(ArchivoComentarioPeer::CREATED_BY);
-            $criteria->addSelectColumn(ArchivoComentarioPeer::UPDATED_BY);
+            $criteria->addSelectColumn(ArchivoCalificacionPeer::ID);
+            $criteria->addSelectColumn(ArchivoCalificacionPeer::ARCHIVO_ID);
+            $criteria->addSelectColumn(ArchivoCalificacionPeer::USUARIO_ID);
+            $criteria->addSelectColumn(ArchivoCalificacionPeer::PUNTEO);
         } else {
             $criteria->addSelectColumn($alias . '.ID');
             $criteria->addSelectColumn($alias . '.ARCHIVO_ID');
             $criteria->addSelectColumn($alias . '.USUARIO_ID');
-            $criteria->addSelectColumn($alias . '.CREATED_AT');
-            $criteria->addSelectColumn($alias . '.UPDATED_AT');
-            $criteria->addSelectColumn($alias . '.CREATED_BY');
-            $criteria->addSelectColumn($alias . '.UPDATED_BY');
+            $criteria->addSelectColumn($alias . '.PUNTEO');
         }
     }
 
@@ -204,26 +189,26 @@ abstract class BaseArchivoComentarioPeer
         // We need to set the primary table name, since in the case that there are no WHERE columns
         // it will be impossible for the BasePeer::createSelectSql() method to determine which
         // tables go into the FROM clause.
-        $criteria->setPrimaryTableName(ArchivoComentarioPeer::TABLE_NAME);
+        $criteria->setPrimaryTableName(ArchivoCalificacionPeer::TABLE_NAME);
 
         if ($distinct && !in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
             $criteria->setDistinct();
         }
 
         if (!$criteria->hasSelectClause()) {
-            ArchivoComentarioPeer::addSelectColumns($criteria);
+            ArchivoCalificacionPeer::addSelectColumns($criteria);
         }
 
         $criteria->clearOrderByColumns(); // ORDER BY won't ever affect the count
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME); // Set the correct dbName
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME); // Set the correct dbName
 
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
         // BasePeer returns a PDOStatement
@@ -243,7 +228,7 @@ abstract class BaseArchivoComentarioPeer
      *
      * @param      Criteria $criteria object used to create the SELECT statement.
      * @param      PropelPDO $con
-     * @return                 ArchivoComentario
+     * @return                 ArchivoCalificacion
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
      */
@@ -251,7 +236,7 @@ abstract class BaseArchivoComentarioPeer
     {
         $critcopy = clone $criteria;
         $critcopy->setLimit(1);
-        $objects = ArchivoComentarioPeer::doSelect($critcopy, $con);
+        $objects = ArchivoCalificacionPeer::doSelect($critcopy, $con);
         if ($objects) {
             return $objects[0];
         }
@@ -269,7 +254,7 @@ abstract class BaseArchivoComentarioPeer
      */
     public static function doSelect(Criteria $criteria, PropelPDO $con = null)
     {
-        return ArchivoComentarioPeer::populateObjects(ArchivoComentarioPeer::doSelectStmt($criteria, $con));
+        return ArchivoCalificacionPeer::populateObjects(ArchivoCalificacionPeer::doSelectStmt($criteria, $con));
     }
     /**
      * Prepares the Criteria object and uses the parent doSelect() method to execute a PDOStatement.
@@ -287,20 +272,20 @@ abstract class BaseArchivoComentarioPeer
     public static function doSelectStmt(Criteria $criteria, PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
         if (!$criteria->hasSelectClause()) {
             $criteria = clone $criteria;
-            ArchivoComentarioPeer::addSelectColumns($criteria);
+            ArchivoCalificacionPeer::addSelectColumns($criteria);
         }
 
         // Set the correct dbName
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
 
@@ -316,7 +301,7 @@ abstract class BaseArchivoComentarioPeer
      * to the cache in order to ensure that the same objects are always returned by doSelect*()
      * and retrieveByPK*() calls.
      *
-     * @param      ArchivoComentario $obj A ArchivoComentario object.
+     * @param      ArchivoCalificacion $obj A ArchivoCalificacion object.
      * @param      string $key (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -325,7 +310,7 @@ abstract class BaseArchivoComentarioPeer
             if ($key === null) {
                 $key = (string) $obj->getId();
             } // if key === null
-            ArchivoComentarioPeer::$instances[$key] = $obj;
+            ArchivoCalificacionPeer::$instances[$key] = $obj;
         }
     }
 
@@ -337,7 +322,7 @@ abstract class BaseArchivoComentarioPeer
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param      mixed $value A ArchivoComentario object or a primary key value.
+     * @param      mixed $value A ArchivoCalificacion object or a primary key value.
      *
      * @return void
      * @throws PropelException - if the value is invalid.
@@ -345,17 +330,17 @@ abstract class BaseArchivoComentarioPeer
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && $value !== null) {
-            if (is_object($value) && $value instanceof ArchivoComentario) {
+            if (is_object($value) && $value instanceof ArchivoCalificacion) {
                 $key = (string) $value->getId();
             } elseif (is_scalar($value)) {
                 // assume we've been passed a primary key
                 $key = (string) $value;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or ArchivoComentario object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value,true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or ArchivoCalificacion object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value,true)));
                 throw $e;
             }
 
-            unset(ArchivoComentarioPeer::$instances[$key]);
+            unset(ArchivoCalificacionPeer::$instances[$key]);
         }
     } // removeInstanceFromPool()
 
@@ -366,14 +351,14 @@ abstract class BaseArchivoComentarioPeer
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
      * @param      string $key The key (@see getPrimaryKeyHash()) for this instance.
-     * @return   ArchivoComentario Found object or null if 1) no instance exists for specified key or 2) instance pooling has been disabled.
+     * @return   ArchivoCalificacion Found object or null if 1) no instance exists for specified key or 2) instance pooling has been disabled.
      * @see        getPrimaryKeyHash()
      */
     public static function getInstanceFromPool($key)
     {
         if (Propel::isInstancePoolingEnabled()) {
-            if (isset(ArchivoComentarioPeer::$instances[$key])) {
-                return ArchivoComentarioPeer::$instances[$key];
+            if (isset(ArchivoCalificacionPeer::$instances[$key])) {
+                return ArchivoCalificacionPeer::$instances[$key];
             }
         }
 
@@ -387,11 +372,11 @@ abstract class BaseArchivoComentarioPeer
      */
     public static function clearInstancePool()
     {
-        ArchivoComentarioPeer::$instances = array();
+        ArchivoCalificacionPeer::$instances = array();
     }
 
     /**
-     * Method to invalidate the instance pool of all tables related to archivo_comentario
+     * Method to invalidate the instance pool of all tables related to archivo_calificacion
      * by a foreign key with ON DELETE CASCADE
      */
     public static function clearRelatedInstancePool()
@@ -445,11 +430,11 @@ abstract class BaseArchivoComentarioPeer
         $results = array();
 
         // set the class once to avoid overhead in the loop
-        $cls = ArchivoComentarioPeer::getOMClass();
+        $cls = ArchivoCalificacionPeer::getOMClass();
         // populate the object(s)
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $key = ArchivoComentarioPeer::getPrimaryKeyHashFromRow($row, 0);
-            if (null !== ($obj = ArchivoComentarioPeer::getInstanceFromPool($key))) {
+            $key = ArchivoCalificacionPeer::getPrimaryKeyHashFromRow($row, 0);
+            if (null !== ($obj = ArchivoCalificacionPeer::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
@@ -458,7 +443,7 @@ abstract class BaseArchivoComentarioPeer
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                ArchivoComentarioPeer::addInstanceToPool($obj, $key);
+                ArchivoCalificacionPeer::addInstanceToPool($obj, $key);
             } // if key exists
         }
         $stmt->closeCursor();
@@ -472,21 +457,21 @@ abstract class BaseArchivoComentarioPeer
      * @param      int $startcol The 0-based offset for reading from the resultset row.
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
-     * @return array (ArchivoComentario object, last column rank)
+     * @return array (ArchivoCalificacion object, last column rank)
      */
     public static function populateObject($row, $startcol = 0)
     {
-        $key = ArchivoComentarioPeer::getPrimaryKeyHashFromRow($row, $startcol);
-        if (null !== ($obj = ArchivoComentarioPeer::getInstanceFromPool($key))) {
+        $key = ArchivoCalificacionPeer::getPrimaryKeyHashFromRow($row, $startcol);
+        if (null !== ($obj = ArchivoCalificacionPeer::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $startcol, true); // rehydrate
-            $col = $startcol + ArchivoComentarioPeer::NUM_HYDRATE_COLUMNS;
+            $col = $startcol + ArchivoCalificacionPeer::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = ArchivoComentarioPeer::OM_CLASS;
+            $cls = ArchivoCalificacionPeer::OM_CLASS;
             $obj = new $cls();
             $col = $obj->hydrate($row, $startcol);
-            ArchivoComentarioPeer::addInstanceToPool($obj, $key);
+            ArchivoCalificacionPeer::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -510,31 +495,31 @@ abstract class BaseArchivoComentarioPeer
         // We need to set the primary table name, since in the case that there are no WHERE columns
         // it will be impossible for the BasePeer::createSelectSql() method to determine which
         // tables go into the FROM clause.
-        $criteria->setPrimaryTableName(ArchivoComentarioPeer::TABLE_NAME);
+        $criteria->setPrimaryTableName(ArchivoCalificacionPeer::TABLE_NAME);
 
         if ($distinct && !in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
             $criteria->setDistinct();
         }
 
         if (!$criteria->hasSelectClause()) {
-            ArchivoComentarioPeer::addSelectColumns($criteria);
+            ArchivoCalificacionPeer::addSelectColumns($criteria);
         }
 
         $criteria->clearOrderByColumns(); // ORDER BY won't ever affect the count
 
         // Set the correct dbName
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
 
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
-        $criteria->addJoin(ArchivoComentarioPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
         $stmt = BasePeer::doCount($criteria, $con);
@@ -567,31 +552,31 @@ abstract class BaseArchivoComentarioPeer
         // We need to set the primary table name, since in the case that there are no WHERE columns
         // it will be impossible for the BasePeer::createSelectSql() method to determine which
         // tables go into the FROM clause.
-        $criteria->setPrimaryTableName(ArchivoComentarioPeer::TABLE_NAME);
+        $criteria->setPrimaryTableName(ArchivoCalificacionPeer::TABLE_NAME);
 
         if ($distinct && !in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
             $criteria->setDistinct();
         }
 
         if (!$criteria->hasSelectClause()) {
-            ArchivoComentarioPeer::addSelectColumns($criteria);
+            ArchivoCalificacionPeer::addSelectColumns($criteria);
         }
 
         $criteria->clearOrderByColumns(); // ORDER BY won't ever affect the count
 
         // Set the correct dbName
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
 
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
-        $criteria->addJoin(ArchivoComentarioPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
         $stmt = BasePeer::doCount($criteria, $con);
@@ -608,11 +593,11 @@ abstract class BaseArchivoComentarioPeer
 
 
     /**
-     * Selects a collection of ArchivoComentario objects pre-filled with their Archivo objects.
+     * Selects a collection of ArchivoCalificacion objects pre-filled with their Archivo objects.
      * @param      Criteria  $criteria
      * @param      PropelPDO $con
      * @param      String    $join_behavior the type of joins to use, defaults to Criteria::LEFT_JOIN
-     * @return array           Array of ArchivoComentario objects.
+     * @return array           Array of ArchivoCalificacion objects.
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
      */
@@ -622,37 +607,37 @@ abstract class BaseArchivoComentarioPeer
 
         // Set the correct dbName if it has not been overridden
         if ($criteria->getDbName() == Propel::getDefaultDB()) {
-            $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+            $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
         }
 
-        ArchivoComentarioPeer::addSelectColumns($criteria);
-        $startcol = ArchivoComentarioPeer::NUM_HYDRATE_COLUMNS;
+        ArchivoCalificacionPeer::addSelectColumns($criteria);
+        $startcol = ArchivoCalificacionPeer::NUM_HYDRATE_COLUMNS;
         ArchivoPeer::addSelectColumns($criteria);
 
-        $criteria->addJoin(ArchivoComentarioPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
         $stmt = BasePeer::doSelect($criteria, $con);
         $results = array();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $key1 = ArchivoComentarioPeer::getPrimaryKeyHashFromRow($row, 0);
-            if (null !== ($obj1 = ArchivoComentarioPeer::getInstanceFromPool($key1))) {
+            $key1 = ArchivoCalificacionPeer::getPrimaryKeyHashFromRow($row, 0);
+            if (null !== ($obj1 = ArchivoCalificacionPeer::getInstanceFromPool($key1))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj1->hydrate($row, 0, true); // rehydrate
             } else {
 
-                $cls = ArchivoComentarioPeer::getOMClass();
+                $cls = ArchivoCalificacionPeer::getOMClass();
 
                 $obj1 = new $cls();
                 $obj1->hydrate($row);
-                ArchivoComentarioPeer::addInstanceToPool($obj1, $key1);
+                ArchivoCalificacionPeer::addInstanceToPool($obj1, $key1);
             } // if $obj1 already loaded
 
             $key2 = ArchivoPeer::getPrimaryKeyHashFromRow($row, $startcol);
@@ -667,8 +652,8 @@ abstract class BaseArchivoComentarioPeer
                     ArchivoPeer::addInstanceToPool($obj2, $key2);
                 } // if obj2 already loaded
 
-                // Add the $obj1 (ArchivoComentario) to $obj2 (Archivo)
-                $obj2->addArchivoComentario($obj1);
+                // Add the $obj1 (ArchivoCalificacion) to $obj2 (Archivo)
+                $obj2->addArchivoCalificacion($obj1);
 
             } // if joined row was not null
 
@@ -681,11 +666,11 @@ abstract class BaseArchivoComentarioPeer
 
 
     /**
-     * Selects a collection of ArchivoComentario objects pre-filled with their Usuario objects.
+     * Selects a collection of ArchivoCalificacion objects pre-filled with their Usuario objects.
      * @param      Criteria  $criteria
      * @param      PropelPDO $con
      * @param      String    $join_behavior the type of joins to use, defaults to Criteria::LEFT_JOIN
-     * @return array           Array of ArchivoComentario objects.
+     * @return array           Array of ArchivoCalificacion objects.
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
      */
@@ -695,37 +680,37 @@ abstract class BaseArchivoComentarioPeer
 
         // Set the correct dbName if it has not been overridden
         if ($criteria->getDbName() == Propel::getDefaultDB()) {
-            $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+            $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
         }
 
-        ArchivoComentarioPeer::addSelectColumns($criteria);
-        $startcol = ArchivoComentarioPeer::NUM_HYDRATE_COLUMNS;
+        ArchivoCalificacionPeer::addSelectColumns($criteria);
+        $startcol = ArchivoCalificacionPeer::NUM_HYDRATE_COLUMNS;
         UsuarioPeer::addSelectColumns($criteria);
 
-        $criteria->addJoin(ArchivoComentarioPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
         $stmt = BasePeer::doSelect($criteria, $con);
         $results = array();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $key1 = ArchivoComentarioPeer::getPrimaryKeyHashFromRow($row, 0);
-            if (null !== ($obj1 = ArchivoComentarioPeer::getInstanceFromPool($key1))) {
+            $key1 = ArchivoCalificacionPeer::getPrimaryKeyHashFromRow($row, 0);
+            if (null !== ($obj1 = ArchivoCalificacionPeer::getInstanceFromPool($key1))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj1->hydrate($row, 0, true); // rehydrate
             } else {
 
-                $cls = ArchivoComentarioPeer::getOMClass();
+                $cls = ArchivoCalificacionPeer::getOMClass();
 
                 $obj1 = new $cls();
                 $obj1->hydrate($row);
-                ArchivoComentarioPeer::addInstanceToPool($obj1, $key1);
+                ArchivoCalificacionPeer::addInstanceToPool($obj1, $key1);
             } // if $obj1 already loaded
 
             $key2 = UsuarioPeer::getPrimaryKeyHashFromRow($row, $startcol);
@@ -740,8 +725,8 @@ abstract class BaseArchivoComentarioPeer
                     UsuarioPeer::addInstanceToPool($obj2, $key2);
                 } // if obj2 already loaded
 
-                // Add the $obj1 (ArchivoComentario) to $obj2 (Usuario)
-                $obj2->addArchivoComentario($obj1);
+                // Add the $obj1 (ArchivoCalificacion) to $obj2 (Usuario)
+                $obj2->addArchivoCalificacion($obj1);
 
             } // if joined row was not null
 
@@ -770,33 +755,33 @@ abstract class BaseArchivoComentarioPeer
         // We need to set the primary table name, since in the case that there are no WHERE columns
         // it will be impossible for the BasePeer::createSelectSql() method to determine which
         // tables go into the FROM clause.
-        $criteria->setPrimaryTableName(ArchivoComentarioPeer::TABLE_NAME);
+        $criteria->setPrimaryTableName(ArchivoCalificacionPeer::TABLE_NAME);
 
         if ($distinct && !in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
             $criteria->setDistinct();
         }
 
         if (!$criteria->hasSelectClause()) {
-            ArchivoComentarioPeer::addSelectColumns($criteria);
+            ArchivoCalificacionPeer::addSelectColumns($criteria);
         }
 
         $criteria->clearOrderByColumns(); // ORDER BY won't ever affect the count
 
         // Set the correct dbName
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
 
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
-        $criteria->addJoin(ArchivoComentarioPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
 
-        $criteria->addJoin(ArchivoComentarioPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
         $stmt = BasePeer::doCount($criteria, $con);
@@ -812,12 +797,12 @@ abstract class BaseArchivoComentarioPeer
     }
 
     /**
-     * Selects a collection of ArchivoComentario objects pre-filled with all related objects.
+     * Selects a collection of ArchivoCalificacion objects pre-filled with all related objects.
      *
      * @param      Criteria  $criteria
      * @param      PropelPDO $con
      * @param      String    $join_behavior the type of joins to use, defaults to Criteria::LEFT_JOIN
-     * @return array           Array of ArchivoComentario objects.
+     * @return array           Array of ArchivoCalificacion objects.
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
      */
@@ -827,11 +812,11 @@ abstract class BaseArchivoComentarioPeer
 
         // Set the correct dbName if it has not been overridden
         if ($criteria->getDbName() == Propel::getDefaultDB()) {
-            $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+            $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
         }
 
-        ArchivoComentarioPeer::addSelectColumns($criteria);
-        $startcol2 = ArchivoComentarioPeer::NUM_HYDRATE_COLUMNS;
+        ArchivoCalificacionPeer::addSelectColumns($criteria);
+        $startcol2 = ArchivoCalificacionPeer::NUM_HYDRATE_COLUMNS;
 
         ArchivoPeer::addSelectColumns($criteria);
         $startcol3 = $startcol2 + ArchivoPeer::NUM_HYDRATE_COLUMNS;
@@ -839,31 +824,31 @@ abstract class BaseArchivoComentarioPeer
         UsuarioPeer::addSelectColumns($criteria);
         $startcol4 = $startcol3 + UsuarioPeer::NUM_HYDRATE_COLUMNS;
 
-        $criteria->addJoin(ArchivoComentarioPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
 
-        $criteria->addJoin(ArchivoComentarioPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
         $stmt = BasePeer::doSelect($criteria, $con);
         $results = array();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $key1 = ArchivoComentarioPeer::getPrimaryKeyHashFromRow($row, 0);
-            if (null !== ($obj1 = ArchivoComentarioPeer::getInstanceFromPool($key1))) {
+            $key1 = ArchivoCalificacionPeer::getPrimaryKeyHashFromRow($row, 0);
+            if (null !== ($obj1 = ArchivoCalificacionPeer::getInstanceFromPool($key1))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj1->hydrate($row, 0, true); // rehydrate
             } else {
-                $cls = ArchivoComentarioPeer::getOMClass();
+                $cls = ArchivoCalificacionPeer::getOMClass();
 
                 $obj1 = new $cls();
                 $obj1->hydrate($row);
-                ArchivoComentarioPeer::addInstanceToPool($obj1, $key1);
+                ArchivoCalificacionPeer::addInstanceToPool($obj1, $key1);
             } // if obj1 already loaded
 
             // Add objects for joined Archivo rows
@@ -880,8 +865,8 @@ abstract class BaseArchivoComentarioPeer
                     ArchivoPeer::addInstanceToPool($obj2, $key2);
                 } // if obj2 loaded
 
-                // Add the $obj1 (ArchivoComentario) to the collection in $obj2 (Archivo)
-                $obj2->addArchivoComentario($obj1);
+                // Add the $obj1 (ArchivoCalificacion) to the collection in $obj2 (Archivo)
+                $obj2->addArchivoCalificacion($obj1);
             } // if joined row not null
 
             // Add objects for joined Usuario rows
@@ -898,8 +883,8 @@ abstract class BaseArchivoComentarioPeer
                     UsuarioPeer::addInstanceToPool($obj3, $key3);
                 } // if obj3 loaded
 
-                // Add the $obj1 (ArchivoComentario) to the collection in $obj3 (Usuario)
-                $obj3->addArchivoComentario($obj1);
+                // Add the $obj1 (ArchivoCalificacion) to the collection in $obj3 (Usuario)
+                $obj3->addArchivoCalificacion($obj1);
             } // if joined row not null
 
             $results[] = $obj1;
@@ -927,31 +912,31 @@ abstract class BaseArchivoComentarioPeer
         // We need to set the primary table name, since in the case that there are no WHERE columns
         // it will be impossible for the BasePeer::createSelectSql() method to determine which
         // tables go into the FROM clause.
-        $criteria->setPrimaryTableName(ArchivoComentarioPeer::TABLE_NAME);
+        $criteria->setPrimaryTableName(ArchivoCalificacionPeer::TABLE_NAME);
 
         if ($distinct && !in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
             $criteria->setDistinct();
         }
 
         if (!$criteria->hasSelectClause()) {
-            ArchivoComentarioPeer::addSelectColumns($criteria);
+            ArchivoCalificacionPeer::addSelectColumns($criteria);
         }
 
         $criteria->clearOrderByColumns(); // ORDER BY should not affect count
 
         // Set the correct dbName
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
 
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
-        $criteria->addJoin(ArchivoComentarioPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
         $stmt = BasePeer::doCount($criteria, $con);
@@ -984,31 +969,31 @@ abstract class BaseArchivoComentarioPeer
         // We need to set the primary table name, since in the case that there are no WHERE columns
         // it will be impossible for the BasePeer::createSelectSql() method to determine which
         // tables go into the FROM clause.
-        $criteria->setPrimaryTableName(ArchivoComentarioPeer::TABLE_NAME);
+        $criteria->setPrimaryTableName(ArchivoCalificacionPeer::TABLE_NAME);
 
         if ($distinct && !in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
             $criteria->setDistinct();
         }
 
         if (!$criteria->hasSelectClause()) {
-            ArchivoComentarioPeer::addSelectColumns($criteria);
+            ArchivoCalificacionPeer::addSelectColumns($criteria);
         }
 
         $criteria->clearOrderByColumns(); // ORDER BY should not affect count
 
         // Set the correct dbName
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
 
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
-        $criteria->addJoin(ArchivoComentarioPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
         $stmt = BasePeer::doCount($criteria, $con);
@@ -1025,12 +1010,12 @@ abstract class BaseArchivoComentarioPeer
 
 
     /**
-     * Selects a collection of ArchivoComentario objects pre-filled with all related objects except Archivo.
+     * Selects a collection of ArchivoCalificacion objects pre-filled with all related objects except Archivo.
      *
      * @param      Criteria  $criteria
      * @param      PropelPDO $con
      * @param      String    $join_behavior the type of joins to use, defaults to Criteria::LEFT_JOIN
-     * @return array           Array of ArchivoComentario objects.
+     * @return array           Array of ArchivoCalificacion objects.
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
      */
@@ -1042,21 +1027,21 @@ abstract class BaseArchivoComentarioPeer
         // $criteria->getDbName() will return the same object if not set to another value
         // so == check is okay and faster
         if ($criteria->getDbName() == Propel::getDefaultDB()) {
-            $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+            $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
         }
 
-        ArchivoComentarioPeer::addSelectColumns($criteria);
-        $startcol2 = ArchivoComentarioPeer::NUM_HYDRATE_COLUMNS;
+        ArchivoCalificacionPeer::addSelectColumns($criteria);
+        $startcol2 = ArchivoCalificacionPeer::NUM_HYDRATE_COLUMNS;
 
         UsuarioPeer::addSelectColumns($criteria);
         $startcol3 = $startcol2 + UsuarioPeer::NUM_HYDRATE_COLUMNS;
 
-        $criteria->addJoin(ArchivoComentarioPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::USUARIO_ID, UsuarioPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
 
@@ -1064,17 +1049,17 @@ abstract class BaseArchivoComentarioPeer
         $results = array();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $key1 = ArchivoComentarioPeer::getPrimaryKeyHashFromRow($row, 0);
-            if (null !== ($obj1 = ArchivoComentarioPeer::getInstanceFromPool($key1))) {
+            $key1 = ArchivoCalificacionPeer::getPrimaryKeyHashFromRow($row, 0);
+            if (null !== ($obj1 = ArchivoCalificacionPeer::getInstanceFromPool($key1))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj1->hydrate($row, 0, true); // rehydrate
             } else {
-                $cls = ArchivoComentarioPeer::getOMClass();
+                $cls = ArchivoCalificacionPeer::getOMClass();
 
                 $obj1 = new $cls();
                 $obj1->hydrate($row);
-                ArchivoComentarioPeer::addInstanceToPool($obj1, $key1);
+                ArchivoCalificacionPeer::addInstanceToPool($obj1, $key1);
             } // if obj1 already loaded
 
                 // Add objects for joined Usuario rows
@@ -1091,8 +1076,8 @@ abstract class BaseArchivoComentarioPeer
                     UsuarioPeer::addInstanceToPool($obj2, $key2);
                 } // if $obj2 already loaded
 
-                // Add the $obj1 (ArchivoComentario) to the collection in $obj2 (Usuario)
-                $obj2->addArchivoComentario($obj1);
+                // Add the $obj1 (ArchivoCalificacion) to the collection in $obj2 (Usuario)
+                $obj2->addArchivoCalificacion($obj1);
 
             } // if joined row is not null
 
@@ -1105,12 +1090,12 @@ abstract class BaseArchivoComentarioPeer
 
 
     /**
-     * Selects a collection of ArchivoComentario objects pre-filled with all related objects except Usuario.
+     * Selects a collection of ArchivoCalificacion objects pre-filled with all related objects except Usuario.
      *
      * @param      Criteria  $criteria
      * @param      PropelPDO $con
      * @param      String    $join_behavior the type of joins to use, defaults to Criteria::LEFT_JOIN
-     * @return array           Array of ArchivoComentario objects.
+     * @return array           Array of ArchivoCalificacion objects.
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
      */
@@ -1122,21 +1107,21 @@ abstract class BaseArchivoComentarioPeer
         // $criteria->getDbName() will return the same object if not set to another value
         // so == check is okay and faster
         if ($criteria->getDbName() == Propel::getDefaultDB()) {
-            $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+            $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
         }
 
-        ArchivoComentarioPeer::addSelectColumns($criteria);
-        $startcol2 = ArchivoComentarioPeer::NUM_HYDRATE_COLUMNS;
+        ArchivoCalificacionPeer::addSelectColumns($criteria);
+        $startcol2 = ArchivoCalificacionPeer::NUM_HYDRATE_COLUMNS;
 
         ArchivoPeer::addSelectColumns($criteria);
         $startcol3 = $startcol2 + ArchivoPeer::NUM_HYDRATE_COLUMNS;
 
-        $criteria->addJoin(ArchivoComentarioPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
+        $criteria->addJoin(ArchivoCalificacionPeer::ARCHIVO_ID, ArchivoPeer::ID, $join_behavior);
 
         // symfony_behaviors behavior
         foreach (sfMixer::getCallables(self::getMixerPreSelectHook(__FUNCTION__)) as $sf_hook)
         {
-          call_user_func($sf_hook, 'BaseArchivoComentarioPeer', $criteria, $con);
+          call_user_func($sf_hook, 'BaseArchivoCalificacionPeer', $criteria, $con);
         }
 
 
@@ -1144,17 +1129,17 @@ abstract class BaseArchivoComentarioPeer
         $results = array();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $key1 = ArchivoComentarioPeer::getPrimaryKeyHashFromRow($row, 0);
-            if (null !== ($obj1 = ArchivoComentarioPeer::getInstanceFromPool($key1))) {
+            $key1 = ArchivoCalificacionPeer::getPrimaryKeyHashFromRow($row, 0);
+            if (null !== ($obj1 = ArchivoCalificacionPeer::getInstanceFromPool($key1))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj1->hydrate($row, 0, true); // rehydrate
             } else {
-                $cls = ArchivoComentarioPeer::getOMClass();
+                $cls = ArchivoCalificacionPeer::getOMClass();
 
                 $obj1 = new $cls();
                 $obj1->hydrate($row);
-                ArchivoComentarioPeer::addInstanceToPool($obj1, $key1);
+                ArchivoCalificacionPeer::addInstanceToPool($obj1, $key1);
             } // if obj1 already loaded
 
                 // Add objects for joined Archivo rows
@@ -1171,8 +1156,8 @@ abstract class BaseArchivoComentarioPeer
                     ArchivoPeer::addInstanceToPool($obj2, $key2);
                 } // if $obj2 already loaded
 
-                // Add the $obj1 (ArchivoComentario) to the collection in $obj2 (Archivo)
-                $obj2->addArchivoComentario($obj1);
+                // Add the $obj1 (ArchivoCalificacion) to the collection in $obj2 (Archivo)
+                $obj2->addArchivoCalificacion($obj1);
 
             } // if joined row is not null
 
@@ -1192,7 +1177,7 @@ abstract class BaseArchivoComentarioPeer
      */
     public static function getTableMap()
     {
-        return Propel::getDatabaseMap(ArchivoComentarioPeer::DATABASE_NAME)->getTable(ArchivoComentarioPeer::TABLE_NAME);
+        return Propel::getDatabaseMap(ArchivoCalificacionPeer::DATABASE_NAME)->getTable(ArchivoCalificacionPeer::TABLE_NAME);
     }
 
     /**
@@ -1200,9 +1185,9 @@ abstract class BaseArchivoComentarioPeer
      */
     public static function buildTableMap()
     {
-      $dbMap = Propel::getDatabaseMap(BaseArchivoComentarioPeer::DATABASE_NAME);
-      if (!$dbMap->hasTable(BaseArchivoComentarioPeer::TABLE_NAME)) {
-        $dbMap->addTableObject(new ArchivoComentarioTableMap());
+      $dbMap = Propel::getDatabaseMap(BaseArchivoCalificacionPeer::DATABASE_NAME);
+      if (!$dbMap->hasTable(BaseArchivoCalificacionPeer::TABLE_NAME)) {
+        $dbMap->addTableObject(new ArchivoCalificacionTableMap());
       }
     }
 
@@ -1214,13 +1199,13 @@ abstract class BaseArchivoComentarioPeer
      */
     public static function getOMClass()
     {
-        return ArchivoComentarioPeer::OM_CLASS;
+        return ArchivoCalificacionPeer::OM_CLASS;
     }
 
     /**
-     * Performs an INSERT on the database, given a ArchivoComentario or Criteria object.
+     * Performs an INSERT on the database, given a ArchivoCalificacion or Criteria object.
      *
-     * @param      mixed $values Criteria or ArchivoComentario object containing data that is used to create the INSERT statement.
+     * @param      mixed $values Criteria or ArchivoCalificacion object containing data that is used to create the INSERT statement.
      * @param      PropelPDO $con the PropelPDO connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -1229,22 +1214,22 @@ abstract class BaseArchivoComentarioPeer
     public static function doInsert($values, PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
         if ($values instanceof Criteria) {
             $criteria = clone $values; // rename for clarity
         } else {
-            $criteria = $values->buildCriteria(); // build Criteria from ArchivoComentario object
+            $criteria = $values->buildCriteria(); // build Criteria from ArchivoCalificacion object
         }
 
-        if ($criteria->containsKey(ArchivoComentarioPeer::ID) && $criteria->keyContainsValue(ArchivoComentarioPeer::ID) ) {
-            throw new PropelException('Cannot insert a value for auto-increment primary key ('.ArchivoComentarioPeer::ID.')');
+        if ($criteria->containsKey(ArchivoCalificacionPeer::ID) && $criteria->keyContainsValue(ArchivoCalificacionPeer::ID) ) {
+            throw new PropelException('Cannot insert a value for auto-increment primary key ('.ArchivoCalificacionPeer::ID.')');
         }
 
 
         // Set the correct dbName
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
 
         try {
             // use transaction because $criteria could contain info
@@ -1261,9 +1246,9 @@ abstract class BaseArchivoComentarioPeer
     }
 
     /**
-     * Performs an UPDATE on the database, given a ArchivoComentario or Criteria object.
+     * Performs an UPDATE on the database, given a ArchivoCalificacion or Criteria object.
      *
-     * @param      mixed $values Criteria or ArchivoComentario object containing data that is used to create the UPDATE statement.
+     * @param      mixed $values Criteria or ArchivoCalificacion object containing data that is used to create the UPDATE statement.
      * @param      PropelPDO $con The connection to use (specify PropelPDO connection object to exert more control over transactions).
      * @return int             The number of affected rows (if supported by underlying database driver).
      * @throws PropelException Any exceptions caught during processing will be
@@ -1272,35 +1257,35 @@ abstract class BaseArchivoComentarioPeer
     public static function doUpdate($values, PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
-        $selectCriteria = new Criteria(ArchivoComentarioPeer::DATABASE_NAME);
+        $selectCriteria = new Criteria(ArchivoCalificacionPeer::DATABASE_NAME);
 
         if ($values instanceof Criteria) {
             $criteria = clone $values; // rename for clarity
 
-            $comparison = $criteria->getComparison(ArchivoComentarioPeer::ID);
-            $value = $criteria->remove(ArchivoComentarioPeer::ID);
+            $comparison = $criteria->getComparison(ArchivoCalificacionPeer::ID);
+            $value = $criteria->remove(ArchivoCalificacionPeer::ID);
             if ($value) {
-                $selectCriteria->add(ArchivoComentarioPeer::ID, $value, $comparison);
+                $selectCriteria->add(ArchivoCalificacionPeer::ID, $value, $comparison);
             } else {
-                $selectCriteria->setPrimaryTableName(ArchivoComentarioPeer::TABLE_NAME);
+                $selectCriteria->setPrimaryTableName(ArchivoCalificacionPeer::TABLE_NAME);
             }
 
-        } else { // $values is ArchivoComentario object
+        } else { // $values is ArchivoCalificacion object
             $criteria = $values->buildCriteria(); // gets full criteria
             $selectCriteria = $values->buildPkeyCriteria(); // gets criteria w/ primary key(s)
         }
 
         // set the correct dbName
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
 
         return BasePeer::doUpdate($selectCriteria, $criteria, $con);
     }
 
     /**
-     * Deletes all rows from the archivo_comentario table.
+     * Deletes all rows from the archivo_calificacion table.
      *
      * @param      PropelPDO $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).
@@ -1309,19 +1294,19 @@ abstract class BaseArchivoComentarioPeer
     public static function doDeleteAll(PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
         $affectedRows = 0; // initialize var to track total num of affected rows
         try {
             // use transaction because $criteria could contain info
             // for more than one table or we could emulating ON DELETE CASCADE, etc.
             $con->beginTransaction();
-            $affectedRows += BasePeer::doDeleteAll(ArchivoComentarioPeer::TABLE_NAME, $con, ArchivoComentarioPeer::DATABASE_NAME);
+            $affectedRows += BasePeer::doDeleteAll(ArchivoCalificacionPeer::TABLE_NAME, $con, ArchivoCalificacionPeer::DATABASE_NAME);
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            ArchivoComentarioPeer::clearInstancePool();
-            ArchivoComentarioPeer::clearRelatedInstancePool();
+            ArchivoCalificacionPeer::clearInstancePool();
+            ArchivoCalificacionPeer::clearRelatedInstancePool();
             $con->commit();
 
             return $affectedRows;
@@ -1332,9 +1317,9 @@ abstract class BaseArchivoComentarioPeer
     }
 
     /**
-     * Performs a DELETE on the database, given a ArchivoComentario or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArchivoCalificacion or Criteria object OR a primary key value.
      *
-     * @param      mixed $values Criteria or ArchivoComentario object or primary key or array of primary keys
+     * @param      mixed $values Criteria or ArchivoCalificacion object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param      PropelPDO $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -1345,32 +1330,32 @@ abstract class BaseArchivoComentarioPeer
      public static function doDelete($values, PropelPDO $con = null)
      {
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
         if ($values instanceof Criteria) {
             // invalidate the cache for all objects of this type, since we have no
             // way of knowing (without running a query) what objects should be invalidated
             // from the cache based on this Criteria.
-            ArchivoComentarioPeer::clearInstancePool();
+            ArchivoCalificacionPeer::clearInstancePool();
             // rename for clarity
             $criteria = clone $values;
-        } elseif ($values instanceof ArchivoComentario) { // it's a model object
+        } elseif ($values instanceof ArchivoCalificacion) { // it's a model object
             // invalidate the cache for this single object
-            ArchivoComentarioPeer::removeInstanceFromPool($values);
+            ArchivoCalificacionPeer::removeInstanceFromPool($values);
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(ArchivoComentarioPeer::DATABASE_NAME);
-            $criteria->add(ArchivoComentarioPeer::ID, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArchivoCalificacionPeer::DATABASE_NAME);
+            $criteria->add(ArchivoCalificacionPeer::ID, (array) $values, Criteria::IN);
             // invalidate the cache for this object(s)
             foreach ((array) $values as $singleval) {
-                ArchivoComentarioPeer::removeInstanceFromPool($singleval);
+                ArchivoCalificacionPeer::removeInstanceFromPool($singleval);
             }
         }
 
         // Set the correct dbName
-        $criteria->setDbName(ArchivoComentarioPeer::DATABASE_NAME);
+        $criteria->setDbName(ArchivoCalificacionPeer::DATABASE_NAME);
 
         $affectedRows = 0; // initialize var to track total num of affected rows
 
@@ -1380,7 +1365,7 @@ abstract class BaseArchivoComentarioPeer
             $con->beginTransaction();
 
             $affectedRows += BasePeer::doDelete($criteria, $con);
-            ArchivoComentarioPeer::clearRelatedInstancePool();
+            ArchivoCalificacionPeer::clearRelatedInstancePool();
             $con->commit();
 
             return $affectedRows;
@@ -1391,13 +1376,13 @@ abstract class BaseArchivoComentarioPeer
     }
 
     /**
-     * Validates all modified columns of given ArchivoComentario object.
+     * Validates all modified columns of given ArchivoCalificacion object.
      * If parameter $columns is either a single column name or an array of column names
      * than only those columns are validated.
      *
      * NOTICE: This does not apply to primary or foreign keys for now.
      *
-     * @param      ArchivoComentario $obj The object to validate.
+     * @param      ArchivoCalificacion $obj The object to validate.
      * @param      mixed $cols Column name or array of column names.
      *
      * @return mixed TRUE if all columns are valid or the error message of the first invalid column.
@@ -1407,8 +1392,8 @@ abstract class BaseArchivoComentarioPeer
         $columns = array();
 
         if ($cols) {
-            $dbMap = Propel::getDatabaseMap(ArchivoComentarioPeer::DATABASE_NAME);
-            $tableMap = $dbMap->getTable(ArchivoComentarioPeer::TABLE_NAME);
+            $dbMap = Propel::getDatabaseMap(ArchivoCalificacionPeer::DATABASE_NAME);
+            $tableMap = $dbMap->getTable(ArchivoCalificacionPeer::TABLE_NAME);
 
             if (! is_array($cols)) {
                 $cols = array($cols);
@@ -1424,7 +1409,7 @@ abstract class BaseArchivoComentarioPeer
 
         }
 
-        return BasePeer::doValidate(ArchivoComentarioPeer::DATABASE_NAME, ArchivoComentarioPeer::TABLE_NAME, $columns);
+        return BasePeer::doValidate(ArchivoCalificacionPeer::DATABASE_NAME, ArchivoCalificacionPeer::TABLE_NAME, $columns);
     }
 
     /**
@@ -1432,23 +1417,23 @@ abstract class BaseArchivoComentarioPeer
      *
      * @param      int $pk the primary key.
      * @param      PropelPDO $con the connection to use
-     * @return ArchivoComentario
+     * @return ArchivoCalificacion
      */
     public static function retrieveByPK($pk, PropelPDO $con = null)
     {
 
-        if (null !== ($obj = ArchivoComentarioPeer::getInstanceFromPool((string) $pk))) {
+        if (null !== ($obj = ArchivoCalificacionPeer::getInstanceFromPool((string) $pk))) {
             return $obj;
         }
 
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
-        $criteria = new Criteria(ArchivoComentarioPeer::DATABASE_NAME);
-        $criteria->add(ArchivoComentarioPeer::ID, $pk);
+        $criteria = new Criteria(ArchivoCalificacionPeer::DATABASE_NAME);
+        $criteria->add(ArchivoCalificacionPeer::ID, $pk);
 
-        $v = ArchivoComentarioPeer::doSelect($criteria, $con);
+        $v = ArchivoCalificacionPeer::doSelect($criteria, $con);
 
         return !empty($v) > 0 ? $v[0] : null;
     }
@@ -1458,23 +1443,23 @@ abstract class BaseArchivoComentarioPeer
      *
      * @param      array $pks List of primary keys
      * @param      PropelPDO $con the connection to use
-     * @return ArchivoComentario[]
+     * @return ArchivoCalificacion[]
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
      */
     public static function retrieveByPKs($pks, PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(ArchivoComentarioPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(ArchivoCalificacionPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
         $objs = null;
         if (empty($pks)) {
             $objs = array();
         } else {
-            $criteria = new Criteria(ArchivoComentarioPeer::DATABASE_NAME);
-            $criteria->add(ArchivoComentarioPeer::ID, $pks, Criteria::IN);
-            $objs = ArchivoComentarioPeer::doSelect($criteria, $con);
+            $criteria = new Criteria(ArchivoCalificacionPeer::DATABASE_NAME);
+            $criteria->add(ArchivoCalificacionPeer::ID, $pks, Criteria::IN);
+            $objs = ArchivoCalificacionPeer::doSelect($criteria, $con);
         }
 
         return $objs;
@@ -1507,15 +1492,15 @@ abstract class BaseArchivoComentarioPeer
     {
       if (preg_match('/^do(Select|Count)(Join(All(Except)?)?|Stmt)?/', $method, $match))
       {
-        return sprintf('BaseArchivoComentarioPeer:%s:%1$s', 'Count' == $match[1] ? 'doCount' : $match[0]);
+        return sprintf('BaseArchivoCalificacionPeer:%s:%1$s', 'Count' == $match[1] ? 'doCount' : $match[0]);
       }
 
       throw new LogicException(sprintf('Unrecognized function "%s"', $method));
     }
 
-} // BaseArchivoComentarioPeer
+} // BaseArchivoCalificacionPeer
 
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-BaseArchivoComentarioPeer::buildTableMap();
+BaseArchivoCalificacionPeer::buildTableMap();
 

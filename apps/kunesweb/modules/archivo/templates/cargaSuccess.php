@@ -8,36 +8,26 @@
                 </div>
             </div>
             <div class="portlet-body">
-                <?php echo form_tag('archivo/carga', 'multipart=true') ?>
-                <div class="row">
-                    <div class="col-md-8">
-                        Descripcion:
-                        <?php echo $form['Descripcion'] ?>
-                    </div>
+                <?php echo form_tag('archivo/carga', 'multipart=true;class=form') ?>
+                <div class="form-group">
+                    Materia:
+                    <?php echo $form['Materia'] ?>
                 </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        Materia:
-                        <?php echo $form['Materia'] ?>
-                    </div>
+                <div class="form-group">
+                    Profesor:
+                    <?php echo $form['Profesor'] ?>
                 </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        Profesor:
-                        <?php echo $form['Profesor'] ?>
-                    </div>
+                <div class="form-group">
+                    Carga de Archivo:
+                    <?php echo $form['Archivo'] ?>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        Carga de Archivo:
-                        <?php echo $form['Archivo'] ?>
-                    </div>
+                <div class="form-group">
+                    Descripcion:
+                    <?php echo $form['Descripcion'] ?>
                 </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        Etiqueta:
-                        <?php echo $form['Etiqueta'] ?>
-                    </div>
+                <div class="form-group">
+                    Etiqueta:
+                    <?php echo $form['Etiqueta'] ?>
                 </div>
                 <div class="form-actions">
                     <button class="btn btn-success btn-circle" type="submit">

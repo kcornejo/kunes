@@ -85,10 +85,22 @@ function kenSave() {
 }
 function kenStars() {
     $(".kenStars").each(function () {
-        var star = $(this).attr('star');
+        var punteo = $(this).attr('punteo');
+        var url = $(this).attr('url_envio');
         $(this).rateYo({
             fullStar: true,
-            rating: star
+            rating: punteo,
+            onSet: function (rating, rateYoInstance) {
+                $.ajax({
+                    async: false,
+                    type: 'GET',
+                    url: url,
+                    data: {'punteo': rating},
+                    success: function (html) {
+                        
+                    }
+                });
+            }
         });
     });
 }

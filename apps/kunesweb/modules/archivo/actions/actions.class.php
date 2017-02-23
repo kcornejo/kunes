@@ -112,4 +112,25 @@ class archivoActions extends autoArchivoActions {
         }
     }
 
+    public function executeCalificacion(sfWebRequest $request) {
+        $id = $request->getParameter('id');
+        $usuario_id = $this->getUser()->getAttribute('usuario', null, 'seguridad');
+        $puntos = $request->getParameter('punteo');
+        $ArchivoCalificacion = ArchivoCalificacionQuery::create()
+                ->filterByUsuarioId($usuario_id)
+                ->filterByArchivoId($id)
+                ->findOneOrCreate();
+        if ($ArchivoCalificacion->getId()) {
+//            $Archivo
+        } else {
+            $ArchivoCalificacion->setPunteo($puntos);
+            $ArchivoCalificacion->save();
+            $Archivo = ArchivoQuery::create()->findOneById($id);
+            $Archivo->setRating($Archivo->getRating() + $puntos);
+            $Archivo->setCantidadRating($Archivo->getCantidadRating() + 1);
+            $Archivo->save();
+        }
+        throw new sfStopException();
+    }
+
 }
