@@ -45,6 +45,6 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
   }
   public function getLinkToAction(){
 
-    $params['class'] = 'btn btn-xs';
+    $params['class'] = 'btn btn-xs btn-circle';
   }
 }

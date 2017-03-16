@@ -3,11 +3,11 @@
     <p>[?php echo __('No result', array(), 'sf_admin') ?]</p>
     [?php else: ?]
     <div class="table-responsive">
-        <table cellspacing="0" class="table table-striped table-bordered">
+        <table cellspacing="0" class="table table-striped table-bordered table-advance table-hover">
             <thead>
                 <tr>
                     <?php if ($this->configuration->getValue('list.batch_actions')): ?>
-                        <th id="sf_admin_list_batch_actions"><input id="sf_admin_list_batch_checkbox" type="checkbox" onclick="checkAll();" /></th>
+                        <!--<th id="sf_admin_list_batch_actions"><input id="sf_admin_list_batch_checkbox" type="checkbox" onclick="checkAll();" /></th>-->
                     <?php endif; ?>
                     [?php include_partial('<?php echo $this->getModuleName() ?>/list_th_<?php echo $this->configuration->getValue('list.layout') ?>', array('sort' => $sort)) ?]
                     <?php if ($this->configuration->getValue('list.object_actions')): ?>

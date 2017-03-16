@@ -4,10 +4,20 @@
     <div class="portlet-title">
         <div class="caption font-purple-plum">
             <i class="fa fa-plus"></i>
-            <span class="caption-subject bold uppercase"> [?php echo <?php echo $this->getI18NString('new.title') ?> ?]</span>
+            [?php echo <?php echo $this->getI18NString('new.title') ?> ?]
+        </div>
+        <div class="actions">
+            <?php foreach (array('new', 'edit') as $action): ?>
+                <?php foreach ($this->configuration->getValue($action . '.actions') as $name => $params): ?>
+                    <?php if ('_list' == $name): ?>
+                        <?php echo $this->addCredentialCondition('[?php echo $helper->linkToList(' . $this->asPhp($params) . ') ?]', $params) ?>
+                        <?php break 2; ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
         </div>
     </div>
-    <div class="portlet-body">
+    <div class="portlet-body form">
         [?php include_partial('<?php echo $this->getModuleName() ?>/flashes') ?]
 
         <div id="sf_admin_header">
